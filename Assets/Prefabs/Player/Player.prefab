@@ -130,6 +130,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   moveSpeed: 5
+  gravity: -9.81
+  playerCamera: {fileID: 2726054909194914229}
+  lookSensitivity: 0.5
+  maxLookAngle: 80
 --- !u!114 &678796188725422645
 MonoBehaviour:
   m_ObjectHideFlags: 0
