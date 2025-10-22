@@ -4,28 +4,26 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    private Rigidbody rb;
+    private CharacterController controller;
+    private Vector3 moveInput;
+    private Vector3 velocity;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y);
+        controller.Move(move * moveSpeed * Time.deltaTime);
     }
 
-    void FixedUpdate()
+    public void OnMove(InputAction.CallbackContext context)
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(horizontal, 0, vertical);
-
-        rb.MovePosition(transform.position + movement * moveSpeed * Time.fixedDeltaTime);
+        moveInput = context.ReadValue<Vector2>();
     }
 }
