@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     //Movement vars
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private float gravity = -9.81f;
     private CharacterController controller;
     private Vector2 moveInput;
@@ -79,5 +80,14 @@ public class PlayerController : MonoBehaviour
     public void OnRotation(InputValue value)
     {
         rotationInput = value.Get<Vector2>();
+    }
+
+    //Called when spacebar pressed
+    public void OnJump(InputValue value)
+    {
+        if (controller.isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
     }
 }
