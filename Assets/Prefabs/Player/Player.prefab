@@ -130,10 +130,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   moveSpeed: 5
+  jumpHeight: 2
   gravity: -9.81
   playerCamera: {fileID: 2726054909194914229}
   lookSensitivity: 0.5
   maxLookAngle: 80
+  HUD: {fileID: 4293101504689118273, guid: a6b9e8f7ecd972148b000fc3da270e00, type: 3}
+  scrapDisplayText: {fileID: 6878112957677726358, guid: 37eb838b1dcb0b5438780c69561b4857, type: 3}
 --- !u!114 &678796188725422645
 MonoBehaviour:
   m_ObjectHideFlags: 0

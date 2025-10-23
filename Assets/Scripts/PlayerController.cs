@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,12 +21,15 @@ public class PlayerController : MonoBehaviour
     private Vector2 rotationInput;
     private float cameraPitch = 0f;
 
+    //Interaction vars
+    [Header("Interaction")]
+    [SerializeField] private float interactionRange = 3f;
+    [SerializeField] private LayerMask interactableLayer;
+    private bool interactPressed = false;
+
     void Awake()
     {
         controller = GetComponent<CharacterController>();
-
-        //Lock cursor to center of screen
-        Cursor.lockState = CursorLockMode.Locked; 
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -40,6 +44,8 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
         HandleRotation();
         ApplyGravity();
+        ShowInteractionPrompt();
+        HandleInteraction();
     }
 
     private void HandleMovement()
@@ -70,6 +76,63 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
+    public void HandleInteraction()
+    {
+        if (interactPressed)
+        {
+            Collider[] hits = Physics.OverlapSphere(transform.position, interactionRange, interactableLayer);
+
+            if (hits.Length > 0)
+            {
+                Collider closest = GetClosestInteractable(hits);
+                IInteractable interactable = closest.GetComponent<IInteractable>();
+
+                if (interactable != null)
+                {
+                    interactable.Interact();
+                }
+            }
+
+            interactPressed = false;
+        }
+    }
+
+    private void ShowInteractionPrompt()
+    {
+        Collider[] hits = Physics.OverlapSphere(transform.position, interactionRange, interactableLayer);
+
+        if (hits.Length > 0)
+        {
+            Collider closest = GetClosestInteractable(hits);
+            IInteractable interactable = closest?.GetComponent<IInteractable>();
+
+            if (interactable != null)
+            {
+                string prompt = interactable.GetInteractionPrompt();
+                // TODO: Display prompt on UI
+                Debug.Log(prompt);
+            }
+        }
+    }
+     
+    private Collider GetClosestInteractable(Collider[] colliders)
+    {
+        Collider closest = null;
+        float minDistance = float.MaxValue;
+        
+        foreach (Collider col in colliders)
+        {
+            float distance = Vector3.Distance(transform.position, col.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closest = col;
+            }
+        }
+        
+        return closest;
+    }
+
     //Called when WASD keys pressed
     public void OnMove(InputValue value)
     {
@@ -89,5 +152,10 @@ public class PlayerController : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
+    }
+
+    public void OnInteract(InputValue value)
+    {
+        interactPressed = true;
     }
 }
