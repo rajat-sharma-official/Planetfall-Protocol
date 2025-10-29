@@ -132,19 +132,16 @@ public class PlayerController : MonoBehaviour
         return closest;
     }
 
-    //Called when WASD keys pressed
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
     }
 
-    //Called when mouse position moves
     public void OnRotation(InputValue value)
     {
         rotationInput = value.Get<Vector2>();
     }
 
-    //Called when spacebar pressed
     public void OnJump(InputValue value)
     {
         if (controller.isGrounded)

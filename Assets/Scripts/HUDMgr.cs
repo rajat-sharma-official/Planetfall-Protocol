@@ -19,10 +19,10 @@ public class HUDMgr : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        PlayerInventory inventory = FindFirstObjectByType<PlayerInventory>();
-        if(inventory != null)
+        PlayerInventory playerInventory = FindFirstObjectByType<PlayerInventory>();
+        if(playerInventory != null)
         {
-            UpdateScrapDisplay(inventory.Scrap);
+            UpdateScrapDisplay(playerInventory.Scrap);
         }   
     }
 
@@ -34,6 +34,8 @@ public class HUDMgr : MonoBehaviour
     
     private void UpdateScrapDisplay(int amount)
     {
+        // ERROR: Updating the text is not currently working, only shows up in console. 
         scrapText.text = $"Scrap: {amount}";
+        Debug.Log($"Scrap: {amount}");
     }
 }
