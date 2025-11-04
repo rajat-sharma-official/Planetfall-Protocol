@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ScrapLocation : MonoBehaviour, IInteractable
+public class ScrapLocation : MonoBehaviour, IInteractable, IDataPersistence
 {
     [Header("Scrap Location Settings")]
     [SerializeField] private bool hasBeenScavenged = false;
@@ -8,6 +8,16 @@ public class ScrapLocation : MonoBehaviour, IInteractable
     [SerializeField] private string interactKey = "E";
 
     private PlayerInventory playerInventory;
+
+    void OnEnable()
+    {
+        PlayerController.OnScrapReset += DEBUG_ResetScrap;
+    }
+
+    void OnDisable()
+    {
+        PlayerController.OnScrapReset -= DEBUG_ResetScrap;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,7 +28,17 @@ public class ScrapLocation : MonoBehaviour, IInteractable
     // Update is called once per frame
     void Update()
     {
+        
+    }
 
+    public void LoadData(GameData data)
+    {
+        this.hasBeenScavenged = data.testScrapScavenged;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.testScrapScavenged = this.hasBeenScavenged;
     }
 
     public void Interact()
@@ -37,7 +57,12 @@ public class ScrapLocation : MonoBehaviour, IInteractable
         hasBeenScavenged = true;
         playerInventory.AddScrap(1);
     }
-    
+
+    private void DEBUG_ResetScrap()
+    {
+        hasBeenScavenged = false;
+    }
+
     public string GetInteractionPrompt()
     {
         return hasBeenScavenged ? "Already scavenged" : $"Press {interactKey} to scavenge";

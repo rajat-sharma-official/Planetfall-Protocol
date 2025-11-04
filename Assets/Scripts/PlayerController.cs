@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDataPersistence
 {
     //Movement vars
     [Header("Movement")]
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float interactionRange = 3f;
     [SerializeField] private LayerMask interactableLayer;
     private bool interactPressed = false;
+    public static event Action OnScrapReset;
 
     void Awake()
     {
@@ -45,6 +47,16 @@ public class PlayerController : MonoBehaviour
         ApplyGravity();
         ShowInteractionPrompt();
         HandleInteraction();
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.transform.position = data.playerPosition;
+    }
+    
+    public void SaveData(ref GameData data)
+    {
+        data.playerPosition = this.transform.position;
     }
 
     private void HandleMovement()
@@ -153,5 +165,10 @@ public class PlayerController : MonoBehaviour
     public void OnInteract(InputValue value)
     {
         interactPressed = true;
+    }
+
+    public void OnDEBUGResetScrap(InputValue value)
+    {
+        OnScrapReset?.Invoke();
     }
 }
