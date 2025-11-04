@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2085508276059222957}
   - component: {fileID: 678796188725422645}
   - component: {fileID: 5695797482128920226}
+  - component: {fileID: 5407772920167190490}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -130,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   moveSpeed: 5
+  jumpHeight: 2
   gravity: -9.81
   playerCamera: {fileID: 2726054909194914229}
   lookSensitivity: 0.5
@@ -189,6 +191,18 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5407772920167190490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4203427366503909983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68d00c2f47e6c604da8b8414a93095e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerPosition
 --- !u!1001 &8640802093627906678
 PrefabInstance:
   m_ObjectHideFlags: 0
