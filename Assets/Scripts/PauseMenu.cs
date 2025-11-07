@@ -2,8 +2,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour{
-    public bool isPaused = false; 
-    public GameObject pauseMenu; 
+    
+    [SerializeField] private GameObject pauseMenu; 
+    private bool isPaused = false; 
 
     void Start(){
         pauseMenu.SetActive(false);
@@ -24,7 +25,7 @@ public class PauseMenu : MonoBehaviour{
         isPaused = false;
     }
 
-    public void pauseGame(){
+    public void pauseGame(){       
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
