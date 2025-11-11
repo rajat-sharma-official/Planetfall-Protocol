@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     [SerializeField] private float maxLookAngle = 80f;
     private Vector2 rotationInput;
     private float cameraPitch = 0f;
+    public static bool isPaused = false; 
 
     //Interaction vars
     [Header("Interaction")]
@@ -42,6 +43,10 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     // Update is called once per frame
     void Update()
     {
+        if(isPaused)
+        {
+            return;
+        }
         HandleMovement();
         HandleRotation();
         ApplyGravity();
