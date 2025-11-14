@@ -15,6 +15,10 @@ public class BaseNPC : MonoBehaviour
     private Story story;
     // Ink Story object: The runtime story instance created from the inkJSONAsset.
     // Handles the flow of dialogue lines, story progression, and available choices.
+       
+     // NEW: track simple dialogue state
+    private bool dialogueOpen = false;
+    private bool storyFinished = false;
 
     private void Awake()
     {
@@ -34,54 +38,89 @@ public class BaseNPC : MonoBehaviour
     // Called when the player uses the interact key while near the NPC to start the conversation.
     public void StartConversation()
     {
+        var dialogueMgr = DialogueManager.GetInstance();
+        // --- CASE 1: Story already finished & panel open -> close it on next E ---
+         if (dialogueOpen && storyFinished)
+        {
+            Debug.Log($"(BaseNPC) {npcName} dialogue closed by player.");
+            dialogueMgr?.HideDialogue();
+            dialogueOpen = false;
+            return;
+        }
+
+        // --- CASE 2: Start (or restart) the conversation ---
         if (story == null)
         {
             Debug.LogWarning($"ERROR: No ink story loaded for {npcName}");
             return;
         }
         story.ResetState();
+        storyFinished = false;
 
         Debug.Log($"(BaseNPC) Conversation started with {npcName} !");
+        
+        if (dialogueMgr != null)
+        {
+            // Clear & show panel
+            dialogueMgr.ShowDialogue(string.Empty);
+            dialogueOpen = true;
+        }
+        else
+        {
+            Debug.LogWarning("(BaseNPC) DialogueManager instance is NULL");
+        }
 
         if (story.canContinue)
-            RunStory();
+            RunStory(dialogueMgr);
         else
             Debug.Log($"(BaseNPC) {npcName}'s story cannot continue yet.");
 
+        storyFinished = true;
+
         Debug.Log($"(BaseNPC) Conversation finished with {npcName} !");
+        // Panel stays open until the next E press.
     }
 
 
     // Handles reading through the Ink story line-by-line.
     // Stops automatically when choices are reached or the story ends.
-    private void RunStory()
+    private void RunStory(DialogueManager dialogueMgr)
     {
         // Continue reading as long as the Ink story has more content to display.
         while (story.canContinue)
         {
             // Retrieve the next line of text from the Ink story.
             string text = story.Continue().Trim();
-
+            string formatted = $"{npcName}] {text}";
             // Print the line to Unity’s console for debugging or simple dialogue output.
-            Debug.Log($"(BaseNPC) [{npcName}] {text}");
+            Debug.Log($"(BaseNPC) [{npcName}] {formatted}");
+
+            //Send to Dialogue HUD
+            dialogueMgr?.AppendLine(formatted);
         }
 
         // If the Ink story presents dialogue choices to the player, display them.
         if (story.currentChoices.Count > 0)
         {
+            //showing choices as text lines(buttons later?)
+            dialogueMgr?. AppendLine("");
+            dialogueMgr?.AppendLine("Choices: ");
             Debug.Log($"(BaseNPC) [{npcName}] Choices available:");
 
             // Loop through and display all available choices without selecting any.
             for (int i = 0; i < story.currentChoices.Count; i++)
             {
-                Debug.Log($"{i + 1}: {story.currentChoices[i].text.Trim()}");
+                string choiceLine = $"{i + 1}: {story.currentChoices[i].text.Trim()}";
+                Debug.Log(choiceLine);
+                dialogueMgr?.AppendLine(choiceLine);
             }
             // Note: Wait for playerInput here.
         }
         else
         {
-            // If there are no further choices or text, the story has ended.
-            Debug.Log($"(BaseNPC) {npcName} ended their story.");
+            string endLine = $"{npcName} ended their story.";
+            Debug.Log($"(BaseNPC) {endLine}");
+            dialogueMgr?.AppendLine(endLine);
         }
     }
 }

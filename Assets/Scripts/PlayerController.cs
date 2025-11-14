@@ -26,6 +26,13 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     [Header("Interaction")]
     [SerializeField] private float interactionRange = 3f;
     [SerializeField] private LayerMask interactableLayer;
+
+    [Header("HUD")]
+    [SerializeField] private HUDMgr hud; // <-- drag your HUDMgr here (on your Canvas)
+
+    //cache target for Interact()
+    private IInteractable current;
+
     private bool interactPressed = false;
     public static event Action OnScrapReset;
 
@@ -101,7 +108,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             if (hits.Length > 0)
             {
                 Collider closest = GetClosestInteractable(hits);
-                IInteractable interactable = closest.GetComponent<IInteractable>();
+                IInteractable interactable;
+                if (!TryResolveInteractable(closest, out interactable)) interactable = null;
 
                 if (interactable != null)
                 {
@@ -120,22 +128,27 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         if (hits.Length > 0)
         {
             Collider closest = GetClosestInteractable(hits);
-            IInteractable interactable = closest?.GetComponent<IInteractable>();
 
-            if (interactable != null)
+            if (closest != null && TryResolveInteractable(closest, out var interactable))
             {
+                current = interactable;
                 string prompt = interactable.GetInteractionPrompt();
                 // TODO: Display prompt on UI
                 Debug.Log(prompt);
+                //show on HUD
+                hud?.ShowInteractPrompt(prompt);
+                return;
             }
         }
+        current = null;
+        hud?.HideInteractPrompt();
     }
-     
+
     private Collider GetClosestInteractable(Collider[] colliders)
     {
         Collider closest = null;
         float minDistance = float.MaxValue;
-        
+
         foreach (Collider col in colliders)
         {
             float distance = Vector3.Distance(transform.position, col.transform.position);
@@ -145,9 +158,37 @@ public class PlayerController : MonoBehaviour, IDataPersistence
                 closest = col;
             }
         }
-        
+
         return closest;
     }
+    
+    //Robustly find IInteractable no matter where it sits relative to the collider
+    private static bool TryResolveInteractable(Collider c, out IInteractable interactable)
+    {
+        interactable = null;
+        if (c == null) return false;
+
+        // Same object
+        if (c.TryGetComponent<IInteractable>(out interactable))
+            return true;
+
+        // Parent (common: collider on child, script on root)
+        interactable = c.GetComponentInParent<IInteractable>();
+        if (interactable != null) return true;
+
+        // Rigidbody owner (compound colliders)
+        var rb = c.attachedRigidbody;
+        if (rb != null)
+        {
+            if (rb.TryGetComponent<IInteractable>(out interactable)) return true;
+            interactable = rb.GetComponentInParent<IInteractable>();
+            if (interactable != null) return true;
+        }
+
+        // Children (less common)
+        interactable = c.GetComponentInChildren<IInteractable>();
+        return interactable != null;
+    }  
 
     public void OnMove(InputValue value)
     {
@@ -169,6 +210,12 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void OnInteract(InputValue value)
     {
+        // Button actions return 1 on press, 0 on release
+        bool isPressed = value.Get<float>() >= 0.5f;
+        // Crosshair scale change
+        hud?.SetCrosshairPressed(isPressed); 
+         // Only run the interact once on press
+        if (isPressed)
         interactPressed = true;
     }
 
