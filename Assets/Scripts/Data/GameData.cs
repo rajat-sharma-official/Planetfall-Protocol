@@ -13,6 +13,9 @@ public class GameData
     public int scrapAmount;
     public bool testScrapScavenged;
 
+    //VERA position 
+    public Vector3 VERAPosition; 
+
     public GameData()
     {   //Player
         playerPosition = Vector3.zero;
@@ -20,6 +23,9 @@ public class GameData
         //Scrap locations
         scrapAmount = 0;
         testScrapScavenged = false;
+
+        //VERA 
+        VERAPosition = Vector3.zero;
     }
 }
 
