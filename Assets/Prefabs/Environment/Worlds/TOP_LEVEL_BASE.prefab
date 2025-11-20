@@ -240,14 +240,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: VERA
       objectReference: {fileID: 0}
-    - target: {fileID: 2025710475787444842, guid: 0f27aff07215a4295b85aef7ced96399, type: 3}
-      propertyPath: m_Center.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3562110281789129867, guid: 0f27aff07215a4295b85aef7ced96399, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 4119586356207848720}
     - target: {fileID: 8429186874013678479, guid: 0f27aff07215a4295b85aef7ced96399, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.72
