@@ -68,4 +68,3 @@ public class VERAFollow : MonoBehaviour, IDataPersistence
         data.VERAPosition = this.transform.position;
     }
 }
-
