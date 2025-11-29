@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.5294118, g: 0.52156866, b: 0.52156866, a: 1}
+    m_PressedColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -208,6 +208,14 @@ PrefabInstance:
     - target: {fileID: 2699347504450587074, guid: 417c5be77d1b74152826c4af8ce8a5f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823996553341693148, guid: 417c5be77d1b74152826c4af8ce8a5f2, type: 3}
+      propertyPath: m_text
+      value: '   What should I do next?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823996553341693148, guid: 417c5be77d1b74152826c4af8ce8a5f2, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8934665797890063838, guid: 417c5be77d1b74152826c4af8ce8a5f2, type: 3}
       propertyPath: m_Name

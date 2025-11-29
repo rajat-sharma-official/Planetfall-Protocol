@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.5283019, g: 0.5208259, b: 0.5208259, a: 1}
+    m_PressedColor: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -129,6 +129,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3405363643291905269}
     m_Modifications:
+    - target: {fileID: 5179646583927160413, guid: 7086fde56592849dfa8d18b74bd8bef0, type: 3}
+      propertyPath: m_text
+      value: '   Where am I?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179646583927160413, guid: 7086fde56592849dfa8d18b74bd8bef0, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7111233001963407617, guid: 7086fde56592849dfa8d18b74bd8bef0, type: 3}
       propertyPath: m_Name
       value: PromptText1

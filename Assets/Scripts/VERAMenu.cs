@@ -33,8 +33,8 @@ public class VERAMenu : MonoBehaviour
         PlayerController.isPaused = false; 
 
         //hide the cursor 
-        Cursor.lockState = CursorLockMode.Locked; 
         Cursor.visible = false; 
+        Cursor.lockState = CursorLockMode.Locked; 
     }
 
     public void openMenu()
@@ -45,7 +45,7 @@ public class VERAMenu : MonoBehaviour
         PlayerController.isPaused = true; 
 
         //show the cursor
-        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true; 
+        Cursor.lockState = CursorLockMode.None;
     }
 }
