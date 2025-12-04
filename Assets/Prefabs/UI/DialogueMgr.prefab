@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3841747742111077972}
+  - component: {fileID: 1085371567211316399}
   m_Layer: 0
   m_Name: DialogueMgr
   m_TagString: Untagged
@@ -31,3 +32,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1085371567211316399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902369504544563722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8cb9e25ab324482b9d0676e4344462c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
+  dialoguePanel: {fileID: 8185143685726244318, guid: 4e69ec6d393b0f04882329bcccdcd635, type: 3}
+  dialogueText: {fileID: 1721895593128280828, guid: b57368a7fe634434c915723f3e554fb2, type: 3}
+  choiceCanvas: {fileID: 8316087139707391185, guid: 3ec9b498f5f58354fbdc383200dc7e6e, type: 3}
+  choice1Text: {fileID: 3975893102221258187, guid: f463bb1bfb78e0f42829e0b7cad444d3, type: 3}
+  choice2Text: {fileID: 9207471565795303919, guid: 8f40e786196d84645bf9342276f5993e, type: 3}
+  choice3Text: {fileID: 415319711801893988, guid: e05eed2111f1dd7468c598475a4af451, type: 3}
+  choice4Text: {fileID: 7629830840366466, guid: cff5ced4d556bd441b8a579f3f49c0ba, type: 3}

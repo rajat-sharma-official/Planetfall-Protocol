@@ -9,12 +9,18 @@ public class GameData
 {
     public Vector3 playerPosition;
 
-    //Scrap locations
+    /** Scrap Locations **/
     public int scrapAmount;
+    //Test scrap
     public bool testScrapScavenged;
 
     //VERA position 
     public Vector3 VERAPosition; 
+
+    /** NPCs **/
+    //NPC_Sch2 (Harvel)
+    public Vector3 NPCsch2Position;
+    public int NPCsch2ConversationState;
 
     public GameData()
     {   //Player
