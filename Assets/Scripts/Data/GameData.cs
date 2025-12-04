@@ -13,12 +13,15 @@ public class GameData
     public int scrapAmount;
     public bool testScrapScavenged;
 
+    //PLayer
+    public float playerHealth;
     //VERA position 
     public Vector3 VERAPosition; 
 
     public GameData()
     {   //Player
         playerPosition = Vector3.zero;
+        playerHealth = 100f;
 
         //Scrap locations
         scrapAmount = 0;
