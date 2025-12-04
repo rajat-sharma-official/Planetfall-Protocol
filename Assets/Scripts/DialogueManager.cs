@@ -8,7 +8,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel; 
     [SerializeField] private TextMeshProUGUI dialogueText; 
-    [SerializeField] private GameObject choiceCanvas;
+    [SerializeField] private GameObject choicePanel;
     [SerializeField] private TextMeshProUGUI choice1Text;
     [SerializeField] private TextMeshProUGUI choice2Text;
     [SerializeField] private TextMeshProUGUI choice3Text;
@@ -64,8 +64,6 @@ public class DialogueManager : MonoBehaviour
     //Show the panel and append a new line of text.
     public void AppendLine(string text)
     {
-        Debug.Log($"[DialogueManager] AppendLine called with: {text}");
-
         if (dialoguePanel != null)
             dialoguePanel.SetActive(true);
 
@@ -82,15 +80,21 @@ public class DialogueManager : MonoBehaviour
 
     public void HideChoices()
     {
-        if (choiceCanvas != null)
-            choiceCanvas.SetActive(false);
+        if (choicePanel != null)
+            choicePanel.SetActive(false);
         
     }
 
     public void ShowChoices(string choice1, string choice2, string choice3, string choice4)
     {
-        if(choiceCanvas != null)
-            choiceCanvas.SetActive(true);
+        Debug.Log($"ShowChoices called - choice1: '{choice1}', choice2: '{choice2}', choice3: '{choice3}', choice4: '{choice4}'");
+
+        if(choicePanel == null)
+        {
+            Debug.LogWarning("Choice panel is null");
+        }
+
+        choicePanel.SetActive(true);
 
         if(choice1Text != null)
             choice1Text.text = choice1;
@@ -105,24 +109,20 @@ public class DialogueManager : MonoBehaviour
     public void Choice1Clicked()
     {
         OnChoiceClicked?.Invoke(1);
-        HideChoices();
     }
 
     public void Choice2Clicked()
     {
         OnChoiceClicked?.Invoke(2);
-        HideChoices();
     }
 
     public void Choice3Clicked()
     {
         OnChoiceClicked?.Invoke(3);
-        HideChoices();
     }
 
     public void Choice4Clicked()
     {
         OnChoiceClicked?.Invoke(4);
-        HideChoices();
     }
 }

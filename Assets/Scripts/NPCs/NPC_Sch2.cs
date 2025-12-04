@@ -66,13 +66,12 @@ public class NPC_Sch2 : MonoBehaviour, IInteractable, IDataPersistence
 
     public void Interact()
     {
-        Debug.Log("Interact with Harvel");
         StartConversation();
     }
 
     public string GetInteractionPrompt()
     {
-        return $"Talk to ${npcName}";
+        return $"Talk to {npcName}";
     }
 
     private void ChoiceClick(int choice)
@@ -94,45 +93,56 @@ public class NPC_Sch2 : MonoBehaviour, IInteractable, IDataPersistence
             }
             story.ResetState();
 
-            if(dialogueMgr != null)
-                dialogueMgr.ShowDialogue(string.Empty);
-            else
-                Debug.LogWarning("Error: DialogueManager instance not found");
-
             if(story.canContinue)
-                RunStory(dialogueMgr);
+                StartCoroutine(RunStory(dialogueMgr));
             else
-                Debug.LogWarning($"Error: ${npcName} story cannot continue");
+                Debug.LogWarning($"Error: {npcName} story cannot continue");
         }
     }
 
     private IEnumerator RunStory(DialogueManager dialogueMgr)
     {
+        if(dialogueMgr != null)
+                dialogueMgr.ShowDialogue(string.Empty);
+            else
+                Debug.LogWarning("Error: DialogueManager instance not found");
+        
         while(story.canContinue)
         {
             string text = story.Continue().Trim();
-            string formatted = $"{npcName}: {text}";
-            dialogueMgr?.AppendLine(formatted);
+            dialogueMgr?.AppendLine(text);
+        }
 
-            if(story.currentChoices.Count > 0)
+        // After continuing all we can, check if there are choices
+        if(story.currentChoices.Count > 0)
+        {
+            Debug.Log("Reached choice point");
+            dialogueMgr.HideDialogue();
+            choiceClicked = 0;
+            string[] choices = new string[4];
+            for(int i = 0; i < story.currentChoices.Count; i++)
             {
-                choiceClicked = 0;
-                string[] choices = new string[4];
-                for(int i = 0; i < story.currentChoices.Count; i++)
-                {
-                    string choice = story.currentChoices[i].text.Trim();
-                    choices[i] = choice;
-                }
-                dialogueMgr.ShowChoices(choices[0], choices[1], choices[2], choices[3]);
-                
-                while(choiceClicked == 0)
-                {
-                    yield return null;  // Wait one frame, then check again
-                }
-                
-                story.ChooseChoiceIndex(choiceClicked - 1);
-                dialogueMgr.HideChoices();
+                string choice = story.currentChoices[i].text.Trim();
+                choices[i] = choice;
             }
+            dialogueMgr.ShowChoices(choices[0] ?? "", choices[1] ?? "", choices[2] ?? "", choices[3] ?? "");
+            
+            while(choiceClicked == 0)
+            {
+                yield return null;
+            }
+            
+            story.ChooseChoiceIndex(choiceClicked - 1);
+            dialogueMgr.HideChoices();
+            
+            // After making a choice, continue the story again
+            StartCoroutine(RunStory(dialogueMgr));
+            yield break;
+        }
+        else
+        {
+            // Story is done
+            dialogueMgr.HideDialogue();
         }
     }
 }

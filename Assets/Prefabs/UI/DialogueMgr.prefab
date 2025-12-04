@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
   dialoguePanel: {fileID: 8185143685726244318, guid: 4e69ec6d393b0f04882329bcccdcd635, type: 3}
   dialogueText: {fileID: 1721895593128280828, guid: b57368a7fe634434c915723f3e554fb2, type: 3}
-  choiceCanvas: {fileID: 8316087139707391185, guid: 3ec9b498f5f58354fbdc383200dc7e6e, type: 3}
+  choicePanel: {fileID: 5281047031040659178, guid: 39615598f25904045a5e54236cd1d7f5, type: 3}
   choice1Text: {fileID: 3975893102221258187, guid: f463bb1bfb78e0f42829e0b7cad444d3, type: 3}
   choice2Text: {fileID: 9207471565795303919, guid: 8f40e786196d84645bf9342276f5993e, type: 3}
   choice3Text: {fileID: 415319711801893988, guid: e05eed2111f1dd7468c598475a4af451, type: 3}
