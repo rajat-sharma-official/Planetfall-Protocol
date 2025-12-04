@@ -26,12 +26,17 @@ public class GameData
     {   //Player
         playerPosition = Vector3.zero;
 
-        //Scrap locations
+        /** Scrap Locations **/
         scrapAmount = 0;
         testScrapScavenged = false;
 
         //VERA 
         VERAPosition = Vector3.zero;
+
+        /** NPCs **/
+        //NPC_Sch2 (Harvel)
+        NPCsch2Position = new Vector3(-5, 1, -4);
+        NPCsch2ConversationState = 0;
     }
 }
 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6015393050183020575}
   - component: {fileID: 5667941941339049528}
   - component: {fileID: 8617163503745326104}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NPC_Sch2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,12 +106,12 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 1
+  m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8617163503745326104
