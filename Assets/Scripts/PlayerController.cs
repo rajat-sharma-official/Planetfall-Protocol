@@ -63,25 +63,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        if (controller == null)
-        {
-            controller = GetComponent<CharacterController>();
-        }
-
-        // Safely teleport the player using the CharacterController
-        if (controller != null)
-        {
-            controller.enabled = false;                 // turn off to avoid interference
-            transform.position = data.playerPosition;   // set saved position
-            velocity = Vector3.zero;                    // clear any falling / movement
-            controller.enabled = true;                  // turn it back on
-        }
-        else
-        {
-            // Fallback if for some reason there's no controller
-            transform.position = data.playerPosition;
-            velocity = Vector3.zero;
-        }
+        this.transform.position = data.playerPosition;
     }
     
     public void SaveData(ref GameData data)
