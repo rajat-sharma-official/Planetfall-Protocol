@@ -66,5 +66,5 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj"
     },
-    "dotnet.defaultSolution": "Senior-Project-CS425.sln"
+    "dotnet.defaultSolution": "Planetfall-Protocol.sln"
 }
