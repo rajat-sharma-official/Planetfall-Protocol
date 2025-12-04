@@ -9,10 +9,10 @@ HARVEL: Careful with your footing. One misstep and you’ll undo an hour of alig
 -> menu_stage1
 
 === menu_stage1 ===
-+ [What are you working on?] -> ask_work
-+ [Is that scrap really so sensitive?] -> ask_fragile
-+ [The scrap I've found looks like that, with those runes.] -> ask_scrap
-+ [Should I leave you alone?] -> ask_leave
++ [What are you working on?] YOU: What are you working on? -> ask_work
++ [Is that scrap really so sensitive?] YOU: Is that scrap really so sensitive? -> ask_fragile
++ [The scrap I've found looks like that, with those runes.] YOU: The scrap I've found looks like that, with those runes. -> ask_scrap
++ [Should I leave you alone?] YOU: Should I leave you alone? -> ask_leave
 
 === ask_work ===
 HARVEL: These scrap pieces hold directive runes. Aurelian logic, etched directly into the material.
@@ -40,10 +40,10 @@ HARVEL: If you left every time you felt uncertain, we’d never get anywhere.
 === menu_stage2 ===
 HARVEL: Now that you're here, ask what you actually want to know.
 
-+ [What do the runes on Aurelian tech do?] -> ask_runes
-+ [If I learned to translate these runes, could I use this scrap to repair my ship?] -> ask_repair
-+ [How did you become the outpost’s mechanist?] -> ask_background
-+ [That's all I needed.] -> end_convo
++ [What do the runes do?] YOU: What do the runes do? -> ask_runes
++ [If I learned to translate these runes, could I use this scrap to repair my ship?] YOU: If I learned to translate these runes, could I use this scrap to repair my ship?  -> ask_repair
++ [How did you become the outpost’s mechanist?] YOU: How did you become the outpost's mechanist? -> ask_background
++ [That's all I needed.] YOU: That's all I needed. -> end_convo
 
 === ask_runes ===
 HARVEL: They govern activation patterns, stability, and energy flow.
@@ -63,6 +63,5 @@ HARVEL: Years of study, precision, and patience.
 -> menu_stage2
 
 === end_convo ===
-HARVEL: Fine. Go. And handle any scrap you find with respect. It holds more knowledge than you realize.
 
     -> END

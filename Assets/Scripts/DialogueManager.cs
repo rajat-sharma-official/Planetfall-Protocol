@@ -89,12 +89,8 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log($"ShowChoices called - choice1: '{choice1}', choice2: '{choice2}', choice3: '{choice3}', choice4: '{choice4}'");
 
-        if(choicePanel == null)
-        {
-            Debug.LogWarning("Choice panel is null");
-        }
-
-        choicePanel.SetActive(true);
+        if(choicePanel != null)
+            choicePanel.SetActive(true);
 
         if(choice1Text != null)
             choice1Text.text = choice1;

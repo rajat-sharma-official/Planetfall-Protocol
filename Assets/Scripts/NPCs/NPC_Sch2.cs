@@ -103,9 +103,9 @@ public class NPC_Sch2 : MonoBehaviour, IInteractable, IDataPersistence
     private IEnumerator RunStory(DialogueManager dialogueMgr)
     {
         if(dialogueMgr != null)
-                dialogueMgr.ShowDialogue(string.Empty);
-            else
-                Debug.LogWarning("Error: DialogueManager instance not found");
+            dialogueMgr.ShowDialogue(string.Empty);
+        else
+            Debug.LogWarning("Error: DialogueManager instance not found");
         
         while(story.canContinue)
         {
@@ -117,7 +117,6 @@ public class NPC_Sch2 : MonoBehaviour, IInteractable, IDataPersistence
         if(story.currentChoices.Count > 0)
         {
             Debug.Log("Reached choice point");
-            dialogueMgr.HideDialogue();
             choiceClicked = 0;
             string[] choices = new string[4];
             for(int i = 0; i < story.currentChoices.Count; i++)
@@ -133,7 +132,6 @@ public class NPC_Sch2 : MonoBehaviour, IInteractable, IDataPersistence
             }
             
             story.ChooseChoiceIndex(choiceClicked - 1);
-            dialogueMgr.HideChoices();
             
             // After making a choice, continue the story again
             StartCoroutine(RunStory(dialogueMgr));
@@ -143,6 +141,7 @@ public class NPC_Sch2 : MonoBehaviour, IInteractable, IDataPersistence
         {
             // Story is done
             dialogueMgr.HideDialogue();
+            dialogueMgr.HideChoices();
         }
     }
 }

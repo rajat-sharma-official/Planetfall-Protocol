@@ -242,6 +242,26 @@ PrefabInstance:
     m_TransformParent: {fileID: 5216053075238056417}
     m_Modifications:
     - target: {fileID: 1085371567211316399, guid: a8dfb7f97ca1c7a429265ec9bed4f556, type: 3}
+      propertyPath: choice1Text
+      value: 
+      objectReference: {fileID: 7778009547098219045}
+    - target: {fileID: 1085371567211316399, guid: a8dfb7f97ca1c7a429265ec9bed4f556, type: 3}
+      propertyPath: choice2Text
+      value: 
+      objectReference: {fileID: 7259098681322783994}
+    - target: {fileID: 1085371567211316399, guid: a8dfb7f97ca1c7a429265ec9bed4f556, type: 3}
+      propertyPath: choice3Text
+      value: 
+      objectReference: {fileID: 6050407599735178100}
+    - target: {fileID: 1085371567211316399, guid: a8dfb7f97ca1c7a429265ec9bed4f556, type: 3}
+      propertyPath: choice4Text
+      value: 
+      objectReference: {fileID: 9103750716075274566}
+    - target: {fileID: 1085371567211316399, guid: a8dfb7f97ca1c7a429265ec9bed4f556, type: 3}
+      propertyPath: choicePanel
+      value: 
+      objectReference: {fileID: 7617071344438761268}
+    - target: {fileID: 1085371567211316399, guid: a8dfb7f97ca1c7a429265ec9bed4f556, type: 3}
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 3095282144378818093}
@@ -475,6 +495,55 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3141515706227876516, guid: 3ec9b498f5f58354fbdc383200dc7e6e, type: 3}
   m_PrefabInstance: {fileID: 2935257207830371708}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6050407599735178100 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8884332434580594184, guid: 3ec9b498f5f58354fbdc383200dc7e6e, type: 3}
+  m_PrefabInstance: {fileID: 2935257207830371708}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &7259098681322783994 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5476763258752997766, guid: 3ec9b498f5f58354fbdc383200dc7e6e, type: 3}
+  m_PrefabInstance: {fileID: 2935257207830371708}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1 &7617071344438761268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4686390030102825544, guid: 3ec9b498f5f58354fbdc383200dc7e6e, type: 3}
+  m_PrefabInstance: {fileID: 2935257207830371708}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7778009547098219045 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4849579213843382105, guid: 3ec9b498f5f58354fbdc383200dc7e6e, type: 3}
+  m_PrefabInstance: {fileID: 2935257207830371708}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &9103750716075274566 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6263141394252934202, guid: 3ec9b498f5f58354fbdc383200dc7e6e, type: 3}
+  m_PrefabInstance: {fileID: 2935257207830371708}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &3127645258389674244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -870,14 +939,6 @@ PrefabInstance:
     - target: {fileID: 892775998434542122, guid: 332a0bb66d8d70f43bfb79416f68d4fa, type: 3}
       propertyPath: m_Name
       value: DialogueHUD
-      objectReference: {fileID: 0}
-    - target: {fileID: 2466051446901688360, guid: 332a0bb66d8d70f43bfb79416f68d4fa, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6347046437774359486, guid: 332a0bb66d8d70f43bfb79416f68d4fa, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7539085644504938745, guid: 332a0bb66d8d70f43bfb79416f68d4fa, type: 3}
       propertyPath: m_Pivot.x
