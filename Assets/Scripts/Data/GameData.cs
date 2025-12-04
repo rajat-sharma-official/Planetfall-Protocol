@@ -16,9 +16,13 @@ public class GameData
     //VERA position 
     public Vector3 VERAPosition; 
 
+    //Player
+    public float playerHealth;
+
     public GameData()
     {   //Player
         playerPosition = Vector3.zero;
+        playerHealth = 100f;
 
         //Scrap locations
         scrapAmount = 0;
@@ -26,6 +30,7 @@ public class GameData
 
         //VERA 
         VERAPosition = Vector3.zero;
+
     }
 }
 
