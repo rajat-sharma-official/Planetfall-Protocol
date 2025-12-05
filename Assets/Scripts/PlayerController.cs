@@ -4,7 +4,7 @@ using System;
 
 public class PlayerController : MonoBehaviour, IDataPersistence
 {
-    //Movement vars
+    //Movement
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpHeight = 2f;
@@ -13,27 +13,29 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private Vector2 moveInput;
     private Vector3 velocity;
     
-    //Camera vars
+    //Camera
     [Header("Camera")]
     [SerializeField] private Transform playerCamera;
     [SerializeField] private float lookSensitivity = 0.5f;
     [SerializeField] private float maxLookAngle = 80f;
     private Vector2 rotationInput;
     private float cameraPitch = 0f;
+    
+    //Pause/stop movement
     public static bool isPaused = false; 
+    public bool movementPaused;
 
-    //Interaction vars
+    //Interaction
     [Header("Interaction")]
     [SerializeField] private float interactionRange = 3f;
     [SerializeField] private LayerMask interactableLayer;
 
     [Header("HUD")]
-    [SerializeField] private HUDMgr hud; // <-- drag your HUDMgr here (on your Canvas)
-
-    //cache target for Interact()
+    [SerializeField] private HUDMgr hud;
     private IInteractable current;
-
     private bool interactPressed = false;
+
+    //Debug
     public static event Action OnScrapReset;
 
     void Awake()
@@ -47,16 +49,26 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         
     }
 
+    void OnEnable()
+    {
+        NPC_Base.OnConversationStart += pauseMovement;
+        NPC_Base.OnConversationEnd += resumeMovement;
+    }
+
+    void OnDisable()
+    {
+        NPC_Base.OnConversationStart -= pauseMovement;
+        NPC_Base.OnConversationEnd -= resumeMovement;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(isPaused)
-        {
+        ApplyGravity();
+        if(isPaused || movementPaused)
             return;
-        }
         HandleMovement();
         HandleRotation();
-        ApplyGravity();
         ShowInteractionPrompt();
         HandleInteraction();
     }
@@ -207,6 +219,16 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         interactable = c.GetComponentInChildren<IInteractable>();
         return interactable != null;
     }  
+
+    public void pauseMovement()
+    {
+        movementPaused = true;
+    }
+
+    public void resumeMovement()
+    {
+        movementPaused = false;
+    }
 
     public void OnMove(InputValue value)
     {
