@@ -195,7 +195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1280515429848946348, guid: d47b9586d9006604ca11958045fb7c40, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 200
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1280515429848946348, guid: d47b9586d9006604ca11958045fb7c40, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -212,26 +212,6 @@ PrefabInstance:
     - target: {fileID: 1625297060935922363, guid: d47b9586d9006604ca11958045fb7c40, type: 3}
       propertyPath: m_Name
       value: InteractPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 6990917294635573394, guid: d47b9586d9006604ca11958045fb7c40, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6990917294635573394, guid: d47b9586d9006604ca11958045fb7c40, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 6990917294635573394, guid: d47b9586d9006604ca11958045fb7c40, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6990917294635573394, guid: d47b9586d9006604ca11958045fb7c40, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6990917294635573394, guid: d47b9586d9006604ca11958045fb7c40, type: 3}
-      propertyPath: m_Color.r
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -346,10 +326,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7586704152393587207, guid: 31a58fa86b22a944582542fb9669f716, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -379,10 +355,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8277286147626240267}
     m_Modifications:
-    - target: {fileID: 3680159019816621946, guid: 9fe288339fa61f747b2bace02a30889a, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 15302, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5050566523023611419, guid: 9fe288339fa61f747b2bace02a30889a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
