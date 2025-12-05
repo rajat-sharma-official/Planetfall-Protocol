@@ -84,22 +84,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5239832979401995923}
     m_Modifications:
-    - target: {fileID: 1721895593128280828, guid: b57368a7fe634434c915723f3e554fb2, type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1721895593128280828, guid: b57368a7fe634434c915723f3e554fb2, type: 3}
-      propertyPath: m_margin.w
-      value: -72.24581
-      objectReference: {fileID: 0}
-    - target: {fileID: 1721895593128280828, guid: b57368a7fe634434c915723f3e554fb2, type: 3}
-      propertyPath: m_margin.z
-      value: -377.77673
-      objectReference: {fileID: 0}
-    - target: {fileID: 1721895593128280828, guid: b57368a7fe634434c915723f3e554fb2, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 3685187724170995054, guid: b57368a7fe634434c915723f3e554fb2, type: 3}
       propertyPath: m_Pivot.x
       value: 0
