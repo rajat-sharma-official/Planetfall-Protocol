@@ -163,8 +163,6 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             {
                 current = interactable;
                 string prompt = interactable.GetInteractionPrompt();
-                // TODO: Display prompt on UI
-                Debug.Log(prompt);
                 //show on HUD
                 hud?.ShowInteractPrompt(prompt);
                 return;
