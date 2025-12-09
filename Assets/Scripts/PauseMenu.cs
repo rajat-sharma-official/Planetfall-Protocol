@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour{
         pauseMenu.SetActive(false);
 
         //hide cursor + lock for fps-style camera movement
+        Debug.Log("cursor is hidden");
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
