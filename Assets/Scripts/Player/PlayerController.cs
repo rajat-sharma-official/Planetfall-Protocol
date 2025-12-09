@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     [SerializeField] private LayerMask interactableLayer;
 
     [Header("HUD")]
-    [SerializeField] private HUDMgr hud;
+    [SerializeField] private HUDManager hud;
     private IInteractable current;
     private bool interactPressed = false;
 
