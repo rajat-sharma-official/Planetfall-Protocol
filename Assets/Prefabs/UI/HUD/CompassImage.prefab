@@ -87,6 +87,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Compass
   iconPrefab: {fileID: 6150724359412686870, guid: 0f1699034e02ebe41b2f74924acbda57, type: 3}
   compassImage: {fileID: 1626449685845542734}
-  player: {fileID: 0}
+  player: {fileID: 322853488932584925, guid: a10bbb6d40bc00246a6f200fb7385d9d, type: 3}
   maxDistance: 100
   one: {fileID: 0}

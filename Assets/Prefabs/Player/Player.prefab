@@ -192,6 +192,7 @@ MonoBehaviour:
   playerCamera: {fileID: 2726054909194914229}
   lookSensitivity: 0.5
   maxLookAngle: 80
+  movementPaused: 0
   interactionRange: 3
   interactableLayer:
     serializedVersion: 2
@@ -224,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHealth: 100
   currentHealth: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1211232669966660483, guid: 17d07ddd6308f344bb1957c329438836, type: 3}
 --- !u!1001 &8640802093627906678
 PrefabInstance:
   m_ObjectHideFlags: 0

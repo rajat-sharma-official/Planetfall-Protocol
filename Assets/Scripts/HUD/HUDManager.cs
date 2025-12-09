@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class HUDMgr : MonoBehaviour
+public class HUDManager : MonoBehaviour
 {
     [Header("HUD Text")]
     [SerializeField] private TextMeshProUGUI scrapText;

@@ -13,12 +13,6 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI choice2Text;
     [SerializeField] private TextMeshProUGUI choice3Text;
     [SerializeField] private TextMeshProUGUI choice4Text;
-    
-    [Header("HUD To Hide During Dialogue")]
-    [SerializeField] private GameObject healthHUD;   
-    [SerializeField] private GameObject hazardUI;
-    [SerializeField] private GameObject HUD; //containing: scrap, Interact panel, Crosshair
-    [SerializeField] private GameObject Compass;
   
     private static DialogueManager instance;
 
@@ -55,10 +49,6 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueText != null)
             dialogueText.text = string.Empty;
-
-        // Only show HUD if choices aren't up either
-        if (choicePanel == null || !choicePanel.activeSelf)
-        SetHudVisible(true);
     }
 
     //Show the panel and overwrite the text.
@@ -69,10 +59,6 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueText != null)
             dialogueText.text = text;
-
-        //hides HUD/UI when showing Dialogue
-        SetHudVisible(false);
-
     }
 
     //Show the panel and append a new line of text.
@@ -96,10 +82,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (choicePanel != null)
             choicePanel.SetActive(false);
-
-        // Only show HUD if dialogue isn't up either
-        if (dialoguePanel == null || !dialoguePanel.activeSelf)
-        SetHudVisible(true);
     }
 
     public void ShowChoices(string choice1, string choice2, string choice3, string choice4)
@@ -117,9 +99,6 @@ public class DialogueManager : MonoBehaviour
             choice3Text.text = choice3;
         if(choice4Text != null)
             choice4Text.text = choice4;
-
-        //Hides UI/HUD when choices menus is shown
-        SetHudVisible(false);
     }
 
     public void Choice1Clicked()
@@ -141,12 +120,4 @@ public class DialogueManager : MonoBehaviour
     {
         OnChoiceClicked?.Invoke(4);
     }
-
-    private void SetHudVisible(bool visible)
-{
-    if (healthHUD != null) healthHUD.SetActive(visible);
-    if (hazardUI != null) hazardUI.SetActive(visible);
-    if (HUD != null) HUD.SetActive(visible);
-    if (Compass != null) Compass.SetActive(visible);
-}
 }

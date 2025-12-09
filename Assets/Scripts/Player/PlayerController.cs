@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     [SerializeField] private LayerMask interactableLayer;
 
     [Header("HUD")]
-    [SerializeField] private HUDMgr hud;
+    [SerializeField] private HUDManager hud;
     private IInteractable current;
     private bool interactPressed = false;
 
@@ -163,8 +163,6 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             {
                 current = interactable;
                 string prompt = interactable.GetInteractionPrompt();
-                // TODO: Display prompt on UI
-                Debug.Log(prompt);
                 //show on HUD
                 hud?.ShowInteractPrompt(prompt);
                 return;
