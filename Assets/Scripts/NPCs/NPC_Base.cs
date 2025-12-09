@@ -81,6 +81,9 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
 
     protected IEnumerator RunStory(DialogueManager dialogueMgr)
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         if(dialogueMgr != null) 
             dialogueMgr.ShowDialogue(string.Empty);
         else
@@ -121,6 +124,8 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
             // Story is done
             dialogueMgr.HideDialogue();
             dialogueMgr.HideChoices();
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             OnConversationEnd?.Invoke();
         }
     }
