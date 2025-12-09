@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 362186937603305740}
   - component: {fileID: 4109345248240719331}
   - component: {fileID: 3824020322613146351}
+  - component: {fileID: 1557103452887362172}
   m_Layer: 8
   m_Name: TestScrapLocation
   m_TagString: Untagged
@@ -128,3 +129,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScrapLocation
   hasBeenScavenged: 0
   interactKey: E
+--- !u!114 &1557103452887362172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986639487621216318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50beea4735fe9a149a30a17b3c71c24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Marker
+  icon: {fileID: 21300000, guid: dd09f8508162b6344b30e1543dad1338, type: 3}
+  image: {fileID: 0}
