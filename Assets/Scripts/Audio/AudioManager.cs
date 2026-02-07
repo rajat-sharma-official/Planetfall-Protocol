@@ -5,10 +5,10 @@ using UnityEngine;
 /*  to implement other sfx and music in the game reference steps bellow: 
     1. navigate to audiomanager in scene, add an element to the sound array in inspector 
     2. once adding your element drag that audio clip, and name the clip (adjust volumen and pitch as needed)
-    3. in the function you want an audio clip associated with (ex. player death), write the following code 
+    3. in the function you want an audio clip associated with (ex. player death), write the following code      
        FindObjectOfType<AudioManager>().Play(" * ");
        replace * with the name of your clip from the sounds array in audio manager
-    4. if you need to stop the audio at some point in another function or part of the script, write the following code 
+    4. if you need to stop the audio at some point in another function or part of the script, write the following code     
        FindObjectOfType<AudioManager>().Stop(" * ");
        again, replacing * with the name of your clip from the sounds array
 */ 
