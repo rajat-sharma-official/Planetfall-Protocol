@@ -56,6 +56,7 @@ public class ScrapLocation : MonoBehaviour, IInteractable, IDataPersistence
     {
         hasBeenScavenged = true;
         playerInventory.AddScrap(1);
+        FindObjectOfType<AudioManager>().Play("CollectScrap");
     }
 
     private void DEBUG_ResetScrap()
