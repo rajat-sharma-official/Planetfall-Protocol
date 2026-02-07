@@ -49,6 +49,9 @@ public class HazardRedHueUI : MonoBehaviour
         // Reset alpha before starting
         group.alpha = 0f;
 
+        // play warning sfx 
+        FindObjectOfType<AudioManager>().Play("Damage");
+
         // Start breathing animation
         breatheCo = StartCoroutine(BreatheRoutine());
     }
@@ -63,6 +66,9 @@ public class HazardRedHueUI : MonoBehaviour
             breatheCo = null;
         }
 
+
+        // stop warning sfx 
+        FindObjectOfType<AudioManager>().Stop("Damage");
         // Hide immediately
         group.alpha = 0f;
     }
@@ -93,6 +99,7 @@ public class HazardRedHueUI : MonoBehaviour
             group.alpha = targetAlpha * ramp;
 
             yield return null;
+
         }
     }
 }

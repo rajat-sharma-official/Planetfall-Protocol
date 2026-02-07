@@ -56,6 +56,8 @@ public class ScrapLocation : MonoBehaviour, IInteractable, IDataPersistence
     {
         hasBeenScavenged = true;
         playerInventory.AddScrap(1);
+
+        // play sfx for collecting scrap
         FindObjectOfType<AudioManager>().Play("CollectScrap");
     }
 

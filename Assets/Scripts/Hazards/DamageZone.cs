@@ -86,6 +86,7 @@ public class DamageZone : MonoBehaviour
         if (ph != currentPlayer) return;
 
         currentPlayer.TakeDamage(damagePerSecond * Time.deltaTime);
+        
     }
 
 

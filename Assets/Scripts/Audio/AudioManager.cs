@@ -8,12 +8,16 @@ using UnityEngine;
     3. in the function you want an audio clip associated with (ex. player death), write the following code 
        FindObjectOfType<AudioManager>().Play(" * ");
        replace * with the name of your clip from the sounds array in audio manager
+    4. if you need to stop the audio at some point in another function or part of the script, write the following code 
+       FindObjectOfType<AudioManager>().Stop(" * ");
+       again, replacing * with the name of your clip from the sounds array
 */ 
 
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
 
+    // create an audiosource for every sound, referencing values set in the inspector
     void Awake(){
         foreach (Sound s in sounds)
         {
@@ -24,16 +28,23 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    // play background music when game starts
     void Start()
     {
-        // play background music when game starts
         Play("Ambient");
     }
 
-    // call method from outside of the class
+    // call method from outside of the class to play audio clip
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
+    }
+
+    // call method from outside of the class to stop audio clip 
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.Stop();
     }
 }
