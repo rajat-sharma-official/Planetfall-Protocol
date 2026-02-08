@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
 
+
 public class VERAMenu : MonoBehaviour
 {
     // reference to the vera menu ui panel shown on screen
@@ -24,18 +25,37 @@ public class VERAMenu : MonoBehaviour
     [SerializeField] private Button promptButton2;
     [SerializeField] private Button promptButton3;
 
-    // reference to screenshot manager used for backend communication
-    [Header("Dependencies")]
-    [SerializeField] private VERAScreenshotManager screenshotManager;
+
+    
+    private VERAHTTPClient veraClient;
+
+    private string pendingRawJson = null;
+
+    [System.Serializable]
+    private class VeraInputPayload
+    {
+        public string text;
+        public string objectName = "none";
+        public string objectTag = "none";
+        public float distance = 0f;
+        public string currentZone = "None";
+    }
+
+    [System.Serializable]
+    private class VeraOutputPayload
+    {
+        public string response;
+    }
 
     private void Awake()
     {
-        // auto-find ui if any references are missing
         autoBindUI();
 
-        // automatically find screenshot manager if available in scene
-        autoBindScreenshotManager();
+        veraClient = FindFirstObjectByType<VERAHTTPClient>();
+        if (veraClient != null)
+            veraClient.OnResponse += OnMessage;
     }
+
 
     void Start()
     {
@@ -61,13 +81,23 @@ public class VERAMenu : MonoBehaviour
     // q toggles the vera menu open/closed
     public void OnVERAMenu(InputValue value)
     {
-        // menu is open → close it
+        // menu is open -> close it
         if (isMenuOpen)
             closeMenu();
 
-        // menu is closed → capture screenshot then open
         else
-            captureThenOpen();
+            openMenu();
+    }
+
+    private void OnDestroy()
+    {
+        if (veraClient != null)
+            veraClient.OnResponse -= OnMessage;
+    }
+
+        private void OnMessage(string rawJson)
+    {
+        pendingRawJson = rawJson;
     }
 
     void Update()
@@ -78,6 +108,24 @@ public class VERAMenu : MonoBehaviour
              Keyboard.current.numpadEnterKey.wasPressedThisFrame))
         {
             OnSubmit();
+        }
+        if (isMenuOpen && !string.IsNullOrEmpty(pendingRawJson))
+        {
+            string raw = pendingRawJson;
+            pendingRawJson = null;
+
+            try
+            {
+                var parsed = JsonUtility.FromJson<VeraOutputPayload>(raw);
+                if (parsed != null && !string.IsNullOrWhiteSpace(parsed.response))
+                    handleResponse(parsed.response);
+                else
+                    handleResponse(raw);
+            }
+            catch
+            {
+                handleResponse(raw);
+            }
         }
     }
 
@@ -134,56 +182,44 @@ public class VERAMenu : MonoBehaviour
         }
     }
 
-    private void captureThenOpen()
-    {
-        // load screenshot manager if missing
-        if (screenshotManager == null)
-            screenshotManager = FindFirstObjectByType<VERAScreenshotManager>();
-
-        // if found, capture a screenshot before opening the menu
-        if (screenshotManager != null)
-        {
-            screenshotManager.CaptureScreenshotOnly(() =>
-            {
-                openMenu();
-            });
-        }
-        else
-        {
-            // fallback: attach screenshot manager directly to the object
-            screenshotManager = gameObject.AddComponent<VERAScreenshotManager>();
-            screenshotManager.CaptureScreenshotOnly(() =>
-            {
-                openMenu();
-            });
-        }
-    }
 
     public void OnSubmit()
     {
-        // prevent submitting when menu is closed
         if (!isMenuOpen) return;
 
-        // default question if none typed
         string question = "What is this?";
         if (questionInput != null && !string.IsNullOrWhiteSpace(questionInput.text))
             question = questionInput.text;
 
-        // show loading message while backend processes
         if (responseText != null)
         {
             responseText.text = "Analyzing...";
-            responseText.margin = Vector4.zero;
             responseText.ForceMeshUpdate();
         }
 
-        // send screenshot + question to backend
-        if (screenshotManager != null)
-            screenshotManager.SendCachedScreenshot(question, handleResponse);
+        if (veraClient == null) return;
 
-        // fallback if no manager found
+        // 1. Find the Raycast script to get the "Vision" data
+        VERARaycast raycaster = FindFirstObjectByType<VERARaycast>();
+        VeraInputPayload payload;
+
+        if (raycaster != null)
+        {
+            // 2. Get the JSON from the raycaster and "Merge" it with your question
+            string contextJson = raycaster.GetContext();
+            payload = JsonUtility.FromJson<VeraInputPayload>(contextJson);
+            payload.text = question; // Overwrite the text with the user's question
+        }
         else
-            handleResponse("Error: System Offline (Manager Missing)");
+        {
+            // Grace! if no raycaster is found
+            payload = new VeraInputPayload { text = question };
+        }
+
+        // 3. Send the full package (Question + Objects + Distance)
+        string json = JsonUtility.ToJson(payload);
+        veraClient.SendToVera(json);
+
     }
 
     private void handleResponse(string response)
@@ -379,12 +415,6 @@ public class VERAMenu : MonoBehaviour
         return null;
     }
 
-    private void autoBindScreenshotManager()
-    {
-        // automatically find screenshot manager in scene if missing
-        if (screenshotManager == null)
-            screenshotManager = FindFirstObjectByType<VERAScreenshotManager>();
-    }
 
     private void setupEventSystem()
     {
