@@ -47,19 +47,19 @@ MonoBehaviour:
   sounds:
   - clip: {fileID: 8300000, guid: a903207cfefaa4eb292abcdb44dccbab, type: 3}
     name: Ambient
-    volume: 0.05
+    volume: 0.08
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 4ef5a024d632b410cba3e11ac7df7b28, type: 3}
     name: CollectScrap
-    volume: 0.497
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: c4a2251d9f7364e77819772be05b70c1, type: 3}
     name: Walking
-    volume: 0.03
+    volume: 0.1
     pitch: 1
     loop: 1
     source: {fileID: 0}
