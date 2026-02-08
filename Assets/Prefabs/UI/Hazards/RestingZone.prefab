@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6082331322259398342}
   m_Layer: 0
   m_Name: RestingZone
-  m_TagString: Untagged
+  m_TagString: Safety
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
