@@ -49,4 +49,31 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Stop();
     }
+
+    // when game is paused stop audio except ambient music
+    public void PauseAll()
+    {
+        foreach (Sound s in sounds)
+        {
+            if(s.name == "Walking")
+            {
+                s.source.Stop();
+            }
+            else if(s.source.isPlaying && s.name != "Ambient")
+            {
+                // pause will remember playback position
+                s.source.Pause();
+            }
+        }
+    }
+
+    // resume all sfx currently triggered 
+    public void ResumeAll()
+    {
+        foreach (Sound s in sounds)
+        {   
+            s.source.UnPause();
+        }
+    }
+
 }

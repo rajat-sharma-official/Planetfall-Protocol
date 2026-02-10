@@ -244,7 +244,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
-
+        
         bool shouldBeMoving = moveInput.magnitude > 0.1f;
 
         if(shouldBeMoving && !isMoving)
