@@ -18,7 +18,8 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
 
     // create an audiosource for every sound, referencing values set in the inspector
-    void Awake(){
+    void Awake()
+    {
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
