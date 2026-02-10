@@ -66,9 +66,9 @@ public class HazardRedHueUI : MonoBehaviour
             breatheCo = null;
         }
 
-
         // stop warning sfx 
         FindObjectOfType<AudioManager>().Stop("Damage");
+
         // Hide immediately
         group.alpha = 0f;
     }
