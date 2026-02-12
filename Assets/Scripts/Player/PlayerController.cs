@@ -29,9 +29,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     [Header("Interaction")]
     [SerializeField] private float interactionRange = 3f;
     [SerializeField] private LayerMask interactableLayer;
-
-    [Header("HUD")]
-    [SerializeField] private HUDManager hud;
+    public static event Action<string?> OnInteractionPromptChanged;
     private IInteractable current;
     private bool interactPressed = false;
 
@@ -163,13 +161,12 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             {
                 current = interactable;
                 string prompt = interactable.GetInteractionPrompt();
-                //show on HUD
-                hud?.ShowInteractPrompt(prompt);
+                OnInteractionPromptChanged?.Invoke(prompt);
                 return;
             }
         }
         current = null;
-        hud?.HideInteractPrompt();
+        OnInteractionPromptChanged?.Invoke(null);
     }
 
     private Collider GetClosestInteractable(Collider[] colliders)
@@ -247,13 +244,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     }
 
     public void OnInteract(InputValue value)
-    {
-        // Button actions return 1 on press, 0 on release
-        bool isPressed = value.Get<float>() >= 0.5f;
-        // Crosshair scale change
-        hud?.SetCrosshairPressed(isPressed); 
-         // Only run the interact once on press
-        if (isPressed)
+    { 
         interactPressed = true;
     }
 
