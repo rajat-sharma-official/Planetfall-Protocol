@@ -36,6 +36,9 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     //Debug
     public static event Action OnScrapReset;
 
+    //Audio 
+    [SerializeField] private bool isMoving = false;
+
     void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -218,16 +221,40 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public void pauseMovement()
     {
         movementPaused = true;
+
+        if(isMoving)
+        {
+            FindObjectOfType<AudioManager>().Stop("Walking");
+        }
     }
 
     public void resumeMovement()
     {
         movementPaused = false;
+        
+        if(moveInput.magnitude > 0.1f)
+        {
+            FindObjectOfType<AudioManager>().Play("Walking");
+        }
+
     }
 
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+
+        bool shouldBeMoving = moveInput.magnitude > 0.1f;
+
+        if(shouldBeMoving && !isMoving)
+        {
+            FindObjectOfType<AudioManager>().Play("Walking");
+            isMoving = true;
+        }
+        else if(!shouldBeMoving && isMoving)
+        {
+            FindObjectOfType<AudioManager>().Stop("Walking");
+            isMoving = false;
+        }
     }
 
     public void OnRotation(InputValue value)

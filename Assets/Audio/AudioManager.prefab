@@ -60,7 +60,7 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: b0e3b5ffd99bf49f6b2b8354f007a617, type: 3}
     name: Walking
     volume: 0.1
-    pitch: 0
+    pitch: 1
     loop: 1
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: f28d834f57afa4aabaf614735a36393b, type: 3}
