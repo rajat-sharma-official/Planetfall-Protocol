@@ -38,6 +38,9 @@ public class PauseMenu : MonoBehaviour{
 
         //resume player movement
         PlayerController.isPaused = false; 
+
+        //resume audio and sfx currently triggered
+        FindObjectOfType<AudioManager>().ResumeAll();
     }
 
     public void pauseGame(){       
@@ -52,6 +55,9 @@ public class PauseMenu : MonoBehaviour{
 
         //pause player movement 
         PlayerController.isPaused = true;
+
+        //pause all audio 
+        FindObjectOfType<AudioManager>().PauseAll();
     }
 
     public void quitGame(){
