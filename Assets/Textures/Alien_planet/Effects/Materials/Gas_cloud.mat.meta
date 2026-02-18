@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9f91abd72cef34947be1c5a7a1b55b2d
+timeCreated: 1476089970
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Effects/Materials/Gas_cloud.mat
+  uploadId: 160286

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5310b16a6c230c04f82ea1c26eaa98b7
+timeCreated: 1476239705
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Gas/Foliage/Gas_mushroom_big.prefab
+  uploadId: 160286

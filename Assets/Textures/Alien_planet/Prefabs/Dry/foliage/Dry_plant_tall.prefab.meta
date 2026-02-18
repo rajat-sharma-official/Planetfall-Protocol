@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 76bf89b600fda9047969dbeecbf1793f
+timeCreated: 1475048203
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Dry/foliage/Dry_plant_tall.prefab
+  uploadId: 160286

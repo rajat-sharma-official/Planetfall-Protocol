@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d56f039c402cf1a42b82904127fb83a4
+timeCreated: 1475048800
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Dry/Rocks/tall_rock_dry.prefab
+  uploadId: 160286

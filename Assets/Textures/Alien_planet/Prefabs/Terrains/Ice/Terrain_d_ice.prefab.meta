@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c4ce00016e80bf341bcd1e59878b8fd5
+timeCreated: 1476438821
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Terrains/Ice/Terrain_d_ice.prefab
+  uploadId: 160286

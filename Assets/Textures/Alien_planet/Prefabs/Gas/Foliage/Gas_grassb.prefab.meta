@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3a0d7622c0a3fc542ad1f32f9a4eadb4
+timeCreated: 1476675135
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Gas/Foliage/Gas_grassb.prefab
+  uploadId: 160286

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 89a1051dbfb301b4f9e07fee04e731d3
+timeCreated: 1476239689
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Gas/Foliage/Gas_plantc.prefab
+  uploadId: 160286

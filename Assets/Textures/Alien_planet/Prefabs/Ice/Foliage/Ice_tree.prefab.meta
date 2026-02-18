@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e7fc084a1e1d34d4f8f6ba929e49ecdc
+timeCreated: 1475483211
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Ice/Foliage/Ice_tree.prefab
+  uploadId: 160286

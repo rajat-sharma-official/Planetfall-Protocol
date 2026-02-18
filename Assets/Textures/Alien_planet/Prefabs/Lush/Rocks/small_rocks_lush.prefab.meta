@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fdafa703865b5e64381f7ee3b597cf56
+timeCreated: 1475218122
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Lush/Rocks/small_rocks_lush.prefab
+  uploadId: 160286

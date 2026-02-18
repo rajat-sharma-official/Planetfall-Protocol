@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a992d192764bee74397d72a6119fe156
+timeCreated: 1475218126
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Lush/Rocks/flat_rock_lush.prefab
+  uploadId: 160286

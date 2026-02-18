@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7fa729202af9fd9438cd345ab7301bae
+timeCreated: 1476239088
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Alien_structure/Alien_blockH.prefab
+  uploadId: 160286

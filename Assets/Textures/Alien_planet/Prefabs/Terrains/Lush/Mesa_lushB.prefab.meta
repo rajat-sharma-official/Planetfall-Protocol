@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 842143f7513d47d4eb46523a939f8953
+timeCreated: 1476689333
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Terrains/Lush/Mesa_lushB.prefab
+  uploadId: 160286

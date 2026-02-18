@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0a293dc7cdd866345b641878480f914b
+timeCreated: 1476066606
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Ice/Rocks/flat_rockc_ice.prefab
+  uploadId: 160286

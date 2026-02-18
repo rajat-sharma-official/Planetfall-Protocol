@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: dcebdfada6a32034fb725f3675db79ce
+timeCreated: 1474430383
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Scenes/Dry_planet_scene.unity
+  uploadId: 160286

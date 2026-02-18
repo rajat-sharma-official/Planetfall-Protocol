@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 72d69ec0d57a7da488c7a7ac7539e9bf
+timeCreated: 1475721920
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Ice/Foliage/Ice_plant.prefab
+  uploadId: 160286

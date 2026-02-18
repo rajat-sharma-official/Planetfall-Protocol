@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 171d9855ffbf57e46a093a1d591f32b5
+timeCreated: 1476675460
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Dry/Rocks/MountainB_dry.prefab
+  uploadId: 160286

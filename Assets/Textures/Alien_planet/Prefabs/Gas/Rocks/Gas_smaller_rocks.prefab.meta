@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d6f180348c1de7f47aef9d3b62592815
+timeCreated: 1476239584
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Gas/Rocks/Gas_smaller_rocks.prefab
+  uploadId: 160286
