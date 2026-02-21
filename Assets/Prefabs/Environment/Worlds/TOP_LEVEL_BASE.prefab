@@ -779,7 +779,7 @@ PrefabInstance:
     - target: {fileID: 3122976996747527256, guid: a10bbb6d40bc00246a6f200fb7385d9d, type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7639261563009864643}
     - target: {fileID: 4203427366503909983, guid: a10bbb6d40bc00246a6f200fb7385d9d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -948,6 +948,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 8000128658271098457, guid: 493ac17ca534161448dbaabb2b2a6661, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -958,6 +962,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 675900524266735222, guid: 493ac17ca534161448dbaabb2b2a6661, type: 3}
   m_PrefabInstance: {fileID: 6283031173902151861}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7639261563009864643 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4410665032952259446, guid: 493ac17ca534161448dbaabb2b2a6661, type: 3}
+  m_PrefabInstance: {fileID: 6283031173902151861}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6997b2daa47a8194cab7cc58ba9f8851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthBar
 --- !u!1001 &8047492854102005379
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -33,6 +33,7 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         this.scrap = data.scrapAmount;
+        OnScrapChanged?.Invoke(scrap);
     }
     
     public void SaveData(ref GameData data)
@@ -55,5 +56,6 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
     private void DEBUG_ResetScrapAmount()
     {
         scrap = 0;
+        OnScrapChanged?.Invoke(scrap);
     }
 }

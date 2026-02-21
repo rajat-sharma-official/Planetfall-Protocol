@@ -64,5 +64,12 @@ public class PauseMenu : MonoBehaviour{
         //close application
         Debug.Log("quit button pressed.. closing application now!");
         Application.Quit();
+        
+    }
+
+    public void mainMenu()
+    {
+        DataPersistenceManager.instance.SaveGame();
+        Debug.Log("Game saved.");
     }
 }
