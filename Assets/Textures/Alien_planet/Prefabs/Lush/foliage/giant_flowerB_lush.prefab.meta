@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5581e195fcc84ca4d91783b898d32a79
+timeCreated: 1476679027
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Lush/foliage/giant_flowerB_lush.prefab
+  uploadId: 160286

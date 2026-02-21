@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 71f77660e45c0f94f9bef99db1aa0148
+timeCreated: 1475048312
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Lush/foliage/tall_lush_plant.prefab
+  uploadId: 160286

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b53c503aa83d19c44881ffd2d5afbbcc
+timeCreated: 1475228096
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Alien_structures/Alien_sphere.controller
+  uploadId: 160286

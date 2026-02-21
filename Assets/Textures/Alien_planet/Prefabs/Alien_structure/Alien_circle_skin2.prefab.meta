@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 059ed9fdcf7878b41b3f39b43590e21f
+timeCreated: 1476686207
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Alien_structure/Alien_circle_skin2.prefab
+  uploadId: 160286

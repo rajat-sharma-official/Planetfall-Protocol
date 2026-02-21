@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c5caf6d34bc98cb41b2c4635943c22c2
+timeCreated: 1476438852
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Terrains/Lush/Terrain_d_lush.prefab
+  uploadId: 160286

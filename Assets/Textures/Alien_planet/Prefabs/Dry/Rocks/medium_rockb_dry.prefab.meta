@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7bdca49c262cb0244a3c6af054d09564
+timeCreated: 1475048805
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Dry/Rocks/medium_rockb_dry.prefab
+  uploadId: 160286

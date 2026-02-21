@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e217d24928a4c904fa99f276855e824f
+timeCreated: 1475721989
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Ice/Rocks/cliff_ice.prefab
+  uploadId: 160286

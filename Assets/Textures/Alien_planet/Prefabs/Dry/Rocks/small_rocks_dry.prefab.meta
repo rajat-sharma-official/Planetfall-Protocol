@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 41bdf5fc00707e2438275001b305c5b9
+timeCreated: 1475048803
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Dry/Rocks/small_rocks_dry.prefab
+  uploadId: 160286

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c20f27fec512ff547a6ad917d15c3681
+timeCreated: 1476348958
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Effects/Materials/Glow.mat
+  uploadId: 160286

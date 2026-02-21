@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3a059d531c39387428ecfb5b439456ec
+timeCreated: 1475568932
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Dry/foliage/Dry_tree.prefab
+  uploadId: 160286

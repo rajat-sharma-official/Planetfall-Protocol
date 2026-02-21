@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 513e8947e1ca2b54fa436cf2a72bd171
+timeCreated: 1476437316
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/effects/Dust_cloud_landing.prefab
+  uploadId: 160286

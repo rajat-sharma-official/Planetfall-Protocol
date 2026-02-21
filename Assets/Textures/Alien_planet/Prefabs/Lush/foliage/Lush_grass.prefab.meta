@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 87cd84e5725bd4f4fba1e1db0a4389d7
+timeCreated: 1475048324
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Lush/foliage/Lush_grass.prefab
+  uploadId: 160286

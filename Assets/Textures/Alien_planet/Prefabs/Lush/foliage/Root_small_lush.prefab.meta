@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 15397d89c7630814085bc1aa02252196
+timeCreated: 1475048317
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Lush/foliage/Root_small_lush.prefab
+  uploadId: 160286

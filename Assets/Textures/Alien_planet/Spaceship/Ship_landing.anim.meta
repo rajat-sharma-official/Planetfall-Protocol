@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2baac0e9fb16162439fa02a37c9fa235
+timeCreated: 1474872348
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Spaceship/Ship_landing.anim
+  uploadId: 160286

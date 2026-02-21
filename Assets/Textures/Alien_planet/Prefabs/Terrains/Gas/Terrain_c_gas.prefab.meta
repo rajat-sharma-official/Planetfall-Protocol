@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c6aa9ad57ca7172409a6f9eba853d9ad
+timeCreated: 1476438748
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Terrains/Gas/Terrain_c_gas.prefab
+  uploadId: 160286

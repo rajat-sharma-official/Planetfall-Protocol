@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2618088fc6269de41a7cd80a6e095f82
+timeCreated: 1475569001
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Alien_structure/Alien_sphere.prefab
+  uploadId: 160286

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 183e7896745c318408382f2b7e89aff3
+timeCreated: 1475721915
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Ice/Foliage/Ice_shrub.prefab
+  uploadId: 160286

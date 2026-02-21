@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9e6c20219cd9b104eab82c720f43997b
+timeCreated: 1474876110
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Effects/Dust_cloud_terrain.prefab
+  uploadId: 160286
