@@ -8,6 +8,10 @@ public class PlayerHealth : MonoBehaviour, IDataPersistence
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float currentHealth;
 
+    [Header("Auto Regen")]
+    [SerializeField] private bool regenEnabled = true;
+    [SerializeField] private float regenPerSecond = 5f;
+
     [Header("UI")]
     [SerializeField] private HealthBar healthBar;   // drag from HealthHUD in the scene
 
@@ -107,6 +111,11 @@ public class PlayerHealth : MonoBehaviour, IDataPersistence
         if (Keyboard.current != null && Keyboard.current.backslashKey.wasPressedThisFrame)
         {
             TakeDamage(100f);
+        }
+        //Regen
+        if (regenEnabled && currentHealth > 0f && currentHealth < maxHealth)
+        {
+            Heal(regenPerSecond * Time.deltaTime);
         }
     }
 }

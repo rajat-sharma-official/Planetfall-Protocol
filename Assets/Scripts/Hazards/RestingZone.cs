@@ -4,7 +4,7 @@ using UnityEngine;
 //RestingZone heals the player gradually while they stand inside the trigger
 public class RestingZone : MonoBehaviour
 {
-    [SerializeField] private float healPerSecond = 10f;
+    [SerializeField] private float healPerSecond = 50f;
 
     // Overlap counter to handle multiple colliders on the player
     private int playerOverlapCount = 0;

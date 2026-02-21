@@ -124,4 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2152c2cd8ac1594c9a362b87ce17ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RestingZone
-  healPerSecond: 10
+  healPerSecond: 50
