@@ -1,11 +1,33 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public class PauseMenu : MonoBehaviour{
     
     //pause menu panel
     [SerializeField] private GameObject pauseMenu; 
     private bool isPaused = false; 
+
+    public static event Action PauseMenuActive;
+    public static event Action PauseMenuInactive;
+    private bool dialoguePanelOpen = false;
+    private bool veraMenuOpen = false;
+
+    private void OnEnable()
+    {
+        NPC_Base.OnConversationStart += DialoguePanelOpen;
+        NPC_Base.OnConversationEnd += DialoguePanelClose;
+        VERAMenu.VERAMenuActive += VERAMenuOpen;
+        VERAMenu.VERAMenuInactive += VERAMenuClose;
+    }
+
+    private void OnDisable()
+    {
+        NPC_Base.OnConversationStart -= DialoguePanelOpen;
+        NPC_Base.OnConversationEnd -= DialoguePanelClose;
+        VERAMenu.VERAMenuActive -= VERAMenuOpen;
+        VERAMenu.VERAMenuInactive -= VERAMenuClose;
+    }
 
     void Start(){
         //hide menu at game start
@@ -15,6 +37,26 @@ public class PauseMenu : MonoBehaviour{
         Debug.Log("cursor is hidden");
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void VERAMenuOpen()
+    {
+        veraMenuOpen = true;
+    }
+
+    private void VERAMenuClose()
+    {
+        veraMenuOpen = false;
+    }
+
+    private void DialoguePanelOpen()
+    {
+        dialoguePanelOpen = true;
+    }
+
+    private void DialoguePanelClose()
+    {
+        dialoguePanelOpen = false;
     }
 
     public void OnPause(InputValue value){
@@ -36,14 +78,18 @@ public class PauseMenu : MonoBehaviour{
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        //resume player movement
-        PlayerController.isPaused = false; 
+        //invoke resume event
+        PauseMenuInactive?.Invoke();
 
         //resume audio and sfx currently triggered
         FindObjectOfType<AudioManager>().ResumeAll();
     }
 
-    public void pauseGame(){       
+    public void pauseGame(){     
+        //don't pause if any other menu is open
+        if(dialoguePanelOpen || veraMenuOpen)
+            return;
+
         //show pause menu
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
@@ -53,21 +99,20 @@ public class PauseMenu : MonoBehaviour{
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
-        //pause player movement 
-        PlayerController.isPaused = true;
+        //invoke resume event
+        PauseMenuActive?.Invoke();
 
         //pause all audio 
         FindObjectOfType<AudioManager>().PauseAll();
     }
 
     public void quitGame(){
-        //close application
         Debug.Log("quit button pressed.. closing application now!");
         Application.Quit();
         
     }
 
-    public void mainMenu()
+    public void saveGame()
     {
         DataPersistenceManager.instance.SaveGame();
         Debug.Log("Game saved.");
