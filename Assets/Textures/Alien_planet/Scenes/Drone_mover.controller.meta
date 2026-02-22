@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 88e15e27ff063af4eb8d08fa4dc72151
+timeCreated: 1476266097
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Scenes/Drone_mover.controller
+  uploadId: 160286
