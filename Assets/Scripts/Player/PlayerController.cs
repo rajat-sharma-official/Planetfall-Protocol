@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private CharacterController controller;
     private Vector2 moveInput;
     private Vector3 velocity;
+    private bool jumpPressed = false;
     
     //Camera
     [Header("Camera")]
@@ -22,8 +23,9 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private float cameraPitch = 0f;
     
     //Pause/stop movement
-    public static bool isPaused = false; 
-    public bool movementPaused;
+    public bool pauseMenuOpen = false; 
+    public bool veraMenuOpen = false;
+    public bool dialoguePanelOpen = false;
 
     //Interaction
     [Header("Interaction")]
@@ -35,9 +37,6 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     //Debug
     public static event Action OnScrapReset;
-
-    //Audio 
-    [SerializeField] private bool isMoving = false;
 
     void Awake()
     {
@@ -52,26 +51,73 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     void OnEnable()
     {
-        NPC_Base.OnConversationStart += pauseMovement;
-        NPC_Base.OnConversationEnd += resumeMovement;
+        NPC_Base.OnConversationStart += DialoguePanelOpen;
+        NPC_Base.OnConversationEnd += DialoguePanelClose;
+        PauseMenu.PauseMenuActive += PauseMenuOpen;
+        PauseMenu.PauseMenuInactive += PauseMenuClose;
+        VERAMenu.VERAMenuActive += VERAMenuOpen;
+        VERAMenu.VERAMenuInactive += VERAMenuClose;
     }
 
     void OnDisable()
     {
-        NPC_Base.OnConversationStart -= pauseMovement;
-        NPC_Base.OnConversationEnd -= resumeMovement;
+        NPC_Base.OnConversationStart -= DialoguePanelOpen;
+        NPC_Base.OnConversationEnd -= DialoguePanelClose;
+        PauseMenu.PauseMenuActive -= PauseMenuOpen;
+        PauseMenu.PauseMenuInactive -= PauseMenuClose;
+        VERAMenu.VERAMenuActive -= VERAMenuOpen;
+        VERAMenu.VERAMenuInactive -= VERAMenuClose;
     }
 
     // Update is called once per frame
     void Update()
     {
         ApplyGravity();
-        if(isPaused || movementPaused)
+        if(pauseMenuOpen || veraMenuOpen || dialoguePanelOpen)
             return;
         HandleMovement();
         HandleRotation();
+        HandleJump();
         ShowInteractionPrompt();
         HandleInteraction();
+
+        if(moveInput.magnitude > 0.1f)
+        {
+            FindObjectOfType<AudioManager>().Play("Walking");
+        } else
+        {
+            FindObjectOfType<AudioManager>().Stop("Walking");
+        }
+    }
+
+    private void PauseMenuOpen()
+    {
+        pauseMenuOpen = true;
+    }
+
+    private void PauseMenuClose()
+    {
+        pauseMenuOpen = false;
+    }
+
+    private void VERAMenuOpen()
+    {
+        veraMenuOpen = true;
+    }
+
+    private void VERAMenuClose()
+    {
+        veraMenuOpen = false;
+    }
+
+    private void DialoguePanelOpen()
+    {
+        dialoguePanelOpen = true;
+    }
+
+    private void DialoguePanelClose()
+    {
+        dialoguePanelOpen = false;
     }
 
     public void LoadData(GameData data)
@@ -117,6 +163,15 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         cameraPitch -= rotationInput.y * lookSensitivity;
         cameraPitch = Mathf.Clamp(cameraPitch, -maxLookAngle, maxLookAngle);
         playerCamera.localEulerAngles = new Vector3(cameraPitch, 0f, 0f);
+    }
+
+    private void HandleJump()
+    {
+        if (controller.isGrounded && jumpPressed)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            jumpPressed = false;
+        }
     }
 
     private void ApplyGravity()
@@ -218,43 +273,9 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         return interactable != null;
     }  
 
-    public void pauseMovement()
-    {
-        movementPaused = true;
-
-        if(isMoving)
-        {
-            FindObjectOfType<AudioManager>().Stop("Walking");
-        }
-    }
-
-    public void resumeMovement()
-    {
-        movementPaused = false;
-        
-        if(moveInput.magnitude > 0.1f)
-        {
-            FindObjectOfType<AudioManager>().Play("Walking");
-        }
-
-    }
-
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
-
-        bool shouldBeMoving = moveInput.magnitude > 0.1f;
-
-        if(shouldBeMoving && !isMoving)
-        {
-            FindObjectOfType<AudioManager>().Play("Walking");
-            isMoving = true;
-        }
-        else if(!shouldBeMoving && isMoving)
-        {
-            FindObjectOfType<AudioManager>().Stop("Walking");
-            isMoving = false;
-        }
     }
 
     public void OnRotation(InputValue value)
@@ -264,10 +285,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void OnJump(InputValue value)
     {
-        if (controller.isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
+        jumpPressed = true;
     }
 
     public void OnInteract(InputValue value)

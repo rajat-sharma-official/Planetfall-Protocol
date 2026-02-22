@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 
 public class VERAMenu : MonoBehaviour
@@ -24,12 +25,14 @@ public class VERAMenu : MonoBehaviour
     [SerializeField] private Button promptButton1;
     [SerializeField] private Button promptButton2;
     [SerializeField] private Button promptButton3;
-
-
-    
     private VERAHTTPClient veraClient;
 
     private string pendingRawJson = null;
+
+    public static event Action VERAMenuActive;
+    public static event Action VERAMenuInactive;
+    private bool pauseMenuOpen;
+    private bool dialoguePanelOpen;
 
     [System.Serializable]
     private class VeraInputPayload
@@ -45,6 +48,22 @@ public class VERAMenu : MonoBehaviour
     private class VeraOutputPayload
     {
         public string response;
+    }
+
+    private void OnEnable()
+    {
+        NPC_Base.OnConversationStart += DialoguePanelOpen;
+        NPC_Base.OnConversationEnd += DialoguePanelClose;
+        PauseMenu.PauseMenuActive += PauseMenuOpen;
+        PauseMenu.PauseMenuInactive += PauseMenuClose;
+    }
+
+    private void OnDisable()
+    {
+        NPC_Base.OnConversationStart -= DialoguePanelOpen;
+        NPC_Base.OnConversationEnd -= DialoguePanelClose;
+        PauseMenu.PauseMenuActive -= PauseMenuOpen;
+        PauseMenu.PauseMenuInactive -= PauseMenuClose;
     }
 
     private void Awake()
@@ -129,6 +148,26 @@ public class VERAMenu : MonoBehaviour
         }
     }
 
+    private void PauseMenuOpen()
+    {
+        pauseMenuOpen = true;
+    }
+
+    private void PauseMenuClose()
+    {
+        pauseMenuOpen = false;
+    }
+
+    private void DialoguePanelOpen()
+    {
+        dialoguePanelOpen = true;
+    }
+
+    private void DialoguePanelClose()
+    {
+        dialoguePanelOpen = false;
+    }
+
     public void closeMenu()
     {
         //hide the menu and resume player movement 
@@ -138,8 +177,8 @@ public class VERAMenu : MonoBehaviour
         // menu state tracking
         isMenuOpen = false;
 
-        // unpause the player
-        PlayerController.isPaused = false;
+        // invoke menu close event
+        VERAMenuInactive?.Invoke();
 
         //hide the cursor 
         // hides cursor + locks it for fps-style camera control
@@ -149,6 +188,10 @@ public class VERAMenu : MonoBehaviour
 
     public void openMenu()
     {
+        //don't let menu open if any other menus are open
+        if(pauseMenuOpen || dialoguePanelOpen)
+            return;
+
         //show the menu and pause player movement
         // makes the vera ui appear
         if (VERAMenuPanel != null) VERAMenuPanel.SetActive(true);
@@ -156,8 +199,8 @@ public class VERAMenu : MonoBehaviour
         // track open state
         isMenuOpen = true;
 
-        // pause player actions so they can't move while in menu
-        PlayerController.isPaused = true;
+        // invoke menu open event
+        VERAMenuActive?.Invoke();
 
         //show the cursor
         // needed for clicking buttons and typing

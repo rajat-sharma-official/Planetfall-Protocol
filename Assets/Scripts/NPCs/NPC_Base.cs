@@ -18,6 +18,8 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
     protected int choiceClicked;
     public static event Action OnConversationStart;
     public static event Action OnConversationEnd;
+    protected bool pauseMenuOpen = false;
+    protected bool veraMenuOpen = false;
 
     protected virtual void Awake()
     {
@@ -33,15 +35,45 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
     protected virtual void OnEnable()
     {
         DialogueManager.OnChoiceClicked += ChoiceClick;
+        PauseMenu.PauseMenuActive += PauseMenuOpen;
+        PauseMenu.PauseMenuInactive += PauseMenuClose;
+        VERAMenu.VERAMenuActive += VERAMenuOpen;
+        VERAMenu.VERAMenuInactive += VERAMenuClose;
     }
 
     protected virtual void OnDisable()
     {
         DialogueManager.OnChoiceClicked -= ChoiceClick;
+        PauseMenu.PauseMenuActive -= PauseMenuOpen;
+        PauseMenu.PauseMenuInactive -= PauseMenuClose;
+        VERAMenu.VERAMenuActive -= VERAMenuOpen;
+        VERAMenu.VERAMenuInactive -= VERAMenuClose;
+    }
+
+    protected void PauseMenuOpen()
+    {
+        pauseMenuOpen = true;
+    }
+
+    protected void PauseMenuClose()
+    {
+        pauseMenuOpen = false;
+    }
+
+    protected void VERAMenuOpen()
+    {
+        veraMenuOpen = true;
+    }
+
+    protected void VERAMenuClose()
+    {
+        veraMenuOpen = false;
     }
 
     public virtual void Interact()
     {
+        if(pauseMenuOpen || veraMenuOpen)
+            return;
         StartConversation();
     }
 
