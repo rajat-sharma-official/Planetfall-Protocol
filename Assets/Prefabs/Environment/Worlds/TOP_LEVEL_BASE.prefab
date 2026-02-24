@@ -858,7 +858,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 61366452478261756, guid: 34da9d3bcb3434efba70e89a425eae9b, type: 3}
       propertyPath: m_Name
-      value: Terrain
+      value: EchoTerrain
       objectReference: {fileID: 0}
     - target: {fileID: 1180529180099647360, guid: 34da9d3bcb3434efba70e89a425eae9b, type: 3}
       propertyPath: m_LocalPosition.x
