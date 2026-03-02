@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9132844333282600753}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Echo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1920,6 +1920,10 @@ PrefabInstance:
     - target: {fileID: 848452909507522598, guid: d6b88b7762a0340d8b5dff45cc0f56ec, type: 3}
       propertyPath: m_Name
       value: echoTerrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400179829124073051, guid: d6b88b7762a0340d8b5dff45cc0f56ec, type: 3}
+      propertyPath: m_TagString
+      value: Spaceship
       objectReference: {fileID: 0}
     - target: {fileID: 9170516276565233971, guid: d6b88b7762a0340d8b5dff45cc0f56ec, type: 3}
       propertyPath: m_LocalPosition.x
