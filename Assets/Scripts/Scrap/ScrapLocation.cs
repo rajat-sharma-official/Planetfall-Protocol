@@ -25,6 +25,7 @@ public class ScrapLocation : MonoBehaviour, IInteractable, IDataPersistence
     void Start()
     {
         playerInventory = FindFirstObjectByType<PlayerInventory>();
+
     }
 
     // Update is called once per frame
@@ -36,12 +37,6 @@ public class ScrapLocation : MonoBehaviour, IInteractable, IDataPersistence
     public void LoadData(GameData data)
     {
         this.hasBeenScavenged = data.testScrapScavenged;
-
-        //if already scavenged, hide scrap on load 
-        if(hasBeenScavenged)
-        {
-            gameObject.SetActive(false);
-        }
     }
 
     public void SaveData(ref GameData data)
@@ -94,6 +89,8 @@ public class ScrapLocation : MonoBehaviour, IInteractable, IDataPersistence
             Assert.IsTrue(hasBeenScavenged);
             //verify the inventory increased by exactly one from baseline
             Assert.AreEqual(playerInventory.Scrap, scrapBefore + 1);
+            //verify that when collected, object disappears
+            Assert.IsFalse(gameObject.activeSelf);
         }
         catch (Exception e)
         {
