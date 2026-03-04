@@ -100,13 +100,10 @@ public class VERAMenu : MonoBehaviour
     // q toggles the vera menu open/closed
     public void OnVERAMenu(InputValue value)
     {
-        // if the player is typing in the vera input field, do not toggle the menu
-        if (IsTypingInUI())
-            return;
-
         // menu is open -> close it
         if (isMenuOpen)
             closeMenu();
+
         else
             openMenu();
     }
@@ -276,6 +273,7 @@ public class VERAMenu : MonoBehaviour
             responseText.text = response;
             responseText.gameObject.SetActive(true);
             responseText.enabled = true;
+            responseText.color = Color.black;
             responseText.margin = new Vector4(20, 35, 20, 20);
             responseText.textWrappingMode = TextWrappingModes.Normal;
             responseText.ForceMeshUpdate();
@@ -495,14 +493,5 @@ public class VERAMenu : MonoBehaviour
         var canvas = GetComponentInParent<Canvas>();
         if (canvas != null && canvas.GetComponent<GraphicRaycaster>() == null)
             canvas.gameObject.AddComponent<GraphicRaycaster>();
-    }
-
-    private bool IsTypingInUI()
-    {
-        // if the tmp input field is focused the player is typing
-        if (questionInput != null && questionInput.isFocused)
-            return true;
-
-        return false;
     }
 }
