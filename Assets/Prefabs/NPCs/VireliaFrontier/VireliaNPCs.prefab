@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &833332235008055068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8970451879976268573}
+  m_Layer: 0
+  m_Name: VireliaNPCs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8970451879976268573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833332235008055068}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -269.9435, y: 0.15028, z: -231.25365}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6540943261623345287}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &6545588395382169261
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8970451879976268573}
+    m_Modifications:
+    - target: {fileID: 1420900672563822, guid: a136ffd5a9160a74d975cbda00d432bb, type: 3}
+      propertyPath: m_Name
+      value: Character_Rich_Male_01_FixedScale
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645206941449770, guid: a136ffd5a9160a74d975cbda00d432bb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645206941449770, guid: a136ffd5a9160a74d975cbda00d432bb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645206941449770, guid: a136ffd5a9160a74d975cbda00d432bb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645206941449770, guid: a136ffd5a9160a74d975cbda00d432bb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645206941449770, guid: a136ffd5a9160a74d975cbda00d432bb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645206941449770, guid: a136ffd5a9160a74d975cbda00d432bb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645206941449770, guid: a136ffd5a9160a74d975cbda00d432bb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645206941449770, guid: a136ffd5a9160a74d975cbda00d432bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645206941449770, guid: a136ffd5a9160a74d975cbda00d432bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645206941449770, guid: a136ffd5a9160a74d975cbda00d432bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a136ffd5a9160a74d975cbda00d432bb, type: 3}
+--- !u!4 &6540943261623345287 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4645206941449770, guid: a136ffd5a9160a74d975cbda00d432bb, type: 3}
+  m_PrefabInstance: {fileID: 6545588395382169261}
+  m_PrefabAsset: {fileID: 0}
