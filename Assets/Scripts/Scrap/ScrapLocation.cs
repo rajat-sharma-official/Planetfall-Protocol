@@ -1,4 +1,6 @@
 using UnityEngine;
+using System;
+using UnityEngine.Assertions;
 
 public class ScrapLocation : MonoBehaviour, IInteractable, IDataPersistence
 {
@@ -23,6 +25,7 @@ public class ScrapLocation : MonoBehaviour, IInteractable, IDataPersistence
     void Start()
     {
         playerInventory = FindFirstObjectByType<PlayerInventory>();
+
     }
 
     // Update is called once per frame
@@ -59,6 +62,9 @@ public class ScrapLocation : MonoBehaviour, IInteractable, IDataPersistence
 
         // play sfx for collecting scrap
         FindObjectOfType<AudioManager>().Play("CollectScrap");
+
+        // make scrap disappear
+        gameObject.SetActive(false);
     }
 
     private void DEBUG_ResetScrap()
@@ -69,5 +75,29 @@ public class ScrapLocation : MonoBehaviour, IInteractable, IDataPersistence
     public string GetInteractionPrompt()
     {
         return hasBeenScavenged ? "Already scavenged" : $"Press {interactKey} to scavenge";
+    }
+
+    public void Test_ScrapScavenged()
+    {
+        //store player's current scrap count as baseline before scavenging
+        int scrapBefore = playerInventory.Scrap; 
+        //trigger the scavenge
+        Scavenge();
+        try
+        {
+            //verify when scrap is collected that it is marked as scaveneged
+            Assert.IsTrue(hasBeenScavenged);
+            //verify the inventory increased by exactly one from baseline
+            Assert.AreEqual(playerInventory.Scrap, scrapBefore + 1);
+            //verify that when collected, object disappears
+            Assert.IsFalse(gameObject.activeSelf);
+        }
+        catch (Exception e)
+        {
+            //if either assert fails, log the reason why the test failed
+            Debug.Log("Scavenge Test Failed!" + e);
+        }
+        //if no exception was thrown, both asserts passed!
+        Debug.Log("Scavenge Test Passed!");
     }
 }
