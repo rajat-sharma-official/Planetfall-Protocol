@@ -140,10 +140,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: echoTerrain
       objectReference: {fileID: 0}
-    - target: {fileID: 4294480202143995145, guid: d6b88b7762a0340d8b5dff45cc0f56ec, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.5
-      objectReference: {fileID: 0}
     - target: {fileID: 9170516276565233971, guid: d6b88b7762a0340d8b5dff45cc0f56ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.77552

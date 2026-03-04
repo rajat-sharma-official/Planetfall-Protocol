@@ -3894,10 +3894,6 @@ PrefabInstance:
       value: Gas_plante (1)
       objectReference: {fileID: 0}
     - target: {fileID: 420038, guid: 04dfa74fd732ceb409068e27754f22f0, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.7750436
-      objectReference: {fileID: 0}
-    - target: {fileID: 420038, guid: 04dfa74fd732ceb409068e27754f22f0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.137268
       objectReference: {fileID: 0}
