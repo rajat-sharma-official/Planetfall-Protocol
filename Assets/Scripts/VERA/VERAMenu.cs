@@ -273,7 +273,6 @@ public class VERAMenu : MonoBehaviour
             responseText.text = response;
             responseText.gameObject.SetActive(true);
             responseText.enabled = true;
-            responseText.color = Color.black;
             responseText.margin = new Vector4(20, 35, 20, 20);
             responseText.textWrappingMode = TextWrappingModes.Normal;
             responseText.ForceMeshUpdate();
