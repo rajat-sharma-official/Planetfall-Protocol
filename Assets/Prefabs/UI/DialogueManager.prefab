@@ -53,10 +53,6 @@ MonoBehaviour:
   choice2Text: {fileID: 2544686409573204352}
   choice3Text: {fileID: 5021736570086661889}
   choice4Text: {fileID: 3969352641722824679}
-  healthHUD: {fileID: 0}
-  hazardUI: {fileID: 0}
-  HUD: {fileID: 0}
-  Compass: {fileID: 0}
 --- !u!1001 &5971002313394947353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68,6 +64,10 @@ PrefabInstance:
     - target: {fileID: 892775998434542122, guid: 332a0bb66d8d70f43bfb79416f68d4fa, type: 3}
       propertyPath: m_Name
       value: DialogueCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 892775998434542122, guid: 332a0bb66d8d70f43bfb79416f68d4fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7539085644504938745, guid: 332a0bb66d8d70f43bfb79416f68d4fa, type: 3}
       propertyPath: m_Pivot.x
@@ -282,6 +282,10 @@ PrefabInstance:
     - target: {fileID: 8754764145354778125, guid: 3ec9b498f5f58354fbdc383200dc7e6e, type: 3}
       propertyPath: m_Name
       value: ChoiceCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754764145354778125, guid: 3ec9b498f5f58354fbdc383200dc7e6e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
