@@ -35,6 +35,12 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private IInteractable current;
     private bool interactPressed = false;
 
+    //Translation Mechanic 
+    private int uniqueNPCsTalkedTo = 0;
+    private readonly int[] translationUnlockThresholds = {3, 6, 9}; //CHANGE BASED ON TOTAL # NPCS 
+    private int dialogueOptionsAvailable = 1;
+    public static event Action<int> DialogueOptionsAvailableChanged;
+
     //Debug
     public static event Action OnScrapReset;
 
@@ -46,13 +52,14 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        DialogueOptionsAvailableChanged?.Invoke(dialogueOptionsAvailable);
     }
 
     void OnEnable()
     {
         NPC_Base.OnConversationStart += DialoguePanelOpen;
         NPC_Base.OnConversationEnd += DialoguePanelClose;
+        NPC_Base.FirstTalkedTo += NewNPCTalkedTo;
         PauseMenu.PauseMenuActive += PauseMenuOpen;
         PauseMenu.PauseMenuInactive += PauseMenuClose;
         VERAMenu.VERAMenuActive += VERAMenuOpen;
@@ -63,6 +70,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     {
         NPC_Base.OnConversationStart -= DialoguePanelOpen;
         NPC_Base.OnConversationEnd -= DialoguePanelClose;
+        NPC_Base.FirstTalkedTo -= NewNPCTalkedTo;
         PauseMenu.PauseMenuActive -= PauseMenuOpen;
         PauseMenu.PauseMenuInactive -= PauseMenuClose;
         VERAMenu.VERAMenuActive -= VERAMenuOpen;
@@ -80,6 +88,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         HandleJump();
         ShowInteractionPrompt();
         HandleInteraction();
+        HandleTranslationUnlock();
 
         if(moveInput.magnitude > 0.1f)
         {
@@ -183,6 +192,17 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    private void HandleTranslationUnlock()
+    {
+        int next = dialogueOptionsAvailable - 1;
+
+        if(next < translationUnlockThresholds.Length && uniqueNPCsTalkedTo >= translationUnlockThresholds[next])
+        {
+            dialogueOptionsAvailable++;
+            DialogueOptionsAvailableChanged?.Invoke(dialogueOptionsAvailable);
+        }
     }
 
     public void HandleInteraction()
@@ -296,5 +316,10 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public void OnDEBUGResetScrap(InputValue value)
     {
         OnScrapReset?.Invoke();
+    }
+
+    private void NewNPCTalkedTo()
+    {
+        uniqueNPCsTalkedTo++;
     }
 }

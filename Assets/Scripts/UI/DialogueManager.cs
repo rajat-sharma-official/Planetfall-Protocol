@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -9,13 +10,12 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel; 
     [SerializeField] private TextMeshProUGUI dialogueText; 
     [SerializeField] private GameObject choicePanel;
-    [SerializeField] private TextMeshProUGUI choice1Text;
-    [SerializeField] private TextMeshProUGUI choice2Text;
-    [SerializeField] private TextMeshProUGUI choice3Text;
-    [SerializeField] private TextMeshProUGUI choice4Text;
-  
+    [SerializeField] private Button choice1Button;
+    [SerializeField] private Button choice2Button;
+    [SerializeField] private Button choice3Button;
+    [SerializeField] private Button choice4Button;
+    private int dialogueOptionsAvailable = 1;
     private static DialogueManager instance;
-
     public static event Action<int> OnChoiceClicked;
 
     private void Awake()
@@ -35,10 +35,25 @@ public class DialogueManager : MonoBehaviour
         return instance;
     }
 
+    private void OnEnable()
+    {
+        PlayerController.DialogueOptionsAvailableChanged += SetDialogueOptions;
+    }
+
+    private void OnDisable()
+    {
+        PlayerController.DialogueOptionsAvailableChanged -= SetDialogueOptions;
+    }
+
     private void Start()
     {
         HideDialogue();
         HideChoices();
+    }
+
+    private void SetDialogueOptions(int options)
+    {
+        dialogueOptionsAvailable = options;
     }
 
     //Hide the panel and clear any text.
@@ -91,14 +106,25 @@ public class DialogueManager : MonoBehaviour
         if(choicePanel != null)
             choicePanel.SetActive(true);
 
-        if(choice1Text != null)
-            choice1Text.text = choice1;
-        if(choice2Text != null)
-            choice2Text.text = choice2;
-        if(choice3Text != null)
-            choice3Text.text = choice3;
-        if(choice4Text != null)
-            choice4Text.text = choice4;
+        // if(choice1Text != null)
+        //     choice1Text.text = choice1;
+        // if(choice2Text != null)
+        //     choice2Text.text = choice2;
+        // if(choice3Text != null)
+        //     choice3Text.text = choice3;
+        // if(choice4Text != null)
+        //     choice4Text.text = choice4;
+
+        string[] choices = {choice1, choice2, choice3, choice4};
+        Button[] buttons = {choice1Button, choice2Button, choice3Button, choice4Button};
+
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            if (buttons[i] == null) continue;
+            
+            buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = choices[i];
+            buttons[i].interactable = i < dialogueOptionsAvailable;
+        }
     }
 
     public void Choice1Clicked()

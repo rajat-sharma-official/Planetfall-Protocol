@@ -18,6 +18,7 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
     protected int choiceClicked;
     public static event Action OnConversationStart;
     public static event Action OnConversationEnd;
+    public static event Action FirstTalkedTo;
     protected bool pauseMenuOpen = false;
     protected bool veraMenuOpen = false;
 
@@ -159,6 +160,9 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             OnConversationEnd?.Invoke();
+            if(conversationState == ConversationState.not_talked_to) // First time having the conversation
+                FirstTalkedTo?.Invoke();
+            conversationState = ConversationState.talked_to;
         }
     }
 
