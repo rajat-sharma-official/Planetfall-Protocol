@@ -1,19 +1,28 @@
+//globals.ink
 // Global state (shared across ALL NPCs)
-LIST NPC = npc_maerlon, npc_child
 
-VAR met_npcs = ()               // InkList of NPC items
-VAR npcs_talked = 0             // This is what Unity can read
+// --- NPC tracking ---
+LIST NPC = maerlon, child, kase, erixa, drayk, eira, marrek
+VAR met_npcs = ()              // list of NPCs the player has met
 
-VAR met_child = false
-VAR maerlon_gave_scrap = false
+EXTERNAL giveScrap(amount)
+
+VAR npcs_talked = 0
 VAR Dialogue_scrap = 0
 
-// Call this from an NPC the FIRST time you want to count them.
-// It will only increment once per NPC, ever.
-=== function RegisterNPC(npcId)
-{ met_npcs ? npcId:
-    // already registered -> do nothing
+// --- Story flags ---
+VAR met_child = false
+VAR maerlon_gave_scrap = false
+VAR drayk_gave_scrap = false
+
+
+
+=== function register_npc(who) ===
+{
+- met_npcs ? who:        
+    ~ return false
 - else:
-    ~ met_npcs = met_npcs + npcId
-    ~ npcs_talked = npcs_talked + 1
+    ~ met_npcs += who
+    ~ npcs_talked += 1
+    ~ return true
 }

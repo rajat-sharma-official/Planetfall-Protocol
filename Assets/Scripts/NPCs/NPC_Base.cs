@@ -22,6 +22,8 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
     protected bool pauseMenuOpen = false;
     protected bool veraMenuOpen = false;
 
+    private DialogueVariables dialogueVariables;
+
     protected virtual void Awake()
     {
         if(inkJSONasset != null)
@@ -102,6 +104,12 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
             }
             story.ResetState();
 
+            //story to shared globals (so met_child / npcs_talked persist across NPCs)
+            if (dialogueVariables == null && InkGlobalsManager.Instance != null) 
+                dialogueVariables = InkGlobalsManager.Instance.DialogueVariables; 
+
+            dialogueVariables?.StartListening(story); 
+
             if(story.canContinue) 
             {
                 StartCoroutine(RunStory(dialogueMgr));
@@ -154,6 +162,9 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
         }
         else
         {
+            //stop listening when the conversation fully ends
+            dialogueVariables?.StopListening(story);
+            
             // Story is done
             dialogueMgr.HideDialogue();
             dialogueMgr.HideChoices();

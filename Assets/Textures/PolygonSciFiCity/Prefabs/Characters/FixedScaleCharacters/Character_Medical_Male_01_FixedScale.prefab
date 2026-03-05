@@ -4097,6 +4097,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4722401473104078}
   - component: {fileID: 95379877839425018}
+  - component: {fileID: 4378000866534801543}
+  - component: {fileID: 6083209625897836695}
   m_Layer: 8
   m_Name: Character_Medical_Male_01_FixedScale
   m_TagString: NPC
@@ -4162,6 +4164,40 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &4378000866534801543
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967492678687660}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6083209625897836695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967492678687660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49dc30b14a876024e88ba90b050c6bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPC_Eira
+  inkJSONasset: {fileID: 4900000, guid: 715ecb4668cdcdd489644ba5eea5ae6c, type: 3}
 --- !u!1 &1976460530965168
 GameObject:
   m_ObjectHideFlags: 0
