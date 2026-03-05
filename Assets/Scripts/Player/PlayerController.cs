@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private readonly int[] translationUnlockThresholds = {3, 6, 9}; //CHANGE BASED ON TOTAL # NPCS 
     private int dialogueOptionsAvailable = 1;
     public static event Action<int> DialogueOptionsAvailableChanged;
+    public static event Action<int> UniqueNPCsTalkedToChanged;
 
     //Debug
     public static event Action OnScrapReset;
@@ -328,5 +329,6 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private void NewNPCTalkedTo()
     {
         uniqueNPCsTalkedTo++;
+        UniqueNPCsTalkedToChanged?.Invoke(uniqueNPCsTalkedTo);
     }
 }
