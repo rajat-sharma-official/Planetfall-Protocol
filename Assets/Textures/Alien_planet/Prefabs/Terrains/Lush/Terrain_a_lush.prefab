@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9548956}
   m_Layer: 0
   m_Name: Terrain_a_lush
-  m_TagString: Untagged
+  m_TagString: Echo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
