@@ -90,13 +90,20 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         HandleInteraction();
         HandleTranslationUnlock();
 
-        if(moveInput.magnitude > 0.1f)
+        if(moveInput.magnitude > 0.1f && IsGrounded())
         {
             FindObjectOfType<AudioManager>().Play("Walking");
         } else
         {
             FindObjectOfType<AudioManager>().Stop("Walking");
         }
+    }
+
+    //function so walking sfx stops when jumping since isGrounded var wasn't working appropriately
+    private bool IsGrounded()
+    {
+        //is there ground beneath me? (play position, look down, distance to floor)
+        return Physics.Raycast(transform.position, Vector3.down, controller.height / 2 + 0.2f);
     }
 
     private void PauseMenuOpen()

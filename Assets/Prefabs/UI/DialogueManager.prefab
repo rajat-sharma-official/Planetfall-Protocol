@@ -65,6 +65,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 892775998434542122, guid: 332a0bb66d8d70f43bfb79416f68d4fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7539085644504938745, guid: 332a0bb66d8d70f43bfb79416f68d4fa, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -278,6 +282,10 @@ PrefabInstance:
     - target: {fileID: 8754764145354778125, guid: 3ec9b498f5f58354fbdc383200dc7e6e, type: 3}
       propertyPath: m_Name
       value: ChoiceCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754764145354778125, guid: 3ec9b498f5f58354fbdc383200dc7e6e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
