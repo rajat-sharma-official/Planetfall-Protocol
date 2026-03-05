@@ -119,8 +119,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 9132844333282600753, guid: 34da9d3bcb3434efba70e89a425eae9b, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -182,8 +181,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: RiftlandsTerrain
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6052599215828251759, guid: 763ce11f9abbd413fb2c7fa90f6b85ea, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -245,8 +243,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3900330535059741338, guid: b6f61fe8f145e47b7a68825e46ae5941, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
