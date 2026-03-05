@@ -19,6 +19,9 @@ public class GameData
     public Vector3 NPCsch2Position;
     public int NPCsch2ConversationState;
 
+    // Ink globals save blob (stores npcs_talked, met_child, lists, etc.)
+    public string inkGlobalsStateJSON;
+
     public GameData()
     {   /** Player **/
         playerPosition = Vector3.zero;
@@ -35,6 +38,8 @@ public class GameData
         //NPC Scholar2 (Harvel)
         NPCsch2Position = new Vector3(-5, 1, -4);
         NPCsch2ConversationState = 0;
+
+        inkGlobalsStateJSON = "";
     }
 }
 

@@ -1,93 +1,75 @@
-// NPC_Maerlon.ink
 INCLUDE globals.ink
+-> start
 
-=== maerlon ===
--> maerlon_entry
+=== start ===
+~ register_npc(NPC.maerlon)
 
-
-=== maerlon_entry
-
-
-// Branch between Script A and Script B
 { met_child:
-    -> maerlon_B_hub
+    -> hub_b
 - else:
-    -> maerlon_A_hub
+    -> hub_a
 }
 
+=== hub_a ===
+Maerlon: Behold, a stranger walketh the Riftlands.
+Maerlon: Thou art a sign unto them, and their hearts fail for fear.
 
-// --------------------
-// SCRIPT A (met_child == false)
-// --------------------
++ [Leave.] -> END
++ [Wherefore do they revile me?] -> a1
++ [Speak plainly—what tale bindeth them?] -> a2
++ [How may I turn away their wrath?] -> a3
 
-=== maerlon_A_hub
-Maerlon: "Have you seen a child come through here?"
+=== a1 ===
+Maerlon: They behold not thy deeds, but thy likeness.
+Maerlon: For an old terror wearied their souls, and now they see its shadow upon thee.
+-> END
 
-+ [1) "No, not yet."] -> maerlon_A_no
-+ [2) "Tell me who you're looking for."] -> maerlon_A_who
-+ [3) "Why are you out here alone?"] -> maerlon_A_why
-+ [4) "I'll keep an eye out."] -> maerlon_A_leave
+=== a2 ===
+Maerlon: Hear it, then—though it be a foul remembrance.
+Maerlon: Long ago there fell one from the heavens, in the shape of man, yet not of man.
+Maerlon: And within the broken vessel was a child, and the people took it in.
+Maerlon: But when the full moon arose, the child became a great beast,
+Maerlon: and it slew them that had shown mercy.
+Maerlon: Therefore the Riftlands are hard; for kindness once cost them blood.
+-> END
 
-
-=== maerlon_A_no
-Maerlon: "Then I’ll keep searching. They can’t have gone far."
--> maerlon_A_hub
-
-
-=== maerlon_A_who
-Maerlon: "Small, quiet. Got separated near the path."
--> maerlon_A_hub
-
-
-=== maerlon_A_why
-Maerlon: "Because waiting is worse than walking."
--> maerlon_A_hub
-
-
-=== maerlon_A_leave
-Maerlon: "If you find them… come back."
+=== a3 ===
+Maerlon: Seek the child that is lost, and bring the little one back whole.
+Maerlon: For proof stoppeth the mouth of fear more than any pleading word.
 -> END
 
 
-
-// --------------------
-// SCRIPT B (met_child == true)
-// --------------------
-
-=== maerlon_B_hub
-Maerlon: "You found them? Are they safe?"
-
-+ [1) "Yes. They’re safe."] -> maerlon_B_safe
-+ [2) "They mentioned you by name."] -> maerlon_B_name
-+ [3) "I can lead you to them."] -> maerlon_B_lead
-+ [4) "Anything I should know?"] -> maerlon_B_info
-
-
-=== maerlon_B_safe
-Maerlon: "Thank you… truly."
-
-// Give scrap only once
-{ maerlon_gave_scrap == false:
-    ~ maerlon_gave_scrap = true
-    ~ Dialogue_scrap = Dialogue_scrap + 1
-    Maerlon: "Take this scrap. It might keep you going out here."
+=== hub_b ===
+{ maerlon_gave_scrap:
+    Maerlon: Thou hast done a good work, and few do such in these days.
 - else:
-    Maerlon: "I already gave you what I could spare."
+    Maerlon: The child is returned, and their wrath abateth.
+    Maerlon: Take thou this scrap—small payment for a heavy deed.
+    ~ maerlon_gave_scrap = true
+    ~ Dialogue_scrap += 1
+    ~ giveScrap(1)
 }
 
--> maerlon_B_hub
++ [Leave.] -> END
++ [Was my crash mere chance?] -> b1
++ [What brought the great collapse upon Aurelia?] -> b2
++ [Why doth VERA falter and conceal?] -> b3
 
+=== b1 ===
+Maerlon: Chance? Nay.
+Maerlon: There be old snares beneath this earth—half-dead defenses that still hunger.
+Maerlon: They draw passing ships downward, as a net draweth the fish from the deep.
+-> END
 
-=== maerlon_B_name
-Maerlon: "Good… they remembered. That helps more than you think."
--> maerlon_B_hub
+=== b2 ===
+Maerlon: There was a heart beneath the world, and a machine to govern it.
+Maerlon: Men took and took, as though the deep had no bottom.
+Maerlon: Then balance brake, and the bright works of the old age died in one breath.
+Maerlon: Thus pride bought silence.
+-> END
 
-
-=== maerlon_B_lead
-Maerlon: "I’ll follow your lead."
--> maerlon_B_hub
-
-
-=== maerlon_B_info
-Maerlon: "The path shifts when you stop paying attention. Keep moving."
--> maerlon_B_hub
+=== b3 ===
+Maerlon: Because she is fashioned with locks.
+Maerlon: She was made to guide thee, and also to bar certain truths.
+Maerlon: When she “glitcheth,” it is the chain grinding upon the soul of the machine.
+-> END
