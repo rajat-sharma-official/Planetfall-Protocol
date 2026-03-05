@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private bool sprintHeld = false;
     private CharacterController controller;
     private Vector2 moveInput;
-    private Vector3 velocity;
+    public Vector3 velocity;
     private bool jumpPressed = false;
     
     //Camera
