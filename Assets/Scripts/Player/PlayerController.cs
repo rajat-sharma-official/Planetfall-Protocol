@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     [SerializeField] private float gravity = -9.81f;
     private CharacterController controller;
     private Vector2 moveInput;
-    private Vector3 velocity;
+    public Vector3 velocity;
     private bool jumpPressed = false;
     
     //Camera
