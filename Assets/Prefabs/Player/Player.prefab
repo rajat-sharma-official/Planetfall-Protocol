@@ -189,15 +189,17 @@ MonoBehaviour:
   moveSpeed: 5
   jumpHeight: 2
   gravity: -9.81
+  sprintSpeedMultiplier: 1.75
   playerCamera: {fileID: 2726054909194914229}
   lookSensitivity: 0.5
   maxLookAngle: 80
-  movementPaused: 0
+  pauseMenuOpen: 0
+  veraMenuOpen: 0
+  dialoguePanelOpen: 0
   interactionRange: 3
   interactableLayer:
     serializedVersion: 2
     m_Bits: 256
-  isMoving: 0
 --- !u!114 &3560826158144337075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +229,7 @@ MonoBehaviour:
   currentHealth: 0
   regenEnabled: 1
   regenPerSecond: 1
-  healthBar: {fileID: 1211232669966660483, guid: 17d07ddd6308f344bb1957c329438836, type: 3}
+  healthBar: {fileID: 0}
 --- !u!1001 &8640802093627906678
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private float gravity = -9.81f;
+    [Header("Sprint")]
+    [SerializeField] private float sprintSpeedMultiplier = 1.75f;
+    private bool sprintHeld = false;
     private CharacterController controller;
     private Vector2 moveInput;
     private Vector3 velocity;
@@ -168,7 +171,14 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private void HandleMovement()
     {
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
-        controller.Move(move * moveSpeed * Time.deltaTime);
+
+        float speed = moveSpeed;
+        if (sprintHeld && moveInput.y > 0.1f)
+        {
+            speed *= sprintSpeedMultiplier; // add on sprint multiplier if moving forward
+        }
+
+        controller.Move(move * speed * Time.deltaTime);
     }
 
     private void HandleRotation()
@@ -304,6 +314,11 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+    }
+
+    public void OnSprint(InputValue value)
+    {
+        sprintHeld = value.isPressed;
     }
 
     public void OnRotation(InputValue value)
