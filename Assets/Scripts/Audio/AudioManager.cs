@@ -40,7 +40,15 @@ public class AudioManager : MonoBehaviour
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.Play();
+        if(s == null)
+        {
+            Debug.LogWarning("sound not find: " + name);
+            return;
+        }
+        if(!s.source.isPlaying)
+        {
+            s.source.Play();
+        }
     }
 
     // call method from outside of the class to stop audio clip 
