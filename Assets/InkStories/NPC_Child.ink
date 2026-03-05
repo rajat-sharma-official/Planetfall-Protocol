@@ -1,43 +1,30 @@
-// NPC_Child.ink
+//NPC_Child.ink
 INCLUDE globals.ink
 
-=== child ===
--> child_hub
+-> start
 
+=== start ===
+~ register_npc(NPC.child)
+~ met_child = true
 
-= child_hub
+Child: Oh! You can see me?
 
-Child: "Hi... are you here to help?"
+-> hub
 
-+ [1) "Are you okay?"] -> child_about
-+ [2) "What happened here?"] -> child_story
-+ [3) "I saw someone named Maerlon."] -> child_maerlon
-+ [4) "I'll be back."] -> child_leave
+=== hub ===
++ [Goodbye.] -> END
++ [Are you okay?] -> okay
++ [Are you lost?] -> maybe
++ [Who are you?] -> lost
 
+=== lost ===
+Child: I'm just... lost.
+-> hub
 
-= child_about
-Child: "I'm scared, but I'm okay... I think."
--> child_hub
+=== okay ===
+Child: I'm scared, but I'm okay.
+-> hub
 
-
-= child_story
-Child: "I got separated. Everything looks different at night."
--> child_hub
-
-
-= child_maerlon
-Child: "Maerlon? He said he'd wait near the path."
-
-{ met_child == false:
-    ~ met_child = true
-    Child: "If you see him again... tell him I’m safe."
-- else:
-    Child: "Please remind him again... I don’t want him to worry."
-}
-
--> child_hub
-
-
-= child_leave
-Child: "Okay... be careful."
--> END
+=== maybe ===
+Child: No...
+-> hub
