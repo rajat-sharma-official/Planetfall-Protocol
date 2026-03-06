@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     private void HandleJump()
     {
-        if (controller.isGrounded && jumpPressed)
+        if (IsGrounded() && jumpPressed) // was controller.isGrounded 
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             jumpPressed = false;
