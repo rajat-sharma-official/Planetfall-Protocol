@@ -9,6 +9,10 @@ public class GameData
     public Quaternion playerRotation;
     public float playerHealth;
 
+    /** Translation **/
+    public int uniqueNPCsTalkedTo;
+    public int dialogueOptionsAvailable;
+
     /** VERA **/
     public Vector3 VERAPosition; 
 
@@ -29,6 +33,10 @@ public class GameData
         playerPosition = Vector3.zero;
         playerRotation = Quaternion.identity;
         playerHealth = 100f;
+
+        /**Translation**/
+        uniqueNPCsTalkedTo = 0;
+        dialogueOptionsAvailable = 1;
 
         /** VERA **/ 
         VERAPosition = Vector3.zero;
