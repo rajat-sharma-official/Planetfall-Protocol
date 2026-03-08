@@ -92,32 +92,28 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
 
     protected void StartConversation()
     {
-        //Case 0: Not talked to
-        if(conversationState == ConversationState.not_talked_to)
+        var dialogueMgr = DialogueManager.GetInstance();
+
+        if(story == null)
         {
-            var dialogueMgr = DialogueManager.GetInstance();
-
-            if(story == null)
-            {
-                Debug.LogWarning($"Error: No ink story loaded for {npcName}");
-                return;
-            }
-            story.ResetState();
-
-            //story to shared globals (so met_child / npcs_talked persist across NPCs)
-            if (dialogueVariables == null && InkGlobalsManager.Instance != null) 
-                dialogueVariables = InkGlobalsManager.Instance.DialogueVariables; 
-
-            dialogueVariables?.StartListening(story); 
-
-            if(story.canContinue) 
-            {
-                StartCoroutine(RunStory(dialogueMgr));
-                OnConversationStart?.Invoke();
-            }
-            else
-                Debug.LogWarning($"Error: {npcName} story cannot continue");
+            Debug.LogWarning($"Error: No ink story loaded for {npcName}");
+            return;
         }
+        story.ResetState();
+
+        //story to shared globals (so met_child / npcs_talked persist across NPCs)
+        if (dialogueVariables == null && InkGlobalsManager.Instance != null) 
+            dialogueVariables = InkGlobalsManager.Instance.DialogueVariables; 
+
+        dialogueVariables?.StartListening(story); 
+
+        if(story.canContinue) 
+        {
+            StartCoroutine(RunStory(dialogueMgr));
+            OnConversationStart?.Invoke();
+        }
+        else
+            Debug.LogWarning($"Error: {npcName} story cannot continue");
     }
 
     protected IEnumerator RunStory(DialogueManager dialogueMgr)

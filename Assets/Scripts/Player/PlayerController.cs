@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        DialogueOptionsAvailableChanged?.Invoke(dialogueOptionsAvailable);
+        
     }
 
     void OnEnable()
@@ -162,12 +162,20 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             transform.position = data.playerPosition;
             velocity = Vector3.zero;
         }
+
+        uniqueNPCsTalkedTo = data.uniqueNPCsTalkedTo;
+        dialogueOptionsAvailable = data.dialogueOptionsAvailable;
+
+        DialogueOptionsAvailableChanged?.Invoke(dialogueOptionsAvailable);
+        UniqueNPCsTalkedToChanged?.Invoke(uniqueNPCsTalkedTo);
     }
     
     public void SaveData(ref GameData data)
     {
         data.playerPosition = this.transform.position;
         data.playerRotation = transform.rotation;
+        data.uniqueNPCsTalkedTo = uniqueNPCsTalkedTo;
+        data.dialogueOptionsAvailable = dialogueOptionsAvailable;
     }
 
     private void HandleMovement()
