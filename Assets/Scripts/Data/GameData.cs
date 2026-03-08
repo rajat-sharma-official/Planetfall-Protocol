@@ -1,10 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class GameData
 {
     /** Player **/
     public Vector3 playerPosition;
+    public Quaternion playerRotation;
     public float playerHealth;
 
     /** VERA **/
@@ -12,7 +14,7 @@ public class GameData
 
     /** Scrap **/
     public int scrapAmount;
-    public bool testScrapScavenged;
+    public List<string> scavengedScrapIds;
 
     /** NPCs**/
     //NPC Scholar2 (Harvel)
@@ -25,6 +27,7 @@ public class GameData
     public GameData()
     {   /** Player **/
         playerPosition = Vector3.zero;
+        playerRotation = Quaternion.identity;
         playerHealth = 100f;
 
         /** VERA **/ 
@@ -32,7 +35,7 @@ public class GameData
 
         /** Scrap **/
         scrapAmount = 0;
-        testScrapScavenged = false;
+        scavengedScrapIds = new List<string>();
 
         /** NPCs **/
         //NPC Scholar2 (Harvel)

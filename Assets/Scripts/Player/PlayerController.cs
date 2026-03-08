@@ -152,6 +152,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         {
             controller.enabled = false;                 // turn off to avoid interference
             transform.position = data.playerPosition;   // set saved position
+            transform.rotation = data.playerRotation;   //set saved rotation
             velocity = Vector3.zero;                    // clear any falling / movement
             controller.enabled = true;                  // turn it back on
         }
@@ -166,6 +167,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public void SaveData(ref GameData data)
     {
         data.playerPosition = this.transform.position;
+        data.playerRotation = transform.rotation;
     }
 
     private void HandleMovement()
