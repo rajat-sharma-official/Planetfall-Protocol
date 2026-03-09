@@ -27,6 +27,9 @@ Drayk: You’re in the way.
 Drayk: You brought the kid back.
 Drayk: Means you can be useful. That’s rare.
 
+->b_menu
+
+=== b_menu ===
 + [Leave.] -> END
 + [What do you do here?] -> b1
 + [I need scrap—can I scavenge in the Riftlands?] -> b2
@@ -37,7 +40,7 @@ Drayk: I run resources. Food, water, shelter materials, work crews.
 People think “leader” means speeches.
 Up here it means counting what you have and deciding who gets it.
 I don’t like strangers because strangers are risk.
--> END
+-> b_menu
 
 ==== b2 ===
 { drayk_gave_scrap:
@@ -50,11 +53,12 @@ I don’t like strangers because strangers are risk.
     ~ drayk_gave_scrap = true
     ~ Dialogue_scrap += 1
     ~ giveScrap(1)
+    Drayk has given you Scrap
 }
--> END
+-> b_menu
 === b3 ===
 Drayk: Rules. Discipline. Work.
 We don’t waste. We don’t show off. We don’t pretend we’re invincible.
 You fall behind out here, the mountain doesn’t care who you are.
 That’s why we plan like we’re always one mistake away from hunger.
--> END
+-> b_menu
