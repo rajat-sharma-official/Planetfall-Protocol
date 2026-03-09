@@ -1,0 +1,71 @@
+INCLUDE globals.ink
+-> start
+
+=== start ===
+~ register_npc(NPC.julisa)
+
+{ spoke_to_marrek:
+    -> hub_b
+- else:
+    -> hub_a
+}
+
+=== hub_a ===
+Julisa: Oh—hello!
+
+-> a_menu
+
+=== a_menu ===
++ [Leave.] -> END
++ [What are you researching?] -> a1
++ [What powered the old world?] -> a2
++ [Do you how I crashed?] -> a3
+
+=== a1 ===
+Julisa: The shutdown. The planet-wide silence.
+Julisa: Every surviving text agrees on one thing: a single power source. A single heartbeat in the world.
+Julisa: Isn’t that fascinating? A whole planet running on *one* thread.
+-> a_menu
+
+=== a2 ===
+Julisa: My leading theory? The ancients drew power from the sun.
+Julisa: Not like panels—something deeper. Something *engineered.*
+Julisa: I know it sounds impossible. But the old age was built on “impossible.”
+-> a_menu
+
+=== a3 ===
+Julisa: ....
+
+-> a_menu
+
+
+=== hub_b ===
+Julisa: You’ve been around Solace.
+Julisa: Okay—then you’ve heard a lot of confident opinions with very little evidenc
+-> b_menu
+
+=== b_menu ===
++ [Leave.] -> END
++ [What do the scholars believe caused the shutdown?] -> b1
++ [Is your “sun theory” still your best guess?] -> b2
++ [Did anything unusual appear in the records about outsiders?] -> b3
+
+=== b1 ===
+Julisa: We don’t pretend to know everything.
+Julisa: But we see the pattern: one backbone system, one failure, total silence.
+Julisa: Solace calls it “a warning.” We call it “a problem to solve.”
+-> b_menu
+
+=== b2 ===
+Julisa: It’s still a contender.
+Julisa: But now I’m less sure it’s the *sun* and more sure it’s a *single regulator*—something that distributed power.
+Julisa: The texts use words like “flow,” “balance,” “heartbeat.”
+Julisa: That doesn’t sound like random sunlight. That sounds like infrastructure.
+-> b_menu
+
+=== b3 ===
+Julisa: Records mention travelers… but not clearly.
+Julisa: It’s like the texts get vague on purpose. Like someone edited history with a blunt tool.
+Julisa: When I ask Sanya, she smiles and says, “focus on what we can prove.”
+Julisa: Which is… polite. And also annoying.
+-> b_menu

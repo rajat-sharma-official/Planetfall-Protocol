@@ -23,7 +23,9 @@ You step into the center of Solace Outpost where a rough circle of stone marks t
 Marrek is already watching you, arms folded, like he’s been expecting you to speak first.
 Marrek: You brought the child back.
 Marrek: Alright. You’re not dead weight.
+->normal_menu
 
+=== normal_menu === 
 + [Leave.] -> END
 + [What do the Revivalists stand for?] -> normal_belief
 + [What happened to Aurelia’s tech?] -> normal_collapse
@@ -33,16 +35,19 @@ Marrek: Alright. You’re not dead weight.
 Marrek: We rebuild with what the land can spare.
 Marrek: No chasing the old machine like it’s a god.
 Marrek: We live. We grow. That’s it.
--> END
+-> normal_menu
 
 === normal_collapse ===
+~ spoke_to_marrek = true
 Marrek: Everything ran through one buried system.
 Marrek: When it failed, the whole world went dark.
 Marrek: Scholars call it tragedy. I call it a warning.
--> END
+
+Go speak with Scholars...
+-> normal_menu
 
 === normal_next ===
 Marrek: If you’re fixing your ship, you’ll need scrap—careful where you take it.
 Marrek: And if you’re digging for answers… talk to Kase. He keeps track of the ugly truths.
 Marrek: I believe Drayk has some scrap that might be of use to you
--> END
+-> normal_menu

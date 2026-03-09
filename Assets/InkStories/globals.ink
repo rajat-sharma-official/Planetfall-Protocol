@@ -2,7 +2,7 @@
 // Global state (shared across ALL NPCs)
 
 // --- NPC tracking ---
-LIST NPC = maerlon, child, kase, erixa, drayk, eira, marrek
+LIST NPC = maerlon, child, marrek, eira, drayk, kase, erixa, sanya, julisa, harvel, camla, nayli, danriel, emex
 VAR met_npcs = ()              // list of NPCs the player has met
 
 EXTERNAL giveScrap(amount)
@@ -14,7 +14,9 @@ VAR Dialogue_scrap = 0
 VAR met_child = false
 VAR maerlon_gave_scrap = false
 VAR drayk_gave_scrap = false
-
+VAR spoke_to_marrek = false
+VAR danriel_block_level = 0
+VAR stolen_scrap = false
 
 
 === function register_npc(who) ===
