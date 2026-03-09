@@ -1241,6 +1241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4047652858230854}
   - component: {fileID: 95759655224206830}
+  - component: {fileID: 6316012521610840161}
   m_Layer: 8
   m_Name: Character_Robot_01_FixedScale
   m_TagString: NPC
@@ -1306,6 +1307,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6316012521610840161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401195396439946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505d0757d19074556a1e4118a0661df8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPC_Emerys
+  inkJSONasset: {fileID: 4900000, guid: 570f5c57149db4346b959b400a9c944f, type: 3}
 --- !u!1 &1402899678239396
 GameObject:
   m_ObjectHideFlags: 0

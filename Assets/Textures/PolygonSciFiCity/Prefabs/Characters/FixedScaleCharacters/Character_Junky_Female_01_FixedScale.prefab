@@ -3560,6 +3560,7 @@ GameObject:
   - component: {fileID: 4790206716832882}
   - component: {fileID: 95255593108217166}
   - component: {fileID: 4696647182668754693}
+  - component: {fileID: 8103778471221795409}
   m_Layer: 8
   m_Name: Character_Junky_Female_01_FixedScale
   m_TagString: NPC
@@ -3648,6 +3649,19 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8103778471221795409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787067274310504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f33b725f37bb54e9687c6dbf9b62afc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPC_Tamira
+  inkJSONasset: {fileID: 4900000, guid: e9a258fa7b9e24628904bbbfd2730f13, type: 3}
 --- !u!1 &1810119730957198
 GameObject:
   m_ObjectHideFlags: 0
