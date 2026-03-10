@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8221963440632130359}
   - component: {fileID: 3142186921667033550}
   - component: {fileID: 2625877833205498366}
+  - component: {fileID: 9048127463253539430}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -137,3 +138,20 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &9048127463253539430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7524839709389285314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee6f4c8d968d4c52809b716234e0658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VERARaycast
+  maxDistance: 50
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 307
+  queryTriggerInteraction: 1

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a82a5b7120e15f546896dba9ec1fbfff
+timeCreated: 1476239703
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Gas/Foliage/Gas_mushroom_clump.prefab
+  uploadId: 160286

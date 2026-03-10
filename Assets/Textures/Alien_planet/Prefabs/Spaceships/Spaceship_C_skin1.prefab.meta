@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 195828cc3a65aec4195f1bf9789d6b10
+timeCreated: 1476264587
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Spaceships/Spaceship_C_skin1.prefab
+  uploadId: 160286

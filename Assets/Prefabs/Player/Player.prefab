@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2085508276059222957}
   - component: {fileID: 3560826158144337075}
   - component: {fileID: 3122976996747527256}
+  - component: {fileID: 4091320137108544756}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -189,14 +190,18 @@ MonoBehaviour:
   moveSpeed: 5
   jumpHeight: 2
   gravity: -9.81
+  sprintSpeedMultiplier: 1.75
+  velocity: {x: 0, y: 0, z: 0}
   playerCamera: {fileID: 2726054909194914229}
   lookSensitivity: 0.5
   maxLookAngle: 80
+  pauseMenuOpen: 0
+  veraMenuOpen: 0
+  dialoguePanelOpen: 0
   interactionRange: 3
   interactableLayer:
     serializedVersion: 2
     m_Bits: 256
-  hud: {fileID: 0}
 --- !u!114 &3560826158144337075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +229,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHealth: 100
   currentHealth: 0
+  regenEnabled: 1
+  regenPerSecond: 1
   healthBar: {fileID: 0}
+--- !u!114 &4091320137108544756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4203427366503909983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f53592a11cbf4f82ae56d2da944e604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallDamage
+  safeSpeed: 12
+  maxSpeed: 22
+  maxDamage: 70
 --- !u!1001 &8640802093627906678
 PrefabInstance:
   m_ObjectHideFlags: 0

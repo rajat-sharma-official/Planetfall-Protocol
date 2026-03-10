@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 142fcaf91148b9c4b94bb60d64c989f1
+timeCreated: 1476677182
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Ice/Rocks/MountainA_ice.prefab
+  uploadId: 160286

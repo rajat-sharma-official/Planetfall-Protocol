@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1203cbcf03a029b4882988d035375db4
+timeCreated: 1476239594
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Gas/Rocks/Gas_cliffd.prefab
+  uploadId: 160286

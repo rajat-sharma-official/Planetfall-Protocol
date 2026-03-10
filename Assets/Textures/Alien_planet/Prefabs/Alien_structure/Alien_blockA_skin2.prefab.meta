@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 43f80659126e6f243afc8ffa19ec5a29
+timeCreated: 1476686228
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Alien_structure/Alien_blockA_skin2.prefab
+  uploadId: 160286

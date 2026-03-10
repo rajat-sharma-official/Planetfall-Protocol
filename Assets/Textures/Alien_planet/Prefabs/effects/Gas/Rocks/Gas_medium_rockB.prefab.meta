@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8dbd31483c38c9b44b7134712ab98536
+timeCreated: 1476090693
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Gas/Rocks/Gas_medium_rockB.prefab
+  uploadId: 160286

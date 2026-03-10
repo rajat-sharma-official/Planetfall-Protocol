@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 24cbee7b60479234a86e6f3f81d1ac9a
+timeCreated: 1474951670
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Textures/Materials/Lush_sky.mat
+  uploadId: 160286

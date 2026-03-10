@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e6bc381557c89f7409d827e354aa0291
+timeCreated: 1475722043
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Ice/Rocks/Tall_rock_ice.prefab
+  uploadId: 160286

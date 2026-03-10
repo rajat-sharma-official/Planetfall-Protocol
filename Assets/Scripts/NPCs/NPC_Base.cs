@@ -18,6 +18,12 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
     protected int choiceClicked;
     public static event Action OnConversationStart;
     public static event Action OnConversationEnd;
+    public static event Action FirstTalkedTo;
+    protected bool pauseMenuOpen = false;
+    protected bool veraMenuOpen = false;
+    protected string interactKey = "E";
+
+    private DialogueVariables dialogueVariables;
 
     protected virtual void Awake()
     {
@@ -33,21 +39,51 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
     protected virtual void OnEnable()
     {
         DialogueManager.OnChoiceClicked += ChoiceClick;
+        PauseMenu.PauseMenuActive += PauseMenuOpen;
+        PauseMenu.PauseMenuInactive += PauseMenuClose;
+        VERAMenu.VERAMenuActive += VERAMenuOpen;
+        VERAMenu.VERAMenuInactive += VERAMenuClose;
     }
 
     protected virtual void OnDisable()
     {
         DialogueManager.OnChoiceClicked -= ChoiceClick;
+        PauseMenu.PauseMenuActive -= PauseMenuOpen;
+        PauseMenu.PauseMenuInactive -= PauseMenuClose;
+        VERAMenu.VERAMenuActive -= VERAMenuOpen;
+        VERAMenu.VERAMenuInactive -= VERAMenuClose;
+    }
+
+    protected void PauseMenuOpen()
+    {
+        pauseMenuOpen = true;
+    }
+
+    protected void PauseMenuClose()
+    {
+        pauseMenuOpen = false;
+    }
+
+    protected void VERAMenuOpen()
+    {
+        veraMenuOpen = true;
+    }
+
+    protected void VERAMenuClose()
+    {
+        veraMenuOpen = false;
     }
 
     public virtual void Interact()
     {
+        if(pauseMenuOpen || veraMenuOpen)
+            return;
         StartConversation();
     }
 
     public virtual string GetInteractionPrompt()
     {
-        return $"Talk to {npcName}";
+        return $"Press {interactKey} to talk to {npcName}";
     }
 
     protected void ChoiceClick(int choice)
@@ -57,26 +93,28 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
 
     protected void StartConversation()
     {
-        //Case 0: Not talked to
-        if(conversationState == ConversationState.not_talked_to)
+        var dialogueMgr = DialogueManager.GetInstance();
+
+        if(story == null)
         {
-            var dialogueMgr = DialogueManager.GetInstance();
-
-            if(story == null)
-            {
-                Debug.LogWarning($"Error: No ink story loaded for {npcName}");
-                return;
-            }
-            story.ResetState();
-
-            if(story.canContinue) 
-            {
-                StartCoroutine(RunStory(dialogueMgr));
-                OnConversationStart?.Invoke();
-            }
-            else
-                Debug.LogWarning($"Error: {npcName} story cannot continue");
+            Debug.LogWarning($"Error: No ink story loaded for {npcName}");
+            return;
         }
+        story.ResetState();
+
+        //story to shared globals (so met_child / npcs_talked persist across NPCs)
+        if (dialogueVariables == null && InkGlobalsManager.Instance != null) 
+            dialogueVariables = InkGlobalsManager.Instance.DialogueVariables; 
+
+        dialogueVariables?.StartListening(story); 
+
+        if(story.canContinue) 
+        {
+            StartCoroutine(RunStory(dialogueMgr));
+            OnConversationStart?.Invoke();
+        }
+        else
+            Debug.LogWarning($"Error: {npcName} story cannot continue");
     }
 
     protected IEnumerator RunStory(DialogueManager dialogueMgr)
@@ -121,12 +159,18 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
         }
         else
         {
+            //stop listening when the conversation fully ends
+            dialogueVariables?.StopListening(story);
+            
             // Story is done
             dialogueMgr.HideDialogue();
             dialogueMgr.HideChoices();
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             OnConversationEnd?.Invoke();
+            if(conversationState == ConversationState.not_talked_to) // First time having the conversation
+                FirstTalkedTo?.Invoke();
+            conversationState = ConversationState.talked_to;
         }
     }
 

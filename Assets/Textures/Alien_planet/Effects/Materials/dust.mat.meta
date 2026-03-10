@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 56a464df6374cb64db5278e409234a12
+timeCreated: 1476089912
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Effects/Materials/dust.mat
+  uploadId: 160286

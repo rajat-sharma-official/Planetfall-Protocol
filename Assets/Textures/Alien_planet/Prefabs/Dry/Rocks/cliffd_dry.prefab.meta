@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9442865c684ad8344b3a81023b3aae9c
+timeCreated: 1475048814
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/Dry/Rocks/cliffd_dry.prefab
+  uploadId: 160286

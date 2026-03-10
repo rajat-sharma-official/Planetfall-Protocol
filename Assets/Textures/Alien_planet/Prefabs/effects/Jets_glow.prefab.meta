@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2206233b7b1c876408e1b8fc560279f4
+timeCreated: 1475718261
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74011
+  packageName: Alien Planet Pack
+  packageVersion: 1.1
+  assetPath: Assets/Alien_planet/Prefabs/effects/Jets_glow.prefab
+  uploadId: 160286
