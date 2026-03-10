@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     //Debug
     public static event Action OnScrapReset;
+    public static event Action OnMaxScrap;
 
     void Awake()
     {
@@ -349,6 +350,11 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public void OnDEBUGResetScrap(InputValue value)
     {
         OnScrapReset?.Invoke();
+    }
+
+    public void OnDEBUGMaxScrap(InputValue value)
+    {
+        OnMaxScrap?.Invoke();
     }
 
     private void NewNPCTalkedTo()

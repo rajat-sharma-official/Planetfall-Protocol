@@ -19,6 +19,8 @@ public class GameData
     /** Scrap **/
     public int scrapAmount;
     public List<string> scavengedScrapIds;
+    public int scrapRequiredToEndGame;
+    public bool endGameAvailable;
 
     /** NPCs**/
     //NPC Scholar2 (Harvel)
@@ -44,6 +46,8 @@ public class GameData
         /** Scrap **/
         scrapAmount = 0;
         scavengedScrapIds = new List<string>();
+        scrapRequiredToEndGame = 20;
+        endGameAvailable = false;
 
         /** NPCs **/
         //NPC Scholar2 (Harvel)

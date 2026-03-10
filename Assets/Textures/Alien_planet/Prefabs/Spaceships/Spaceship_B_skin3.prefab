@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3303496}
   - component: {fileID: 2361322}
   - component: {fileID: 6488148}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: reactor_b_skin3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 3374932}
   - component: {fileID: 2377324}
   - component: {fileID: 6450294}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: reactor_b_skin3 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 3368282}
   - component: {fileID: 2366016}
   - component: {fileID: 6452624}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Landing_gear007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 416308}
-  m_Layer: 0
+  - component: {fileID: 4243119050246641169}
+  m_Layer: 8
   m_Name: Spaceship_B_skin3
   m_TagString: Spaceship
   m_Icon: {fileID: 0}
@@ -372,6 +373,18 @@ Transform:
   - {fileID: 432732}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4243119050246641169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21563848ded84c140a6f7fe6c9d22d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EndGameCondition
 --- !u!1 &127466
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +397,7 @@ GameObject:
   - component: {fileID: 3332338}
   - component: {fileID: 2323156}
   - component: {fileID: 6466380}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: flaps018
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +509,7 @@ GameObject:
   - component: {fileID: 3363024}
   - component: {fileID: 2301432}
   - component: {fileID: 6486632}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Landing_gear006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +620,7 @@ GameObject:
   - component: {fileID: 426484}
   - component: {fileID: 19818652}
   - component: {fileID: 19927636}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Jets_glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5432,7 +5445,7 @@ GameObject:
   - component: {fileID: 433860}
   - component: {fileID: 19842112}
   - component: {fileID: 19914764}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Jets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10239,7 +10252,7 @@ GameObject:
   - component: {fileID: 3358906}
   - component: {fileID: 2369284}
   - component: {fileID: 6407374}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spaceship_b_skin3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10359,7 +10372,7 @@ GameObject:
   - component: {fileID: 493206}
   - component: {fileID: 19878596}
   - component: {fileID: 19918708}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Jets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15166,7 +15179,7 @@ GameObject:
   - component: {fileID: 3375366}
   - component: {fileID: 2352390}
   - component: {fileID: 6463144}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wing_b_skin3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15277,7 +15290,7 @@ GameObject:
   - component: {fileID: 434050}
   - component: {fileID: 19898730}
   - component: {fileID: 19954840}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Jets_glow (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20103,7 +20116,7 @@ GameObject:
   - component: {fileID: 3393146}
   - component: {fileID: 2390048}
   - component: {fileID: 6441284}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wing_b_skin3 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20215,7 +20228,7 @@ GameObject:
   - component: {fileID: 3344750}
   - component: {fileID: 2383576}
   - component: {fileID: 6448134}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: flaps_b_skin3 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20327,7 +20340,7 @@ GameObject:
   - component: {fileID: 3311646}
   - component: {fileID: 2391338}
   - component: {fileID: 6499724}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Landing_gear005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20439,7 +20452,7 @@ GameObject:
   - component: {fileID: 3355490}
   - component: {fileID: 2349802}
   - component: {fileID: 6494802}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: flaps_b_skin3 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20551,7 +20564,7 @@ GameObject:
   - component: {fileID: 3380558}
   - component: {fileID: 2357252}
   - component: {fileID: 6450420}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: flaps_b_skin3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -53,7 +53,6 @@ MonoBehaviour:
   promptButton1: {fileID: 2423386831934368415}
   promptButton2: {fileID: 7680331541363810926}
   promptButton3: {fileID: 8501302780381865985}
-  screenshotManager: {fileID: 0}
 --- !u!114 &7833910723178357333
 MonoBehaviour:
   m_ObjectHideFlags: 0

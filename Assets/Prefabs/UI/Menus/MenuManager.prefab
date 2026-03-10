@@ -47,8 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pauseMenu: {fileID: 8642055580650454004}
-  playerInput: {fileID: 5105191708545160277}
-  playerController: {fileID: 9122544190025101604}
 --- !u!114 &5105191708545160277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +169,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5578573097956888513, guid: e90b0f791112c4a38816cefb8c1443d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9122544190025101604}
+    - target: {fileID: 7273572522766796019, guid: e90b0f791112c4a38816cefb8c1443d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9122544190025101604}
+    - target: {fileID: 7389767089284557994, guid: e90b0f791112c4a38816cefb8c1443d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9122544190025101604}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

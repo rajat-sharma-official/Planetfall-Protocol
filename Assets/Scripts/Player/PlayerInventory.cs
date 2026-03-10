@@ -11,11 +11,13 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
     void OnEnable()
     {
         PlayerController.OnScrapReset += DEBUG_ResetScrapAmount;
+        PlayerController.OnMaxScrap += DEBUG_GiveMaxScrap;
     }
 
     void OnDisable()
     {
         PlayerController.OnScrapReset -= DEBUG_ResetScrapAmount;
+        PlayerController.OnMaxScrap -= DEBUG_GiveMaxScrap;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -56,6 +58,12 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
     private void DEBUG_ResetScrapAmount()
     {
         scrap = 0;
+        OnScrapChanged?.Invoke(scrap);
+    }
+
+    private void DEBUG_GiveMaxScrap()
+    {
+        scrap = 500;
         OnScrapChanged?.Invoke(scrap);
     }
 }
