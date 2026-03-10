@@ -1242,6 +1242,7 @@ GameObject:
   - component: {fileID: 4047652858230854}
   - component: {fileID: 95759655224206830}
   - component: {fileID: 6316012521610840161}
+  - component: {fileID: 6130155028014774688}
   m_Layer: 8
   m_Name: Character_Robot_01_FixedScale
   m_TagString: NPC
@@ -1295,7 +1296,7 @@ Animator:
   m_GameObject: {fileID: 1401195396439946}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 4cf8e35218228c74e87ae151b5dc4516, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce8b99f34f57044a7a0aa39fbf184965, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1320,6 +1321,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC_Emerys
   inkJSONasset: {fileID: 4900000, guid: 570f5c57149db4346b959b400a9c944f, type: 3}
+--- !u!136 &6130155028014774688
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401195396439946}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.25
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1402899678239396
 GameObject:
   m_ObjectHideFlags: 0
