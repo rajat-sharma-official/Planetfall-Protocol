@@ -61,6 +61,9 @@ public class FallDamage : MonoBehaviour
                     // scaling damage by how much damage they get
                     float damage = Mathf.Pow(t, 0.6f) * maxDamage;
                     health.TakeDamage(damage);
+
+                    //play sfx
+                    FindObjectOfType<AudioManager>().Play("FallDamage");
                 }
             }
             // reset for the next fall
