@@ -203,6 +203,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3264904180907647717, guid: 6c02aadecf691674ab6dbd8ca6252b14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2514012778350763263}
+    - target: {fileID: 3457736106778598496, guid: 6c02aadecf691674ab6dbd8ca6252b14, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220169498182543077, guid: 6c02aadecf691674ab6dbd8ca6252b14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2514012778350763263}
     - target: {fileID: 5569878836166785947, guid: 6c02aadecf691674ab6dbd8ca6252b14, type: 3}
       propertyPath: m_Name
       value: EndGamePanel

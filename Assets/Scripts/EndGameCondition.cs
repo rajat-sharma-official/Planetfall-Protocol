@@ -34,6 +34,9 @@ public class EndGameCondition : MonoBehaviour, IDataPersistence, IInteractable
     {
         if(endGameAvailable)
         {
+            //show cursor for menu navigation
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("ObsidianScene");
         } 
         else
