@@ -75,6 +75,9 @@ public class PlayerHealth : MonoBehaviour, IDataPersistence
             hz.ForceReset();
         }
 
+        // sfx
+        FindObjectOfType<AudioManager>().Play("Death");
+
         if (DataPersistenceManager.instance != null)
         {
             // LoadGame will call LoadData on PlayerController, PlayerHealth, etc.
