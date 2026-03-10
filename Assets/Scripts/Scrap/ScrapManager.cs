@@ -7,6 +7,7 @@ public class ScrapManager : MonoBehaviour, IDataPersistence
     public static ScrapManager Instance { get; private set; }
 
     private Dictionary<GameObject, bool> scrapLocations = new Dictionary<GameObject, bool>();
+    public static event Action<int> ScrapCountUpdated; 
 
     private void Awake()
     {
@@ -20,14 +21,19 @@ public class ScrapManager : MonoBehaviour, IDataPersistence
         RegisterAllScrap();
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         PlayerController.OnScrapReset += ResetAllScrap;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         PlayerController.OnScrapReset -= ResetAllScrap;
+    }
+
+    private void Start()
+    {
+        ScrapCountUpdated(scrapLocations.Count);
     }
 
     private void RegisterAllScrap()

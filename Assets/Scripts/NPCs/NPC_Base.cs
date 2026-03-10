@@ -21,6 +21,7 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
     public static event Action FirstTalkedTo;
     protected bool pauseMenuOpen = false;
     protected bool veraMenuOpen = false;
+    protected string interactKey = "E";
 
     private DialogueVariables dialogueVariables;
 
@@ -82,7 +83,7 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
 
     public virtual string GetInteractionPrompt()
     {
-        return $"Talk to {npcName}";
+        return $"Press {interactKey} to talk to {npcName}";
     }
 
     protected void ChoiceClick(int choice)
