@@ -65,7 +65,7 @@ public class VERANav : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         // this.transform.position = data.VERAPosition;
-        // navmesh issues w/ transform.posoition so we warp instead, which is basically teleporting but it works with the navmesh and doesn't cause issues
+        // navmesh issues w/ transform.position so we warp instead, which is basically teleporting but it works with the navmesh and doesn't cause issues
         if (VERA == null)
         {
             VERA = GetComponent<NavMeshAgent>(); // safety + grace 
