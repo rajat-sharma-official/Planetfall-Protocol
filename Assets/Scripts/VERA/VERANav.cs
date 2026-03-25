@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class VERAFollow : MonoBehaviour, IDataPersistence
+public class VERANav : MonoBehaviour, IDataPersistence
 {
     
     //reference to player location data 
