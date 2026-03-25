@@ -17,7 +17,7 @@ public class VERAFollow : MonoBehaviour, IDataPersistence
 
     void Start()
     {
-        VERA = GetComponent<NavMeshAgent>();
+       // VERA = GetComponent<NavMeshAgent>();
         VERA.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
 
         //find player game object in scene to reference 
@@ -30,6 +30,13 @@ public class VERAFollow : MonoBehaviour, IDataPersistence
         {
             Debug.LogError("player not found!");
         }
+    }
+
+    void Awake()
+    {
+        // this was moved into awake because save loads in start, and if start wasn't run then VERA wouldn't have any position to load into
+        VERA = GetComponent<NavMeshAgent>();
+        VERA.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
     }
 
     void Update()
@@ -59,7 +66,16 @@ public class VERAFollow : MonoBehaviour, IDataPersistence
     //load VERA's position
     public void LoadData(GameData data)
     {
-        this.transform.position = data.VERAPosition; 
+        // this.transform.position = data.VERAPosition;
+        // navmesh issues w/ transform.posoition so we warp instead, which is basically teleporting but it works with the navmesh and doesn't cause issues
+        if (VERA == null)
+        {
+            VERA = GetComponent<NavMeshAgent>(); // safety + grace 
+        }
+        // using warp to teleport VERA to the saved position without messing with the navmesh, which caused issues when tried to just set transform.position
+        // then resetting path and clearing any old movement or data so VERA does not continue to old path after loading and warping to new position
+        VERA.Warp(data.VERAPosition);
+        VERA.ResetPath();
     }
 
     //save VERA's position
