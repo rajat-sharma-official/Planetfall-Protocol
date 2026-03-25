@@ -26,6 +26,7 @@ At the center of the experience is **VERA** (*Vital Environmental Resource Analy
 - [Monetization](#monetization)
 - [Development Team](#development-team)
 - [Project Status](#project-status)
+- [Summary](#summary)
 - [Links](#links)
 - [Assets](#assets)
 - [License](#license)
