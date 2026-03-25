@@ -7,11 +7,14 @@ public class HazardWarningUI : MonoBehaviour
 
     [Header("Red overlay")]
     [SerializeField] private HazardRedHueUI redHue;
+    public HazardRedHueUI RedHue => redHue;
+
+    [SerializeField] private GameObject warningBanner;
 
     // Track which hazards we are inside
     private readonly HashSet<int> activeHazards = new HashSet<int>();
 
-    private void Start()
+    private void Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -20,7 +23,11 @@ public class HazardWarningUI : MonoBehaviour
         }
 
         Instance = this;
-        redHue?.StopBreathing();
+        RedHue?.StopBreathing();
+        if(warningBanner != null)
+        {
+            warningBanner.SetActive(false);
+        }
     }
 
     public void EnterHazard(MonoBehaviour hazard)
@@ -32,7 +39,13 @@ public class HazardWarningUI : MonoBehaviour
 
         // 0 -> 1 : start red hue
         if (before == 0 && activeHazards.Count == 1)
-            redHue?.StartBreathing();
+        {
+            RedHue?.StartBreathing();
+            if(warningBanner != null)
+            {
+                warningBanner.SetActive(true);
+            }
+        }
     }
 
     public void ExitHazard(MonoBehaviour hazard)
@@ -42,13 +55,23 @@ public class HazardWarningUI : MonoBehaviour
         activeHazards.Remove(hazard.GetInstanceID());
 
         // 1 -> 0 : stop red hue
-        if (activeHazards.Count == 0)
-            redHue?.StopBreathing();
+        if (activeHazards.Count == 0){
+
+            RedHue?.StopBreathing();
+            if(warningBanner != null)
+            {
+                warningBanner.SetActive(false);
+            }
+        }
     }
 
     public void ForceClearAll()
     {
         activeHazards.Clear();
-        redHue?.StopBreathing();
+        RedHue?.StopBreathing();
+        if(warningBanner != null)
+        {
+            warningBanner.SetActive(false);
+        }
     }
 }

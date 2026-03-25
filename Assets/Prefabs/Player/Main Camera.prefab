@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3142186921667033550}
   - component: {fileID: 2625877833205498366}
   - component: {fileID: 9048127463253539430}
+  - component: {fileID: 606937659514307306}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7524839709389285314}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.35356, y: 0.75251, z: -10.35356}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -155,3 +156,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 307
   queryTriggerInteraction: 1
+--- !u!114 &606937659514307306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7524839709389285314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6ff31bdab0045d1883184f383441a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageShake
+  impactDistance: 0.12
+  impactDuration: 0.18
