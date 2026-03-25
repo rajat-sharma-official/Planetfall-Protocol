@@ -31,7 +31,8 @@ public class VERANav : MonoBehaviour, IDataPersistence
 
     void Awake()
     {
-        // this was moved into awake because save loads in start, and if start wasn't run then VERA wouldn't have any position to load into
+        // Initialize the NavMeshAgent in Awake so it's ready if LoadData is invoked during scene loading,
+        // which can occur before this component's Start method runs depending on script execution order.
         VERA = GetComponent<NavMeshAgent>();
         VERA.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
     }
