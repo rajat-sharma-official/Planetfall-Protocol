@@ -17,9 +17,6 @@ public class VERANav : MonoBehaviour, IDataPersistence
 
     void Start()
     {
-       // VERA = GetComponent<NavMeshAgent>();
-        VERA.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
-
         //find player game object in scene to reference 
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if(playerObject != null)
