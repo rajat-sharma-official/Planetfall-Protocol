@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class VERAFollow : MonoBehaviour, IDataPersistence
+public class VERANav : MonoBehaviour, IDataPersistence
 {
     
     //reference to player location data 
@@ -17,9 +17,6 @@ public class VERAFollow : MonoBehaviour, IDataPersistence
 
     void Start()
     {
-        VERA = GetComponent<NavMeshAgent>();
-        VERA.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
-
         //find player game object in scene to reference 
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if(playerObject != null)
@@ -30,6 +27,14 @@ public class VERAFollow : MonoBehaviour, IDataPersistence
         {
             Debug.LogError("player not found!");
         }
+    }
+
+    void Awake()
+    {
+        // Initialize the NavMeshAgent in Awake so it's ready if LoadData is invoked during scene loading,
+        // which can occur before this component's Start method runs depending on script execution order.
+        VERA = GetComponent<NavMeshAgent>();
+        VERA.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
     }
 
     void Update()
@@ -59,7 +64,16 @@ public class VERAFollow : MonoBehaviour, IDataPersistence
     //load VERA's position
     public void LoadData(GameData data)
     {
-        this.transform.position = data.VERAPosition; 
+        // this.transform.position = data.VERAPosition;
+        // navmesh issues w/ transform.position so we warp instead, which is basically teleporting but it works with the navmesh and doesn't cause issues
+        if (VERA == null)
+        {
+            VERA = GetComponent<NavMeshAgent>(); // safety + grace 
+        }
+        // using warp to teleport VERA to the saved position without messing with the navmesh, which caused issues when tried to just set transform.position
+        // then resetting path and clearing any old movement or data so VERA does not continue to old path after loading and warping to new position
+        VERA.Warp(data.VERAPosition);
+        VERA.ResetPath();
     }
 
     //save VERA's position
