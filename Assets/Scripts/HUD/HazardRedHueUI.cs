@@ -13,8 +13,14 @@ public class HazardRedHueUI : MonoBehaviour
     [Header("Audio (optional)")]
     [SerializeField] private string sfxName = "Damage";
 
+    [Header("Fall Damage Flash")]
+    [SerializeField] private float flashInSeconds = 0.05f;
+    [SerializeField] private float flashOutSeconds = 0.45f;
+
     private CanvasGroup group;
     private Coroutine breatheCo;
+    
+    private Coroutine flashCo;
     private AudioManager audioManager;
 
     private void Awake()
@@ -70,5 +76,40 @@ public class HazardRedHueUI : MonoBehaviour
             group.alpha = targetAlpha * ramp;
             yield return null;
         }
+    }
+
+    public void DoFlashingDamage(float normalizedDmg)
+    {
+        if (flashCo != null)
+            StopCoroutine(flashCo);
+
+        float targetAlpha = Mathf.Lerp(0.2f, 0.75f, Mathf.Clamp01(normalizedDmg));
+        flashCo = StartCoroutine(FlashRoutine(targetAlpha));
+    }
+
+    private IEnumerator FlashRoutine(float targetAlpha)
+    {
+        float startAlpha = group.alpha;
+        float t = 0f;
+
+        while (t < flashInSeconds)
+        {
+            t += Time.deltaTime;
+            group.alpha = Mathf.Lerp(startAlpha, targetAlpha, t / flashInSeconds);
+            yield return null;
+        }
+
+        group.alpha = targetAlpha;
+
+        t = 0f;
+        while (t < flashOutSeconds)
+        {
+            t += Time.deltaTime;
+            group.alpha = Mathf.Lerp(targetAlpha, 0f, t / flashOutSeconds);
+            yield return null;
+        }
+
+        group.alpha = 0f;
+        flashCo = null;
     }
 }

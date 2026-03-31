@@ -247,6 +247,7 @@ MonoBehaviour:
   safeSpeed: 12
   maxSpeed: 22
   maxDamage: 70
+  fallImpactPrefab: {fileID: 0}
 --- !u!1001 &8640802093627906678
 PrefabInstance:
   m_ObjectHideFlags: 0

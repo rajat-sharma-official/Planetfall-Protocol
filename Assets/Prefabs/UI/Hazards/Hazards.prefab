@@ -40,6 +40,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5712140945332900418}
     m_Modifications:
+    - target: {fileID: 934936291567914564, guid: 1aac5316c94b75243a156f7d337e931a, type: 3}
+      propertyPath: flashInSeconds
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 934936291567914564, guid: 1aac5316c94b75243a156f7d337e931a, type: 3}
+      propertyPath: flashOutSeconds
+      value: 0.45
+      objectReference: {fileID: 0}
     - target: {fileID: 1996014995230044045, guid: 1aac5316c94b75243a156f7d337e931a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -120,6 +128,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4052829558059981837, guid: 1aac5316c94b75243a156f7d337e931a, type: 3}
+      propertyPath: warningBanner
+      value: 
+      objectReference: {fileID: 7334693129887103096}
     - target: {fileID: 5293354184927043886, guid: 1aac5316c94b75243a156f7d337e931a, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
@@ -140,5 +152,10 @@ PrefabInstance:
 --- !u!224 &5407981035454919071 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1996014995230044045, guid: 1aac5316c94b75243a156f7d337e931a, type: 3}
+  m_PrefabInstance: {fileID: 5818165873921023506}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7334693129887103096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3851799802001483370, guid: 1aac5316c94b75243a156f7d337e931a, type: 3}
   m_PrefabInstance: {fileID: 5818165873921023506}
   m_PrefabAsset: {fileID: 0}

@@ -6,10 +6,14 @@ public class FallDamage : MonoBehaviour
     [SerializeField] private float safeSpeed = 12f;
     [SerializeField] private float maxSpeed = 22f;
     [SerializeField] private float maxDamage = 70f;
+    [SerializeField] private GameObject fallImpactPrefab; // for effects 
     // references to other player scripts
     private PlayerController player;
     private PlayerHealth health;
     private CharacterController controller;
+    // new hue!
+    private HazardRedHueUI redHueUI;
+
     // used to detect when we land
     private bool wasOnGroundLastFrame;
     // storest velo
@@ -25,6 +29,9 @@ public class FallDamage : MonoBehaviour
         controller = GetComponent<CharacterController>();
         wasOnGroundLastFrame = true;
         lowestVelocity = 0f;
+
+        if(HazardWarningUI.Instance != null)
+            redHueUI = HazardWarningUI.Instance.RedHue;
     }
 
     void Update()
@@ -56,13 +63,18 @@ public class FallDamage : MonoBehaviour
                 // only apply damage if strong enough!!!!
                 if (impactSpeed > safeSpeed)
                 {
+                    if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3f))
+                    {
+                        Instantiate(fallImpactPrefab, hit.point, Quaternion.identity);
+                    }
                     // convert fall speed, 0-1 range via lerp
                     float t = Mathf.InverseLerp(safeSpeed, maxSpeed, impactSpeed);
                     // scaling damage by how much damage they get
                     float damage = Mathf.Pow(t, 0.6f) * maxDamage;
                     health.TakeDamage(damage);
 
-                    //play sfx
+                    //play sfx, flash red, etc
+                    redHueUI?.DoFlashingDamage(t);
                     FindObjectOfType<AudioManager>().Play("FallDamage");
                 }
             }
