@@ -718,17 +718,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 7639261563009864643}
-    - target: {fileID: 4091320137108544756, guid: a10bbb6d40bc00246a6f200fb7385d9d, type: 3}
-      propertyPath: fallImpactPrefab
-      value: 
-      objectReference: {fileID: 8176948822595614071, guid: 78b582078a07c45a58ee16f92ce04a68, type: 3}
     - target: {fileID: 4203427366503909983, guid: a10bbb6d40bc00246a6f200fb7385d9d, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 9189046575698860188, guid: a10bbb6d40bc00246a6f200fb7385d9d, type: 3}
-    - {fileID: 5903107676904584022, guid: a10bbb6d40bc00246a6f200fb7385d9d, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
