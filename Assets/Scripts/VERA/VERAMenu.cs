@@ -11,6 +11,8 @@ public class VERAMenu : MonoBehaviour
     // this menu gets opened/closed based on player input
     [SerializeField] private GameObject VERAMenuPanel;
 
+    [SerializeField] private VERAPopupController popupController;
+
     // tracks whether the vera menu is currently visible
     private bool isMenuOpen = false;
 
@@ -28,6 +30,7 @@ public class VERAMenu : MonoBehaviour
     private VERAHTTPClient veraClient;
 
     private string pendingRawJson = null;
+    private string pendingSystemResponse = null;
 
     public static event Action VERAMenuActive;
     public static event Action VERAMenuInactive;
@@ -70,6 +73,10 @@ public class VERAMenu : MonoBehaviour
     {
         autoBindUI();
 
+        if (popupController == null)
+        {
+            popupController = FindFirstObjectByType<VERAPopupController>();
+        }
         veraClient = FindFirstObjectByType<VERAHTTPClient>();
         if (veraClient != null)
             veraClient.OnResponse += OnMessage;
@@ -195,6 +202,9 @@ public class VERAMenu : MonoBehaviour
         if(pauseMenuOpen || dialoguePanelOpen)
             return;
 
+        if (popupController != null)
+            popupController.HidePopup();
+
         //show the menu and pause player movement
         // makes the vera ui appear
         if (VERAMenuPanel != null) VERAMenuPanel.SetActive(true);
@@ -221,10 +231,24 @@ public class VERAMenu : MonoBehaviour
         // set default text for the response box when menu opens
         if (responseText != null)
         {
-            responseText.text = "Ask VERA...";
+            bool showingSystemMessage = !string.IsNullOrWhiteSpace(pendingSystemResponse);
+
+            if (showingSystemMessage)
+            {
+                responseText.text = pendingSystemResponse;
+                pendingSystemResponse = null;
+                responseText.margin = new Vector4(20, 35, 20, 20);
+                responseText.textWrappingMode = TextWrappingModes.Normal;
+            }
+            else
+            {
+                responseText.text = "Ask VERA...";
+                responseText.margin = Vector4.zero;
+            }
+
             responseText.gameObject.SetActive(true);
             responseText.enabled = true;
-            responseText.margin = Vector4.zero;
+            responseText.ForceMeshUpdate();
         }
     }
 
@@ -280,6 +304,11 @@ public class VERAMenu : MonoBehaviour
             responseText.textWrappingMode = TextWrappingModes.Normal;
             responseText.ForceMeshUpdate();
         }
+    }
+
+    public void QueueRepairReadyMessage()
+    {
+        pendingSystemResponse = "I have detected sufficient scrap for ship repairs. Return to the crash site to begin the repair sequence.";
     }
 
     // quick preset questions
