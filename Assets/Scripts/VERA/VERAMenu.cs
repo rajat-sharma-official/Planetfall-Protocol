@@ -323,7 +323,7 @@ public class VERAMenu : MonoBehaviour
         }
     }
 
-    public void QueueRepairReadyMessage()
+    public void RepairReadyMessage()
     {
         int randomIndex = UnityEngine.Random.Range(0, repairReadyMessages.Length);
         pendingSystemResponse = repairReadyMessages[randomIndex];

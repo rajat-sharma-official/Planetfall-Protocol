@@ -94,7 +94,7 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
             popupController.ShowPopup();
 
         if (veraMenu != null)
-            veraMenu.QueueRepairReadyMessage();
+            veraMenu.RepairReadyMessage();
     }
 }
 
