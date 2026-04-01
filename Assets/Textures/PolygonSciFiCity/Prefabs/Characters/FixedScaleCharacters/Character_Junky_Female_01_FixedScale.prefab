@@ -3561,6 +3561,8 @@ GameObject:
   - component: {fileID: 95255593108217166}
   - component: {fileID: 4696647182668754693}
   - component: {fileID: 8103778471221795409}
+  - component: {fileID: 8008074684384110571}
+  - component: {fileID: 2279671541153815287}
   m_Layer: 8
   m_Name: Character_Junky_Female_01_FixedScale
   m_TagString: NPC
@@ -3612,7 +3614,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787067274310504}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 4cf8e35218228c74e87ae151b5dc4516, type: 3}
   m_Controller: {fileID: 9100000, guid: 34dfbfc10d27c4d569dda9cb098ea708, type: 2}
   m_CullingMode: 1
@@ -3662,6 +3664,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC_Tamira
   inkJSONasset: {fileID: 4900000, guid: e9a258fa7b9e24628904bbbfd2730f13, type: 3}
+--- !u!195 &8008074684384110571
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787067274310504}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2279671541153815287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787067274310504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf07714ae814340c2bf0a38337e539e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  target: {fileID: 4203427366503909983, guid: a10bbb6d40bc00246a6f200fb7385d9d, type: 3}
 --- !u!1 &1810119730957198
 GameObject:
   m_ObjectHideFlags: 0
