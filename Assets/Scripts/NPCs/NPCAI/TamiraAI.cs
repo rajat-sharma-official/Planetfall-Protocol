@@ -5,12 +5,13 @@ public class TamiraAI : MonoBehaviour
 {
     [SerializeField] private GameObject target; //set to the player
     private NavMeshAgent agent; //npc
+    private Animator animator; 
 
     [SerializeField] private float wanderRadius = 11f; 
     [SerializeField] private float minWaitTime = 2f;
     [SerializeField] private float maxWaitTime = 4f;
 
-    [SerializeField] private float engageDistance = 3f;
+    [SerializeField] private float engageDistance = 7f;
     
     private float waitTimer = 0f;
     private float waitDuration = 0f;
@@ -27,12 +28,15 @@ public class TamiraAI : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
 
         if(agent == null)
         {
             Debug.LogError("nav mesh agent is null");
         }
+        agent.stoppingDistance = 3f;
+        agent.radius = 0.5f;
 
         target = GameObject.FindWithTag("Player");
         if(target == null)
@@ -40,7 +44,7 @@ public class TamiraAI : MonoBehaviour
             Debug.LogError("player not found");
         }
 
-        //when game stats, npc defaults to idle
+        //when game starts, npc defaults to idle
         currentState = NPCBehaviors.idle;
     }
 
@@ -48,7 +52,7 @@ public class TamiraAI : MonoBehaviour
     {
         //calculate npc distance to player to determine if they should stop wandering
         float distanceToPlayer = Vector3.Distance(transform.position, target.transform.position);
-   
+        animator.SetFloat("Speed", agent.velocity.magnitude);
         switch (currentState)
         {
             case NPCBehaviors.idle:
@@ -93,7 +97,7 @@ public class TamiraAI : MonoBehaviour
             EnterEngaged();
             return;
         }
-        
+
         if(!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
             EnterIdle();
@@ -126,21 +130,30 @@ public class TamiraAI : MonoBehaviour
         agent.isStopped = true;
         waitTimer = 0f;
         waitDuration = Random.Range(minWaitTime,  maxWaitTime);
+        animator.SetBool("Engaged", false);
     }
 
     void EnterWandering()
     {
         Vector3 destination = GetRandomNavMeshPoint(transform.position, wanderRadius);
+        
+        if(Vector3.Distance(transform.position, destination) < 1f)
+        {
+            EnterIdle();
+            return;
+        }
+        
         agent.isStopped = false; 
         agent.SetDestination(destination);
         currentState = NPCBehaviors.wandering;
+        animator.SetBool("Engaged", false);
     }
 
     void EnterEngaged()
     {
         currentState = NPCBehaviors.engaged;
         agent.isStopped = true; 
-        Debug.Log("engaged");
+        animator.SetBool("Engaged", true);
     }
 
     Vector3 GetRandomNavMeshPoint(Vector3 start, float radius)
