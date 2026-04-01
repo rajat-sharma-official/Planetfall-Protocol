@@ -47,6 +47,23 @@ public class VERAMenu : MonoBehaviour
         public string currentZone = "None";
     }
 
+    private readonly string[] repairReadyMessages =
+    {
+        "We have enough scrap to begin repairs. Return to the crash site when you're ready, Atlas.",
+        "Scrap threshold reached. We can repair the ship now. I recommend heading back to Echo Basin.",
+
+        "We have what we need. For once, the numbers are on our side.",
+        "That should be enough to get the ship working again. Assuming nothing else on this planet objects.",
+
+        "We can repair the ship now, Atlas. I'd prefer we do that before Aurelia gives us another surprise.",
+        "Repairs are possible. Let’s get back to the crash site while that remains true.",
+
+        "We have enough scrap. Return to the ship, and I'll walk you through the repair sequence.",
+        "The ship can be repaired now. Good. I'd like at least one outcome today to be predictable.",
+
+        "Repair conditions met. We should return to the crash site.",
+        "We have enough scrap to leave. Whether we should is... a separate question."
+    };
     [System.Serializable]
     private class VeraOutputPayload
     {
@@ -308,8 +325,11 @@ public class VERAMenu : MonoBehaviour
 
     public void QueueRepairReadyMessage()
     {
-        pendingSystemResponse = "I have detected sufficient scrap for ship repairs. Return to the crash site to begin the repair sequence.";
+        int randomIndex = UnityEngine.Random.Range(0, repairReadyMessages.Length);
+        pendingSystemResponse = repairReadyMessages[randomIndex];
     }
+
+
 
     // quick preset questions
     public void AskWhereAmI() => AskSpecificQuestion("Where am I?");
