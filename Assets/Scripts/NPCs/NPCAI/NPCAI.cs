@@ -29,7 +29,7 @@ public class TamiraAI : MonoBehaviour
     [Header("NPC Wander/Idle Settings")]
     [SerializeField] private float wanderRadius = 4f;
     [SerializeField] private float wanderingTime = 5f;
-    [SerializeField] private float idleTime = 3f;
+    [SerializeField] private float idleTime = 10f;
 
     void Start()
     {
