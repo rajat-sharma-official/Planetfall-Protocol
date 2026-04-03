@@ -4,7 +4,6 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 
-
 public class VERAMenu : MonoBehaviour
 {
     // reference to the vera menu ui panel shown on screen
@@ -323,12 +322,16 @@ public class VERAMenu : MonoBehaviour
         }
     }
 
-    public void RepairReadyMessage()
+    public void GetRepairReadyMessage()
     {
         int randomIndex = UnityEngine.Random.Range(0, repairReadyMessages.Length);
         pendingSystemResponse = repairReadyMessages[randomIndex];
     }
 
+    public void GetSystemMessage(string message)
+    {
+        pendingSystemResponse = message;
+    }
 
 
     // quick preset questions

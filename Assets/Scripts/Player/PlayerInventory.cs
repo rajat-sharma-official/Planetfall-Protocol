@@ -12,6 +12,7 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
     [SerializeField] private int requiredScrap = 30;
     [SerializeField] private VERAMenu veraMenu;
     [SerializeField] private VERAPopupController popupController;
+    [SerializeField] private VERAHintManager hintManager;
     private bool repairUnlockTriggered = false;
 
     void OnEnable()
@@ -55,6 +56,10 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
         scrap += amount;
         OnScrapChanged?.Invoke(scrap);
         CheckRepairUnlock();
+        if (hintManager != null)
+        {
+            hintManager.RegisterScrapProgress();      
+        }
     }
 
     public void RemoveScrap(int amount)
@@ -94,7 +99,7 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
             popupController.ShowPopup();
 
         if (veraMenu != null)
-            veraMenu.RepairReadyMessage();
+            veraMenu.GetRepairReadyMessage();
     }
 }
 
@@ -105,5 +110,8 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
 
         if (popupController == null)
             popupController = FindFirstObjectByType<VERAPopupController>();
+
+        if (hintManager == null)
+            hintManager = FindFirstObjectByType<VERAHintManager>();
     }
 }
