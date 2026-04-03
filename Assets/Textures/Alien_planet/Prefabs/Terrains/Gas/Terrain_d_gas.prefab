@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 684219282562293587}
   m_Layer: 0
   m_Name: Terrain_d_gas
-  m_TagString: Hazard
+  m_TagString: Riftlands
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
