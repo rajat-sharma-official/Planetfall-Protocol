@@ -1,43 +1,50 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class TamiraAI : MonoBehaviour
 {
-    [SerializeField] private GameObject target; //set to the player
-    private NavMeshAgent agent; //npc
+    //npc
+    private NavMeshAgent agent; 
+    //set to the player
+    [SerializeField] private GameObject target; 
+    //animator controller 
     private Animator animator; 
 
-    [SerializeField] private float wanderRadius = 11f; 
-    [SerializeField] private float minWaitTime = 2f;
-    [SerializeField] private float maxWaitTime = 4f;
-
-    [SerializeField] private float engageDistance = 7f;
-    
-    private float waitTimer = 0f;
-    private float waitDuration = 0f;
-
-    //npc states
+    //variables for npc states + checking player
     private enum NPCBehaviors
-    {
-        idle, //standing
-        wandering, //walking around
-        engaged //in conversation, or acknowledged player within conversation distance
+    {   
+        //standing
+        idle, 
+         //walking around
+        wandering,
+        //in conversation, or acknowledged player within conversation distance
+        engaged
+
     }
 
     [SerializeField] private NPCBehaviors currentState;
+    [SerializeField] private bool playerInRange;
+    
+    [Header("NPC Wander/Idle Settings")]
+    [SerializeField] private float wanderRadius = 4f;
+    [SerializeField] private float wanderingTime = 5f;
+    [SerializeField] private float idleTime = 3f;
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        //get npc
         agent = GetComponent<NavMeshAgent>();
-
         if(agent == null)
         {
             Debug.LogError("nav mesh agent is null");
         }
-        agent.stoppingDistance = 3f;
-        agent.radius = 0.5f;
+        agent.stoppingDistance = 0.5f;
 
+        //get controller 
+        animator = GetComponent<Animator>();
+
+        //get player "target"
         target = GameObject.FindWithTag("Player");
         if(target == null)
         {
@@ -46,127 +53,123 @@ public class TamiraAI : MonoBehaviour
 
         //when game starts, npc defaults to idle
         currentState = NPCBehaviors.idle;
+        StartCoroutine(WanderingCooldownRoutine());
     }
 
     void Update()
-    {
-        //calculate npc distance to player to determine if they should stop wandering
-        float distanceToPlayer = Vector3.Distance(transform.position, target.transform.position);
-        animator.SetFloat("Speed", agent.velocity.magnitude);
+    {                
         switch (currentState)
         {
             case NPCBehaviors.idle:
-                HandleIdle(distanceToPlayer);
+                agent.isStopped = true;
+                animator.SetFloat("Speed", 0f);
+                //npc idle, stopped
+                Debug.Log("i'm idle");
                 break;
 
             case NPCBehaviors.wandering:
-                HandleWandering(distanceToPlayer);
+                agent.isStopped = false;
+                animator.SetFloat("Speed", agent.velocity.magnitude);
+                //npc is wandering, moving
+                Debug.Log("i'm wandering");
                 break;
 
             case NPCBehaviors.engaged:
-                HandleEngaged(distanceToPlayer);
+                agent.isStopped = true; 
+                animator.SetFloat("Speed", 0f);
+                FacePlayer();
+                //npc is stopped, engaged w/ player
+                Debug.Log("i'm engaged");
                 break;
         }
     }
 
-    void HandleIdle(float distanceToPlayer)
+    //on trigger enter method 
+    //check if we hit something tagged player 
+    //switch to engaged state 
+    void OnTriggerEnter(Collider other)
     {
-        agent.isStopped = true;
-
-        //if npc is within conversation distance, acknowledge player
-        if(distanceToPlayer <= engageDistance)
+        if(other.tag == "Player")
         {
-            EnterEngaged();
-            return;
-        }
-
-        //if in idle for longer than the random wait duration, start wandering
-        waitTimer += Time.deltaTime;
-        if(waitTimer >= waitDuration)
-        {
-            EnterWandering();
-        }
+            playerInRange = true; 
+            currentState = NPCBehaviors.engaged;
+            animator.SetBool("Engaged", true);
+        }    
     }
-    
-    void HandleWandering(float distanceToPlayer)
-    {
-        agent.isStopped = false;
-        
-        if(distanceToPlayer <= engageDistance)
-        {
-            EnterEngaged();
-            return;
-        }
 
-        if(!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+    //on trigger exit method 
+    //check if player is no longe in range 
+    //switch to idle state
+    void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Player")
         {
-            EnterIdle();
+            playerInRange = false;
+            animator.SetBool("Engaged", false);
+            StartCoroutine(WanderingCooldownRoutine());
         }
     }
 
-    void HandleEngaged(float distanceToPlayer)
-    {
-        agent.isStopped = true;
-        //arrow pointing from npc to the player 
-        Vector3 direction = (target.transform.position - transform.position).normalized;
-        direction.y = 0;
-        
-        if(direction != Vector3.zero)
-        {   
-            //smoothly rotate npc to look at player when within certain distance
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 5f);
-        }
-
-        //if outside of engage distance, just go idle
-        if(distanceToPlayer > engageDistance)
-        {
-            EnterIdle();
-        }
-    }
-
-    void EnterIdle()
-    {
+    private IEnumerator WanderingCooldownRoutine()
+    {       
         currentState = NPCBehaviors.idle;
-        agent.isStopped = true;
-        waitTimer = 0f;
-        waitDuration = Random.Range(minWaitTime,  maxWaitTime);
-        animator.SetBool("Engaged", false);
-    }
+        yield return new WaitForSeconds(idleTime);
 
-    void EnterWandering()
-    {
-        Vector3 destination = GetRandomNavMeshPoint(transform.position, wanderRadius);
-        
-        if(Vector3.Distance(transform.position, destination) < 1f)
+        if(!playerInRange)
         {
-            EnterIdle();
-            return;
+            Vector3 destination = GetRandomNavMeshPoint(transform.position, wanderRadius);
+            //if distance is too close to npc origin, go idle and don't attempt to walk
+            if(Vector3.Distance(transform.position, destination) < 0.5f)
+            {
+                Debug.Log("too close");
+                StartCoroutine(WanderingCooldownRoutine());
+                yield break;
+            }
+
+            currentState = NPCBehaviors.wandering;
+            agent.isStopped = false;
+            agent.SetDestination(destination);
+            StartCoroutine(IdleCooldownRoutine());
+            yield break;
         }
-        
-        agent.isStopped = false; 
-        agent.SetDestination(destination);
-        currentState = NPCBehaviors.wandering;
-        animator.SetBool("Engaged", false);
     }
 
-    void EnterEngaged()
-    {
-        currentState = NPCBehaviors.engaged;
-        agent.isStopped = true; 
-        animator.SetBool("Engaged", true);
+    private IEnumerator IdleCooldownRoutine()
+    {       
+        yield return new WaitForSeconds(wanderingTime);
+
+        if(!playerInRange)
+        {
+            currentState = NPCBehaviors.idle;
+            StartCoroutine(WanderingCooldownRoutine());
+            yield break;
+        }
     }
 
-    Vector3 GetRandomNavMeshPoint(Vector3 start, float radius)
+    //generate random point within npc radius to wander to 
+    private Vector3 GetRandomNavMeshPoint(Vector3 origin, float radius)
     {
-        Vector3 randomPoint = start + Random.insideUnitSphere * radius;
-        //want a random point to wander to, but don't want the npc to start floating 
-        randomPoint.y = start.y;
+        Vector3 randomPoint = origin + Random.insideUnitSphere * radius; 
+        randomPoint.y = origin.y;
 
-        NavMeshHit hit;
+        NavMeshHit hit; 
         if(NavMesh.SamplePosition(randomPoint, out hit, radius, NavMesh.AllAreas))
         {
             return hit.position;
         }
-        return start;
+
+        return origin; 
     }
-}
+
+    //rotate to face player when engaged
+    private void FacePlayer()
+    {
+        Vector3 direction = (target.transform.position - transform.position).normalized;
+        direction.y = 0;
+
+        if(direction != Vector3.zero)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 5f);
+        }
+    }
+}  

@@ -3555,7 +3555,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6, y: 6, z: 6}
+  m_Size: {x: 7, y: 6, z: 7}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6714026386021765656
 MonoBehaviour:
@@ -3570,11 +3570,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TamiraAI
   target: {fileID: 0}
-  wanderRadius: 11
-  minWaitTime: 2
-  maxWaitTime: 4
-  engageDistance: 7
   currentState: 0
+  playerInRange: 0
+  wanderRadius: 11
+  wanderingTime: 5
+  idleTime: 3
 --- !u!195 &5739601484975472835
 NavMeshAgent:
   m_ObjectHideFlags: 0
