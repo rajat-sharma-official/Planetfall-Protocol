@@ -12,14 +12,14 @@ public class SettingsMenu : MonoBehaviour
 
     void OnEnable()
     {
-        PauseMenu.OpenSettingsMenu += OpenSettingsMenu;
-        PauseMenu.CloseSettingsMenu += CloseSettingsMenu;
+        PauseMenu.OpenSettingsMenu += OpenSettingsMenuEvent;
+        PauseMenu.CloseSettingsMenu += CloseSettingsMenuEvent;
     }
 
     void OnDisable()
     {
-        PauseMenu.OpenSettingsMenu -= OpenSettingsMenu;
-        PauseMenu.CloseSettingsMenu -= CloseSettingsMenu;
+        PauseMenu.OpenSettingsMenu -= OpenSettingsMenuEvent;
+        PauseMenu.CloseSettingsMenu -= CloseSettingsMenuEvent;
     }
 
     void Start()
