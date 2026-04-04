@@ -13,6 +13,8 @@ public class PauseMenu : MonoBehaviour{
     private bool dialoguePanelOpen = false;
     private bool veraMenuOpen = false;
 
+    public static event Action OpenSettingsMenu;
+
     private void OnEnable()
     {
         NPC_Base.OnConversationStart += DialoguePanelOpen;
@@ -111,10 +113,14 @@ public class PauseMenu : MonoBehaviour{
         Application.Quit();
         
     }
-
     public void saveGame()
     {
         DataPersistenceManager.instance.SaveGame();
         Debug.Log("Game saved.");
+    }
+
+    public void settingsMenu()
+    {
+        OpenSettingsMenu?.Invoke();
     }
 }
