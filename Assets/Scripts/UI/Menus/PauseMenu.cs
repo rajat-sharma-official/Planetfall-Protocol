@@ -66,8 +66,8 @@ public class PauseMenu : MonoBehaviour{
         if(settingsMenuOpen)
         {
             CloseSettingsMenu();
-        }
-        if(isPaused){
+        } 
+        else if(isPaused){
             resumeGame();
         }
         else{

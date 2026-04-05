@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using TMPro;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -9,17 +10,27 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Slider masterSlider;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
+    [SerializeField] private TMP_Text masterVolumeText;
+    [SerializeField] private TMP_Text musicVolumeText;
+    [SerializeField] private TMP_Text sfxVolumeText;
 
     void OnEnable()
     {
-        PauseMenu.OpenSettingsMenu += OpenSettingsMenuEvent;
-        PauseMenu.CloseSettingsMenu += CloseSettingsMenuEvent;
+        PauseMenu.OpenSettingsMenuEvent += OpenSettingsMenu;
+        PauseMenu.CloseSettingsMenuEvent += CloseSettingsMenu;
     }
 
     void OnDisable()
     {
-        PauseMenu.OpenSettingsMenu -= OpenSettingsMenuEvent;
-        PauseMenu.CloseSettingsMenu -= CloseSettingsMenuEvent;
+        PauseMenu.OpenSettingsMenuEvent -= OpenSettingsMenu;
+        PauseMenu.CloseSettingsMenuEvent -= CloseSettingsMenu;
+    }
+
+    void Awake()
+    {
+        masterSlider.onValueChanged.AddListener(SetMasterVolume);
+        musicSlider.onValueChanged.AddListener(SetMusicVolume);
+        sfxSlider.onValueChanged.AddListener(SetSFXVolume);
     }
 
     void Start()
@@ -35,10 +46,6 @@ public class SettingsMenu : MonoBehaviour
         SetMasterVolume(masterSlider.value);
         SetMusicVolume(musicSlider.value);
         SetSFXVolume(sfxSlider.value);
-
-        masterSlider.onValueChanged.AddListener(SetMasterVolume);
-        musicSlider.onValueChanged.AddListener(SetMusicVolume);
-        sfxSlider.onValueChanged.AddListener(SetSFXVolume);
     }
 
     private void OpenSettingsMenu()
@@ -56,6 +63,7 @@ public class SettingsMenu : MonoBehaviour
         audioMixer.SetFloat("MasterVolume", Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20);
         PlayerPrefs.SetFloat("MasterVolume", value);
         PlayerPrefs.Save();
+        masterVolumeText.text = Mathf.RoundToInt(value * 100) + "%";
     }
 
     public void SetMusicVolume(float value)
@@ -63,13 +71,15 @@ public class SettingsMenu : MonoBehaviour
         audioMixer.SetFloat("MusicVolume", Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20);
         PlayerPrefs.SetFloat("MusicVolume", value);
         PlayerPrefs.Save();
+        musicVolumeText.text = Mathf.RoundToInt(value * 100) + "%";
     }
 
     public void SetSFXVolume(float value)
     {
-        audioMixer.SetFloat("MusicVolume", Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20);
+        audioMixer.SetFloat("SFXVolume", Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20);
         PlayerPrefs.SetFloat("SFXVolume", value);
         PlayerPrefs.Save();
+        sfxVolumeText.text = Mathf.RoundToInt(value * 100) + "%";
     }
 
     void OnApplicationQuit()
