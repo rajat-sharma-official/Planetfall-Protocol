@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     //Camera
     [Header("Camera")]
     [SerializeField] private Transform playerCamera;
-    [SerializeField] private float lookSensitivity = 0.5f;
+    [SerializeField] private float lookSensitivity = 0.2f;
     [SerializeField] private float maxLookAngle = 80f;
     private Vector2 rotationInput;
     private float cameraPitch = 0f;

@@ -790,6 +790,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a10bbb6d40bc00246a6f200fb7385d9d, type: 3}
+--- !u!114 &3763643655359617784 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 678796188725422645, guid: a10bbb6d40bc00246a6f200fb7385d9d, type: 3}
+  m_PrefabInstance: {fileID: 4418229693162123469}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
 --- !u!4 &4119586356207848720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 322853488932584925, guid: a10bbb6d40bc00246a6f200fb7385d9d, type: 3}
@@ -1106,6 +1117,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3388237915096058821, guid: eaed6853c48b548e481a68f5d656b8a5, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 3763643655359617784}
     - target: {fileID: 3826615032586832770, guid: eaed6853c48b548e481a68f5d656b8a5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
