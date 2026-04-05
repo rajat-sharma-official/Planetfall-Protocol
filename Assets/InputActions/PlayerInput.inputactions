@@ -70,7 +70,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "VERA Menu",
+                    "name": "VERAMenu",
                     "type": "Button",
                     "id": "5cee06da-a26f-4b64-ba53-c74a1fd7a7e5",
                     "expectedControlType": "",
@@ -202,11 +202,11 @@
                 {
                     "name": "",
                     "id": "929f7de1-0dc4-4e47-87ed-fd28623fcfae",
-                    "path": "<Keyboard>/#(Q)",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "VERA Menu",
+                    "action": "VERAMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
