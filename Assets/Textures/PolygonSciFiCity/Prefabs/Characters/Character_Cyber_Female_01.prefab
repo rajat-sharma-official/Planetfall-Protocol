@@ -882,7 +882,7 @@ Animator:
   m_GameObject: {fileID: 1174504732505636}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: f13349cc09b03d447a26b54d406aaa8e, type: 3}
-  m_Controller: {fileID: 9100000, guid: ce8b99f34f57044a7a0aa39fbf184965, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8174fd6a218314ff8a9d5bec382ba758, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -975,7 +975,7 @@ MonoBehaviour:
   target: {fileID: 0}
   currentState: 0
   playerInRange: 0
-  wanderRadius: 4
+  wanderRadius: 10
   wanderingTime: 5
   idleTime: 10
 --- !u!114 &1655789123549350717
