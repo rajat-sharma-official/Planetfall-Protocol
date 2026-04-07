@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
-public class TamiraAI : MonoBehaviour
+public class NPCAI : MonoBehaviour
 {
     //npc
     private NavMeshAgent agent; 
@@ -64,14 +64,12 @@ public class TamiraAI : MonoBehaviour
                 agent.isStopped = true;
                 animator.SetFloat("Speed", 0f);
                 //npc idle, stopped
-                Debug.Log("i'm idle");
                 break;
 
             case NPCBehaviors.wandering:
                 agent.isStopped = false;
                 animator.SetFloat("Speed", agent.velocity.magnitude);
                 //npc is wandering, moving
-                Debug.Log("i'm wandering");
                 break;
 
             case NPCBehaviors.engaged:
@@ -79,7 +77,6 @@ public class TamiraAI : MonoBehaviour
                 animator.SetFloat("Speed", 0f);
                 FacePlayer();
                 //npc is stopped, engaged w/ player
-                Debug.Log("i'm engaged");
                 break;
         }
     }
