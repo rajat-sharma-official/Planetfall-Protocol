@@ -91,8 +91,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Border_Terrain_F_Ice
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1176216221027079557, guid: d38f44547b484475e9771b01169436ea, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -154,8 +153,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6221918707485596608, guid: e81dbd96416e24134b4fff676d018111, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -241,11 +239,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5774436155685791793, guid: b6af0e3ea8c024026ac9fda888411173, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 5774436155685791793, guid: b6af0e3ea8c024026ac9fda888411173, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -90
+      value: -93
       objectReference: {fileID: 0}
     - target: {fileID: 5774436155685791793, guid: b6af0e3ea8c024026ac9fda888411173, type: 3}
       propertyPath: m_LocalRotation.w
@@ -373,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4008092818300440058, guid: f84581ded45e6405e9508c8eaad7fb07, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -90
+      value: -93
       objectReference: {fileID: 0}
     - target: {fileID: 4008092818300440058, guid: f84581ded45e6405e9508c8eaad7fb07, type: 3}
       propertyPath: m_LocalRotation.w
@@ -466,58 +464,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 6826720364814734568, guid: c959551c3b7df41ec92a0fbe7ed91ff1, type: 3}
-    - {fileID: 4018201168358797868, guid: c959551c3b7df41ec92a0fbe7ed91ff1, type: 3}
-    - {fileID: 1358382950211257199, guid: c959551c3b7df41ec92a0fbe7ed91ff1, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8675554525386909648, guid: c959551c3b7df41ec92a0fbe7ed91ff1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3163724179251466187}
-    - targetCorrespondingSourceObject: {fileID: 8675554525386909648, guid: c959551c3b7df41ec92a0fbe7ed91ff1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6287552472828243717}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c959551c3b7df41ec92a0fbe7ed91ff1, type: 3}
---- !u!1 &758712026821307206 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8675554525386909648, guid: c959551c3b7df41ec92a0fbe7ed91ff1, type: 3}
-  m_PrefabInstance: {fileID: 8278388460800707734}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &3163724179251466187
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 758712026821307206}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 100, y: 100, z: 4.854456}
-  m_Center: {x: 0, y: 0, z: 0.45982075}
---- !u!114 &6287552472828243717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 758712026821307206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b34d9cf8ac64da649beecfb3fbec505a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DamageZone
-  damagePerSecond: 20
 --- !u!4 &758712026821783646 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8675554525387390152, guid: c959551c3b7df41ec92a0fbe7ed91ff1, type: 3}
@@ -576,8 +526,7 @@ PrefabInstance:
       value: Border_Terrain_E_ice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3559206820029239452, guid: b6af0e3ea8c024026ac9fda888411173, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6af0e3ea8c024026ac9fda888411173, type: 3}
