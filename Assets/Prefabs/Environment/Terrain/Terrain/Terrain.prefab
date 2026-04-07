@@ -1526,6 +1526,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9213431202326236692}
     m_Modifications:
+    - target: {fileID: 588795602939270513, guid: 763ce11f9abbd413fb2c7fa90f6b85ea, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9470b0acb18284c6d8f6cd425a5a7d83, type: 2}
     - target: {fileID: 1652935994888791842, guid: 763ce11f9abbd413fb2c7fa90f6b85ea, type: 3}
       propertyPath: m_LocalPosition.x
       value: -30.48304
@@ -1570,6 +1574,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RiftlandsTerrain
       objectReference: {fileID: 0}
+    - target: {fileID: 5136780218278985497, guid: 763ce11f9abbd413fb2c7fa90f6b85ea, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ad8a90c9ab81940e6ae4870846275490, type: 2}
+    - target: {fileID: 7363950467808434614, guid: 763ce11f9abbd413fb2c7fa90f6b85ea, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8174fd6a218314ff8a9d5bec382ba758, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4799,10 +4811,58 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9213431202326236692}
     m_Modifications:
+    - target: {fileID: 1606308725535665864, guid: b6f61fe8f145e47b7a68825e46ae5941, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3cf1cfa718b4b46b2b13a8b8b4c69894, type: 2}
+    - target: {fileID: 3371672077644320441, guid: b6f61fe8f145e47b7a68825e46ae5941, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -44.168
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371672077644320441, guid: b6f61fe8f145e47b7a68825e46ae5941, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.317
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371672077644320441, guid: b6f61fe8f145e47b7a68825e46ae5941, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25.342
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371672077644320441, guid: b6f61fe8f145e47b7a68825e46ae5941, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371672077644320441, guid: b6f61fe8f145e47b7a68825e46ae5941, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371672077644320441, guid: b6f61fe8f145e47b7a68825e46ae5941, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371672077644320441, guid: b6f61fe8f145e47b7a68825e46ae5941, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371672077644320441, guid: b6f61fe8f145e47b7a68825e46ae5941, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371672077644320441, guid: b6f61fe8f145e47b7a68825e46ae5941, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4983133278386250873, guid: b6f61fe8f145e47b7a68825e46ae5941, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fbe165c1f5b4647bc8f6fc2eb51b9c31, type: 2}
     - target: {fileID: 6273463479514190319, guid: b6f61fe8f145e47b7a68825e46ae5941, type: 3}
       propertyPath: m_Name
       value: VireliaTerrain
       objectReference: {fileID: 0}
+    - target: {fileID: 6436017192152996579, guid: b6f61fe8f145e47b7a68825e46ae5941, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6cb6d7fb23bc84452a1e9eb19392fcb1, type: 2}
     - target: {fileID: 7269469323836420642, guid: b6f61fe8f145e47b7a68825e46ae5941, type: 3}
       propertyPath: m_LocalPosition.x
       value: 176.54553
