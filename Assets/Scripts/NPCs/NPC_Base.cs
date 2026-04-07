@@ -22,6 +22,7 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
     protected bool pauseMenuOpen = false;
     protected bool veraMenuOpen = false;
     protected string interactKey = "E";
+    protected VERAHintManager hintManager;
 
     private DialogueVariables dialogueVariables;
 
@@ -33,6 +34,10 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
         } else
         {
             Debug.LogWarning($"Error: No ink story loaded for {npcName}");
+        }
+        if (hintManager == null)
+        {
+            hintManager = FindFirstObjectByType<VERAHintManager>();
         }
     }
 
@@ -111,6 +116,11 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
         if(story.canContinue) 
         {
             StartCoroutine(RunStory(dialogueMgr));
+
+            if (hintManager != null)
+            {
+                hintManager.RegisterNPCInteraction();  
+            }
             OnConversationStart?.Invoke();
         }
         else

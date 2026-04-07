@@ -12,6 +12,9 @@ public class PauseMenu : MonoBehaviour{
     public static event Action PauseMenuInactive;
     private bool dialoguePanelOpen = false;
     private bool veraMenuOpen = false;
+    private bool settingsMenuOpen = false;
+    public static event Action OpenSettingsMenuEvent;
+    public static event Action CloseSettingsMenuEvent;
 
     private void OnEnable()
     {
@@ -60,7 +63,11 @@ public class PauseMenu : MonoBehaviour{
     }
 
     public void OnPause(InputValue value){
-        if(isPaused){
+        if(settingsMenuOpen)
+        {
+            CloseSettingsMenu();
+        } 
+        else if(isPaused){
             resumeGame();
         }
         else{
@@ -111,10 +118,21 @@ public class PauseMenu : MonoBehaviour{
         Application.Quit();
         
     }
-
     public void saveGame()
     {
         DataPersistenceManager.instance.SaveGame();
         Debug.Log("Game saved.");
+    }
+
+    public void settingsMenu()
+    {
+        OpenSettingsMenuEvent?.Invoke();
+        settingsMenuOpen = true;
+    }
+
+    private void CloseSettingsMenu()
+    {
+        CloseSettingsMenuEvent?.Invoke();
+        settingsMenuOpen = false;
     }
 }

@@ -50,34 +50,47 @@ MonoBehaviour:
     volume: 0.08
     pitch: 1
     loop: 1
+    mixerGroup: {fileID: 4825614773585609730, guid: 0afee273488f0534cb416cb1c0102b96, type: 2}
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 90dc3d3d0b76c4f5f85283a65c4a1bb2, type: 3}
     name: CollectScrap
     volume: 0.5
     pitch: 1
     loop: 0
+    mixerGroup: {fileID: 7265792775359922286, guid: 0afee273488f0534cb416cb1c0102b96, type: 2}
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: b0e3b5ffd99bf49f6b2b8354f007a617, type: 3}
     name: Walking
     volume: 0.08
     pitch: 1
     loop: 1
+    mixerGroup: {fileID: 7265792775359922286, guid: 0afee273488f0534cb416cb1c0102b96, type: 2}
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: f28d834f57afa4aabaf614735a36393b, type: 3}
     name: Damage
     volume: 1
     pitch: 1
     loop: 1
+    mixerGroup: {fileID: 7265792775359922286, guid: 0afee273488f0534cb416cb1c0102b96, type: 2}
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: bf8db092ef21641c9a14e64c406d9f2e, type: 3}
     name: FallDamage
     volume: 0.1
     pitch: 1
     loop: 0
+    mixerGroup: {fileID: 7265792775359922286, guid: 0afee273488f0534cb416cb1c0102b96, type: 2}
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 58fdc3562eb6640c69ba72076515577d, type: 3}
     name: Death
     volume: 0.1
     pitch: 1
     loop: 0
+    mixerGroup: {fileID: 7265792775359922286, guid: 0afee273488f0534cb416cb1c0102b96, type: 2}
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 82fdcec547e0d4114922e223eeed3241, type: 3}
+    name: VERAAlert
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 7265792775359922286, guid: 0afee273488f0534cb416cb1c0102b96, type: 2}
     source: {fileID: 0}

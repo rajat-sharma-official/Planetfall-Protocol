@@ -4,12 +4,13 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 
-
 public class VERAMenu : MonoBehaviour
 {
     // reference to the vera menu ui panel shown on screen
     // this menu gets opened/closed based on player input
     [SerializeField] private GameObject VERAMenuPanel;
+
+    [SerializeField] private VERAPopupController popupController;
 
     // tracks whether the vera menu is currently visible
     private bool isMenuOpen = false;
@@ -28,6 +29,7 @@ public class VERAMenu : MonoBehaviour
     private VERAHTTPClient veraClient;
 
     private string pendingRawJson = null;
+    private string pendingSystemResponse = null;
 
     public static event Action VERAMenuActive;
     public static event Action VERAMenuInactive;
@@ -44,6 +46,23 @@ public class VERAMenu : MonoBehaviour
         public string currentZone = "None";
     }
 
+    private readonly string[] repairReadyMessages =
+    {
+        "We have enough scrap to begin repairs. Return to the crash site when you're ready, Atlas.",
+        "Scrap threshold reached. We can repair the ship now. I recommend heading back to Echo Basin.",
+
+        "We have what we need. For once, the numbers are on our side.",
+        "That should be enough to get the ship working again. Assuming nothing else on this planet objects.",
+
+        "We can repair the ship now, Atlas. I'd prefer we do that before Aurelia gives us another surprise.",
+        "Repairs are possible. Let’s get back to the crash site while that remains true.",
+
+        "We have enough scrap. Return to the ship, and I'll walk you through the repair sequence.",
+        "The ship can be repaired now. Good. I'd like at least one outcome today to be predictable.",
+
+        "Repair conditions met. We should return to the crash site.",
+        "We have enough scrap to leave. Whether we should is... a separate question."
+    };
     [System.Serializable]
     private class VeraOutputPayload
     {
@@ -70,6 +89,10 @@ public class VERAMenu : MonoBehaviour
     {
         autoBindUI();
 
+        if (popupController == null)
+        {
+            popupController = FindFirstObjectByType<VERAPopupController>();
+        }
         veraClient = FindFirstObjectByType<VERAHTTPClient>();
         if (veraClient != null)
             veraClient.OnResponse += OnMessage;
@@ -195,6 +218,9 @@ public class VERAMenu : MonoBehaviour
         if(pauseMenuOpen || dialoguePanelOpen)
             return;
 
+        if (popupController != null)
+            popupController.HidePopup();
+
         //show the menu and pause player movement
         // makes the vera ui appear
         if (VERAMenuPanel != null) VERAMenuPanel.SetActive(true);
@@ -221,10 +247,24 @@ public class VERAMenu : MonoBehaviour
         // set default text for the response box when menu opens
         if (responseText != null)
         {
-            responseText.text = "Ask VERA...";
+            bool showingSystemMessage = !string.IsNullOrWhiteSpace(pendingSystemResponse);
+
+            if (showingSystemMessage)
+            {
+                responseText.text = pendingSystemResponse;
+                pendingSystemResponse = null;
+                responseText.margin = new Vector4(20, 35, 20, 20);
+                responseText.textWrappingMode = TextWrappingModes.Normal;
+            }
+            else
+            {
+                responseText.text = "Ask VERA...";
+                responseText.margin = Vector4.zero;
+            }
+
             responseText.gameObject.SetActive(true);
             responseText.enabled = true;
-            responseText.margin = Vector4.zero;
+            responseText.ForceMeshUpdate();
         }
     }
 
@@ -281,6 +321,18 @@ public class VERAMenu : MonoBehaviour
             responseText.ForceMeshUpdate();
         }
     }
+
+    public void GetRepairReadyMessage()
+    {
+        int randomIndex = UnityEngine.Random.Range(0, repairReadyMessages.Length);
+        pendingSystemResponse = repairReadyMessages[randomIndex];
+    }
+
+    public void GetSystemMessage(string message)
+    {
+        pendingSystemResponse = message;
+    }
+
 
     // quick preset questions
     public void AskWhereAmI() => AskSpecificQuestion("Where am I?");
