@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6005185097162825294}
   - component: {fileID: 257586998097859432}
   - component: {fileID: 6453416011307914617}
+  - component: {fileID: 8670000976797820823}
   m_Layer: 8
   m_Name: IntoVirelia
   m_TagString: Untagged
@@ -86,3 +87,17 @@ MonoBehaviour:
   onPlayerExitZone:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8670000976797820823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8820038775296912176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8487ce9512e94632be82726b2dc847b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZoneTransition
+  zoneSkybox: {fileID: 2100000, guid: 33d1777214f91944a960085a67f630f9, type: 2}
+  zoneMusic: Virelia

@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   sounds:
-  - clip: {fileID: 0}
-    name: Ambient
+  - clip: {fileID: 8300000, guid: addc033e9f250433da4f88c07041c74f, type: 3}
+    name: Echo
     volume: 0.08
     pitch: 1
     loop: 1
@@ -93,4 +93,18 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     mixerGroup: {fileID: 7265792775359922286, guid: 0afee273488f0534cb416cb1c0102b96, type: 2}
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 93372db393065460c813b3da709788b2, type: 3}
+    name: Virelia
+    volume: 0.08
+    pitch: 1
+    loop: 1
+    mixerGroup: {fileID: 4825614773585609730, guid: 0afee273488f0534cb416cb1c0102b96, type: 2}
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 37e5428322cbe49e48af6362758059d4, type: 3}
+    name: Riftlands
+    volume: 0.09
+    pitch: 1
+    loop: 1
+    mixerGroup: {fileID: 4825614773585609730, guid: 0afee273488f0534cb416cb1c0102b96, type: 2}
     source: {fileID: 0}
