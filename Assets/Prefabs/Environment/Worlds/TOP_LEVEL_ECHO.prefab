@@ -316,6 +316,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 8698029188560234724, guid: b15664d30ce106743b67549034c3eb2b, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -535,11 +539,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48ead1a58fef15b478e5d4539d45df50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpaceshipMover
-  speed: 20
-  wobbleAmplitude: 2.5
-  wobbleFrequency: 1
-  leftBound: -150
-  rightBound: 150
 --- !u!4 &7216470868637973655 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 416308, guid: 041f70ed89fda7c4d83285639293e767, type: 3}
