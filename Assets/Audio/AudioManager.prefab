@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   sounds:
-  - clip: {fileID: 8300000, guid: addc033e9f250433da4f88c07041c74f, type: 3}
+  - clip: {fileID: 0}
     name: Ambient
     volume: 0.08
     pitch: 1
