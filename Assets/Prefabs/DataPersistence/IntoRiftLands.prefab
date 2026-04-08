@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3440172616515063374}
   - component: {fileID: 3966418282520127734}
   - component: {fileID: 4237160571678416522}
+  - component: {fileID: 1833762360426814246}
   m_Layer: 8
   m_Name: IntoRiftLands
   m_TagString: Untagged
@@ -86,3 +87,17 @@ MonoBehaviour:
   onPlayerExitZone:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1833762360426814246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084771956882371128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8487ce9512e94632be82726b2dc847b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZoneTransition
+  zoneSkybox: {fileID: 2100000, guid: 62bc3911afb3b1047ba938e7d740bd37, type: 2}
+  zoneMusic: Riftlands
