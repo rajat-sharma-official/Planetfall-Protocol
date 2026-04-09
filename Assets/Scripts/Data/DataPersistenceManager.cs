@@ -74,5 +74,12 @@ public class DataPersistenceManager : MonoBehaviour
         return new List<IDataPersistence>(dataPersistenceObjects);
             
     }
+
+    public bool HasSaveData()
+    {
+        return System.IO.File.Exists(
+            System.IO.Path.Combine(Application.persistentDataPath, fileName)
+        );
+    }
 }
 

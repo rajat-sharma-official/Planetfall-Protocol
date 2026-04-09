@@ -251,6 +251,7 @@ MonoBehaviour:
   requiredScrap: 30
   veraMenu: {fileID: 0}
   popupController: {fileID: 0}
+  hintManager: {fileID: 0}
 --- !u!1001 &8640802093627906678
 PrefabInstance:
   m_ObjectHideFlags: 0
