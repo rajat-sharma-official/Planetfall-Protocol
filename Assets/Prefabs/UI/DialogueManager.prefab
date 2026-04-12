@@ -52,6 +52,8 @@ MonoBehaviour:
   choice2Button: {fileID: 3860370269853320493}
   choice3Button: {fileID: 5579704350094966095}
   choice4Button: {fileID: 5120392754472841451}
+  typingSpeed: 0.03
+  skipTypingKey: 32
 --- !u!1001 &8450954410546306801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -163,6 +165,14 @@ PrefabInstance:
     - target: {fileID: 8754764145354778125, guid: 3ec9b498f5f58354fbdc383200dc7e6e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832402522489099255, guid: 3ec9b498f5f58354fbdc383200dc7e6e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832402522489099255, guid: 3ec9b498f5f58354fbdc383200dc7e6e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

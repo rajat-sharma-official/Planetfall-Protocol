@@ -14,9 +14,17 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Button choice2Button;
     [SerializeField] private Button choice3Button;
     [SerializeField] private Button choice4Button;
+
+    [Header("Typing Effect")]
+    [SerializeField] private float typingSpeed = 0.03f;
+    [SerializeField] private KeyCode skipTypingKey = KeyCode.Space;
+
     private int dialogueOptionsAvailable = 1;
     private static DialogueManager instance;
     public static event Action<int> OnChoiceClicked;
+
+    private bool isTyping = false;
+    private bool skipTypingRequested = false;
 
     private void Awake()
     {
@@ -51,12 +59,20 @@ public class DialogueManager : MonoBehaviour
         HideChoices();
     }
 
+    private void Update()
+    {
+        if (isTyping && (Input.GetKeyDown(skipTypingKey) || Input.GetMouseButtonDown(0)))
+        {
+            skipTypingRequested = true;
+        }
+    }
+
     private void SetDialogueOptions(int options)
     {
         dialogueOptionsAvailable = options;
     }
 
-    //Hide the panel and clear any text.
+    // Hide the panel and clear any text.
     public void HideDialogue()
     {
         if (dialoguePanel != null)
@@ -64,9 +80,12 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueText != null)
             dialogueText.text = string.Empty;
+
+        isTyping = false;
+        skipTypingRequested = false;
     }
 
-    //Show the panel and overwrite the text.
+    // Show the panel and overwrite the text.
     public void ShowDialogue(string text)
     {
         if (dialoguePanel != null)
@@ -74,15 +93,19 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueText != null)
             dialogueText.text = text;
+
+        isTyping = false;
+        skipTypingRequested = false;
     }
 
-    //Show the panel and append a new line of text.
+    // Keep this in case you still want instant appending somewhere else.
     public void AppendLine(string text)
     {
         if (dialoguePanel != null)
             dialoguePanel.SetActive(true);
 
-        if (dialogueText == null){
+        if (dialogueText == null)
+        {
             Debug.LogWarning("[DialogueManager] dialogueText is NULL!");
             return;
         }
@@ -91,6 +114,50 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text += "\n";
 
         dialogueText.text += text;
+    }
+
+    //type one line out
+    public IEnumerator TypeLine(string text)
+    {
+        if (dialoguePanel != null)
+            dialoguePanel.SetActive(true);
+
+        if (dialogueText == null)
+        {
+            Debug.LogWarning("[DialogueManager] dialogueText is NULL!");
+            yield break;
+        }
+
+        isTyping = true;
+        skipTypingRequested = false;
+
+        string baseText = dialogueText.text;
+
+        if (!string.IsNullOrEmpty(baseText))
+            baseText += "\n";
+
+        dialogueText.text = baseText;
+
+        string currentLine = "";
+
+        foreach (char letter in text)
+        {
+            if (skipTypingRequested)
+            {
+                dialogueText.text = baseText + text;
+                isTyping = false;
+                skipTypingRequested = false;
+                yield break;
+            }
+
+            currentLine += letter;
+            dialogueText.text = baseText + currentLine;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+
+        dialogueText.text = baseText + text;
+        isTyping = false;
+        skipTypingRequested = false;
     }
 
     public void HideChoices()
@@ -103,25 +170,16 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log($"ShowChoices called - choice1: '{choice1}', choice2: '{choice2}', choice3: '{choice3}', choice4: '{choice4}'");
 
-        if(choicePanel != null)
+        if (choicePanel != null)
             choicePanel.SetActive(true);
 
-        // if(choice1Text != null)
-        //     choice1Text.text = choice1;
-        // if(choice2Text != null)
-        //     choice2Text.text = choice2;
-        // if(choice3Text != null)
-        //     choice3Text.text = choice3;
-        // if(choice4Text != null)
-        //     choice4Text.text = choice4;
-
-        string[] choices = {choice1, choice2, choice3, choice4};
-        Button[] buttons = {choice1Button, choice2Button, choice3Button, choice4Button};
+        string[] choices = { choice1, choice2, choice3, choice4 };
+        Button[] buttons = { choice1Button, choice2Button, choice3Button, choice4Button };
 
         for (int i = 0; i < buttons.Length; i++)
         {
             if (buttons[i] == null) continue;
-            
+
             buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = choices[i];
             buttons[i].interactable = i < dialogueOptionsAvailable;
         }

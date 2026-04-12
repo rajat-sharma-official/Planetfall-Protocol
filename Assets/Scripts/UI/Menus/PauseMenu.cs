@@ -121,7 +121,7 @@ public class PauseMenu : MonoBehaviour{
     public void saveGame()
     {
         DataPersistenceManager.instance.SaveGame();
-        Debug.Log("Game saved.");
+        
     }
 
     public void settingsMenu()

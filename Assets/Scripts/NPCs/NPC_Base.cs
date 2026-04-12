@@ -140,9 +140,12 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
         while(story.canContinue)
         {
             string text = story.Continue().Trim();
-            dialogueMgr?.AppendLine(text);
-        }
 
+            if (!string.IsNullOrEmpty(text) && dialogueMgr != null)
+            {
+                yield return StartCoroutine(dialogueMgr.TypeLine(text));
+            }
+        }
         // After continuing all we can, check if there are choices
         if(story.currentChoices.Count > 0)
         {
