@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
 using UnityEngine;
+using System;
 
 public class DataPersistenceManager : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class DataPersistenceManager : MonoBehaviour
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler dataHandler;
     public static DataPersistenceManager instance { get; private set; }
+
+    public static event Action onSaveStarted;
+    public static event Action onSaveFinished;
 
     private void Awake()
     {
@@ -53,12 +57,17 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void SaveGame()
     {
+        onSaveStarted?.Invoke();
+
         foreach (IDataPersistence dataPeristenceObj in dataPersistenceObjects)
         {
             dataPeristenceObj.SaveData(ref gameData);
         }
 
         dataHandler.Save(gameData);
+
+        Debug.Log("Game saved.");
+        onSaveFinished?.Invoke();
     }
     /*
     private void OnApplicationQuit()

@@ -52,6 +52,8 @@ MonoBehaviour:
   choice2Button: {fileID: 3860370269853320493}
   choice3Button: {fileID: 5579704350094966095}
   choice4Button: {fileID: 5120392754472841451}
+  typingSpeed: 0.03
+  skipTypingKey: 32
 --- !u!1001 &8450954410546306801
 PrefabInstance:
   m_ObjectHideFlags: 0
