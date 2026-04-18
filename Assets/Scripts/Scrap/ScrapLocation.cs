@@ -7,9 +7,13 @@ public class ScrapLocation : MonoBehaviour, IInteractable
     private string interactKey = "E";
     private PlayerInventory playerInventory;
 
+    [SerializeField] private VERAFogPathController fogPathController; // for fog scrap tracking
+
     private void Awake()
     {
         playerInventory = FindObjectOfType<PlayerInventory>();
+        if (fogPathController == null)
+            fogPathController = FindObjectOfType<VERAFogPathController>();
     }
 
     public void Interact()
@@ -18,6 +22,9 @@ public class ScrapLocation : MonoBehaviour, IInteractable
 
         playerInventory.AddScrap(1);
         FindObjectOfType<AudioManager>().Play("CollectScrap");
+    
+        if (fogPathController != null)
+            fogPathController.MarkTargetAsGrabbed(transform);
 
         ScrapManager.Instance.Scavenge(gameObject);
     }
