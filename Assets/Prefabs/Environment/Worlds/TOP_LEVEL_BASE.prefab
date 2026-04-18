@@ -1923,6 +1923,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2085508276059222957, guid: a10bbb6d40bc00246a6f200fb7385d9d, type: 3}
+      propertyPath: moveSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2085508276059222957, guid: a10bbb6d40bc00246a6f200fb7385d9d, type: 3}
+      propertyPath: sprintSpeedMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3122976996747527256, guid: a10bbb6d40bc00246a6f200fb7385d9d, type: 3}
       propertyPath: healthBar
       value: 
