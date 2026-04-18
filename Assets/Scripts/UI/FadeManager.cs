@@ -35,15 +35,17 @@ public class FadeManager : MonoBehaviour
     private IEnumerator Fade(float from, float to)
     {
         float elapsed = 0f;
-        fadeCanvasGroup.alpha = from;
+    fadeCanvasGroup.alpha = from;
+    fadeCanvasGroup.blocksRaycasts = true; // block input during fade
 
-        while (elapsed < fadeDuration)
-        {
-            elapsed += Time.deltaTime;
-            fadeCanvasGroup.alpha = Mathf.Lerp(from, to, elapsed / fadeDuration);
-            yield return null;
-        }
+    while (elapsed < fadeDuration)
+    {
+        elapsed += Time.deltaTime;
+        fadeCanvasGroup.alpha = Mathf.Lerp(from, to, elapsed / fadeDuration);
+        yield return null;
+    }
 
-        fadeCanvasGroup.alpha = to;
+    fadeCanvasGroup.alpha = to;
+    fadeCanvasGroup.blocksRaycasts = (to > 0f); // only block if screen is black
     }
 }
