@@ -39,6 +39,7 @@ public class DataPersistenceManager : MonoBehaviour
     public void NewGame()
     {
         this.gameData = new GameData();
+        dataHandler.Delete();
     }
     public void LoadGame()
     {

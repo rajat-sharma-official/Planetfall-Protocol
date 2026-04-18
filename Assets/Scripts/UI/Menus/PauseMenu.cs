@@ -106,7 +106,7 @@ public class PauseMenu : MonoBehaviour{
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
-        //invoke resume event
+        //invoke pause event
         PauseMenuActive?.Invoke();
 
         //pause all audio 
