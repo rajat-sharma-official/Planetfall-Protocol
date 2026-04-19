@@ -6,11 +6,11 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 {
     //Movement
     [Header("Movement")]
-    [SerializeField] private float moveSpeed = 8f;
+    [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private float gravity = -9.81f;
     [Header("Sprint")]
-    [SerializeField] private float sprintSpeedMultiplier = 1.5f;
+    [SerializeField] private float sprintSpeedMultiplier = 1.75f;
     private bool sprintHeld = false;
     private CharacterController controller;
     private Vector2 moveInput;
@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public bool pauseMenuOpen = false; 
     public bool veraMenuOpen = false;
     public bool dialoguePanelOpen = false;
+    public bool puzzleOpen = false; 
 
     //Interaction
     [Header("Interaction")]
@@ -69,6 +70,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         PauseMenu.PauseMenuInactive += PauseMenuClose;
         VERAMenu.VERAMenuActive += VERAMenuOpen;
         VERAMenu.VERAMenuInactive += VERAMenuClose;
+        PuzzleManager.PuzzleOpened += PuzzleOpen;
+        PuzzleManager.PuzzleClosed += PuzzleClose;
     }
 
     void OnDisable()
@@ -80,13 +83,15 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         PauseMenu.PauseMenuInactive -= PauseMenuClose;
         VERAMenu.VERAMenuActive -= VERAMenuOpen;
         VERAMenu.VERAMenuInactive -= VERAMenuClose;
+        PuzzleManager.PuzzleOpened += PuzzleOpen;
+        PuzzleManager.PuzzleClosed += PuzzleClose;
     }
 
     // Update is called once per frame
     void Update()
     {
         ApplyGravity();
-        if(pauseMenuOpen || veraMenuOpen || dialoguePanelOpen)
+        if(pauseMenuOpen || veraMenuOpen || dialoguePanelOpen || puzzleOpen)
             return;
         HandleMovement();
         HandleRotation();
@@ -139,6 +144,16 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private void DialoguePanelClose()
     {
         dialoguePanelOpen = false;
+    }
+
+    private void PuzzleOpen()
+    {
+        puzzleOpen = true;
+    }
+
+    private void PuzzleClose()
+    {
+        puzzleOpen = false;
     }
 
     public void LoadData(GameData data)

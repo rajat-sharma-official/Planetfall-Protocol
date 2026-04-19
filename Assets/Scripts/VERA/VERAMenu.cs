@@ -35,6 +35,7 @@ public class VERAMenu : MonoBehaviour
     public static event Action VERAMenuInactive;
     private bool pauseMenuOpen;
     private bool dialoguePanelOpen;
+    private bool puzzleOpen;
 
     [System.Serializable]
     private class VeraInputPayload
@@ -43,8 +44,7 @@ public class VERAMenu : MonoBehaviour
         public string objectName = "none";
         public string objectTag = "none";
         public float distance = 0f;
-        public string currentZone = "None";
-        public string zone = "None";
+        public string currentZone = "none";
     }
 
     private readonly string[] repairReadyMessages =
@@ -76,6 +76,8 @@ public class VERAMenu : MonoBehaviour
         NPC_Base.OnConversationEnd += DialoguePanelClose;
         PauseMenu.PauseMenuActive += PauseMenuOpen;
         PauseMenu.PauseMenuInactive += PauseMenuClose;
+        PuzzleManager.PuzzleOpened += PuzzleOpen;
+        PuzzleManager.PuzzleClosed += PuzzleClose;
     }
 
     private void OnDisable()
@@ -84,6 +86,8 @@ public class VERAMenu : MonoBehaviour
         NPC_Base.OnConversationEnd -= DialoguePanelClose;
         PauseMenu.PauseMenuActive -= PauseMenuOpen;
         PauseMenu.PauseMenuInactive -= PauseMenuClose;
+        PuzzleManager.PuzzleOpened -= PuzzleOpen;
+        PuzzleManager.PuzzleClosed -= PuzzleClose;
     }
 
     private void Awake()
@@ -195,6 +199,16 @@ public class VERAMenu : MonoBehaviour
         dialoguePanelOpen = false;
     }
 
+    private void PuzzleOpen()
+    {
+        puzzleOpen = true;
+    }
+
+    private void PuzzleClose()
+    {
+        puzzleOpen = false; 
+    }
+
     public void closeMenu()
     {
         //hide the menu and resume player movement 
@@ -216,7 +230,7 @@ public class VERAMenu : MonoBehaviour
     public void openMenu()
     {
         //don't let menu open if any other menus are open
-        if(pauseMenuOpen || dialoguePanelOpen)
+        if(pauseMenuOpen || dialoguePanelOpen || puzzleOpen)
             return;
 
         if (popupController != null)
@@ -270,50 +284,44 @@ public class VERAMenu : MonoBehaviour
     }
 
 
-   public void OnSubmit()
-{
-    if (!isMenuOpen) return;
-
-    string question = "What is this?";
-    if (questionInput != null && !string.IsNullOrWhiteSpace(questionInput.text))
-        question = questionInput.text;
-
-    if (responseText != null)
+    public void OnSubmit()
     {
-        responseText.text = "Analyzing...";
-        responseText.ForceMeshUpdate();
-    }
+        if (!isMenuOpen) return;
 
-    if (veraClient == null) return;
+        string question = "What is this?";
+        if (questionInput != null && !string.IsNullOrWhiteSpace(questionInput.text))
+            question = questionInput.text;
 
-    VERARaycast raycaster = FindFirstObjectByType<VERARaycast>();
-    VeraInputPayload payload;
-
-    if (raycaster != null)
-    {
-        string contextJson = raycaster.GetContext();
-
-        payload = JsonUtility.FromJson<VeraInputPayload>(contextJson);
-
-        if (payload == null)
-            payload = new VeraInputPayload();
-
-        if (!string.IsNullOrWhiteSpace(payload.zone) &&
-            !payload.zone.Equals("None", StringComparison.OrdinalIgnoreCase))
+        if (responseText != null)
         {
-            payload.currentZone = payload.zone;
+            responseText.text = "Analyzing...";
+            responseText.ForceMeshUpdate();
         }
 
-        payload.text = question;
-    }
-    else
-    {
-        payload = new VeraInputPayload { text = question };
-    }
+        if (veraClient == null) return;
 
-    string finalJson = JsonUtility.ToJson(payload);
-    veraClient.SendToVera(finalJson);
-}
+        // 1. Find the Raycast script to get the "Vision" data
+        VERARaycast raycaster = FindFirstObjectByType<VERARaycast>();
+        VeraInputPayload payload;
+
+        if (raycaster != null)
+        {
+            // 2. Get the JSON from the raycaster and "Merge" it with your question
+            string contextJson = raycaster.GetContext();
+            payload = JsonUtility.FromJson<VeraInputPayload>(contextJson);
+            payload.text = question; // Overwrite the text with the user's question
+        }
+        else
+        {
+            // Grace! if no raycaster is found
+            payload = new VeraInputPayload { text = question };
+        }
+
+        // 3. Send the full package (Question + Objects + Distance)
+        string json = JsonUtility.ToJson(payload);
+        veraClient.SendToVera(json);
+
+    }
 
     private void handleResponse(string response)
     {
