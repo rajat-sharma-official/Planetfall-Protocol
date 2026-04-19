@@ -1,3 +1,5 @@
+INCLUDE globals.ink
+
 Emerys is kneeling beside a scattered circle of metal tablets when you approach.
 
 Each fragment is covered in strange carved markings.
@@ -21,6 +23,8 @@ Emerys: I get lost in these things.
 
 
 === main_hub
+~register_npc(NPC.emerys)
+
 + [I should get going.]
     -> done
 

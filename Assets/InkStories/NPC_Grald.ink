@@ -1,3 +1,4 @@
+INCLUDE globals.ink
 A harsh metallic screech cuts through the clearing.
 
 A ruined ship sits half-canted in the dirt, its hull split like a cracked shell.
@@ -21,6 +22,8 @@ Grald: Now I have an audience.
 
 
 === main_hub
+~register_npc(NPC.grald)
+
 + [I should get going.]
     -> done
 

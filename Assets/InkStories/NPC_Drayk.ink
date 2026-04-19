@@ -4,7 +4,7 @@ INCLUDE globals.ink
 === start ===
 ~ register_npc(NPC.drayk)
 
-{ met_child:
+{ npcs_talked > 2:
     -> hub_b
 - else:
     -> hub_a
@@ -12,22 +12,23 @@ INCLUDE globals.ink
 
 === hub_a ===
 Drayk: Don’t loiter.
-Drayk: You’re in the way.
-+[sorry]->END
-+[...] -> END
-+[...] -> END
-+[...] -> END
+You’re in the way.
 
-
-
-
++ [Sorry.] -> END
++ [...] -> END
++ [...] -> END
++ [...] -> END
 
 
 === hub_b ===
-Drayk: You brought the kid back.
-Drayk: Means you can be useful. That’s rare.
+Drayk: It seems like you can be useful.
+Drayk: That’s rare.
 
-->b_menu
+Drayk: I don’t like strangers.
+Drayk: Strangers are risk.
+Drayk: But risk can be managed—if you follow rules.
+
+-> b_menu
 
 === b_menu ===
 + [Leave.] -> END
@@ -39,26 +40,35 @@ Drayk: Means you can be useful. That’s rare.
 Drayk: I run resources. Food, water, shelter materials, work crews.
 People think “leader” means speeches.
 Up here it means counting what you have and deciding who gets it.
-I don’t like strangers because strangers are risk.
+
+Drayk: Everyone wants to be a hero.
+Drayk: Nobody wants to carry the inventory when winter hits.
 -> b_menu
 
-==== b2 ===
+=== b2 ===
 { drayk_gave_scrap:
     Drayk: I already told you where to look. Don’t come back asking for handouts.
+    Drayk: The mountain doesn’t hand you anything. Neither do I.
 - else:
     Drayk: You want scrap? Take it.
     Drayk: Not from our stores—only from dead frames and abandoned piles outside the outpost.
     Drayk: We don’t build our lives on dead machines. If you do, that’s your business.
     Drayk: Just don’t bring trouble back here.
+
+    Drayk: This is me helping you once.
+    Drayk: Don’t make me regret it.
     ~ drayk_gave_scrap = true
     ~ Dialogue_scrap += 1
     ~ giveScrap(1)
-    Drayk has given you Scrap
+    Drayk has given you scrap.
 }
 -> b_menu
+
 === b3 ===
 Drayk: Rules. Discipline. Work.
 We don’t waste. We don’t show off. We don’t pretend we’re invincible.
 You fall behind out here, the mountain doesn’t care who you are.
-That’s why we plan like we’re always one mistake away from hunger.
+
+Drayk: Solace survives because we plan like we’re always one mistake away from hunger.
+Because we are.
 -> b_menu

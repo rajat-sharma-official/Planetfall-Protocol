@@ -13,6 +13,10 @@ INCLUDE globals.ink
 === hub_a ===
 Camla: Hi! Sorry—hi.
 Camla: I’ve never met someone who’s actually lived among the stars.
+
+Camla: You’re Atlas, right?
+Camla: You have that… “I’ve seen too much sky” look.
+
 -> a_menu
 
 === a_menu ===
@@ -25,18 +29,27 @@ Camla: I’ve never met someone who’s actually lived among the stars.
 Camla: Everything.
 Camla: What’s it like when the sky isn’t just… weather?
 Camla: Do you ever get tired of seeing new worlds?
+
+Camla: And—okay—stupid question:
+Camla: Do the stars ever feel lonely?
 -> a_menu
 
 === a2 ===
 Camla: Because I don’t want my life to be just surviving.
 Camla: Sanya says we can build a world where people don’t fear winter, hunger, sickness…
 Camla: I want that. Even if it takes my whole life.
+
+Camla: The Revivalists talk like pain is a teacher.
+Camla: I think pain is just… pain.
 -> a_menu
 
 === a3 ===
 Camla: Beautiful. Loud. Bright.
 Camla: The ruins feel like a song that got cut off mid-note.
 Camla: I want to hear the rest of it.
+
+Camla: Sometimes I stand near the broken machines and imagine what they sounded like.
+Camla: Like the planet used to hum.
 -> a_menu
 
 
@@ -44,6 +57,7 @@ Camla: I want to hear the rest of it.
 Camla: You’ve been to Solace, haven’t you?
 Camla: They look at the ruins like they’re poison.
 Camla: And… I can’t tell if they’re wrong.
+
 -> b_menu
 
 === b_menu ===
@@ -53,16 +67,28 @@ Camla: And… I can’t tell if they’re wrong.
 + [Why do scholars act so sure of themselves?] -> b3
 
 === b1 ===
-Camla: NEVER!!!
+Camla: NEVER—
+Camla: …I mean.
+Camla: It’s not that I doubt her.
+Camla: It’s that sometimes I get scared of how sure she sounds.
 
+Camla: When someone speaks like they can’t be wrong,
+Camla: it makes you wonder what they do with questions.
 -> b_menu
 
 === b2 ===
-Camla: It means light at night. Clean water. Tools that don’t break after one season.
-It means nobody has to die because they slipped on a rock and no one could help.
-That’s what I want.
+Camla: It means light at night. Clean water.
+Camla: Tools that don’t break after one season.
+Camla: It means nobody has to die because they slipped on a rock and no one could help.
+
+Camla: It means people can stop living like the world is punishing them.
+Camla: That’s what I want.
 -> b_menu
 
 === b3 ===
-Camla: Because Leader Sanaya is great
+Camla: Because if we sound unsure, people stop believing.
+Camla: And if people stop believing, the outpost stops working.
+
+Camla: Certainty is… contagious.
+Camla: Sanya knows that.
 -> b_menu
