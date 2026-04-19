@@ -44,6 +44,7 @@ public class VERAMenu : MonoBehaviour
         public string objectTag = "none";
         public float distance = 0f;
         public string currentZone = "None";
+        public string zone = "None";
     }
 
     private readonly string[] repairReadyMessages =
@@ -269,44 +270,50 @@ public class VERAMenu : MonoBehaviour
     }
 
 
-    public void OnSubmit()
+   public void OnSubmit()
+{
+    if (!isMenuOpen) return;
+
+    string question = "What is this?";
+    if (questionInput != null && !string.IsNullOrWhiteSpace(questionInput.text))
+        question = questionInput.text;
+
+    if (responseText != null)
     {
-        if (!isMenuOpen) return;
-
-        string question = "What is this?";
-        if (questionInput != null && !string.IsNullOrWhiteSpace(questionInput.text))
-            question = questionInput.text;
-
-        if (responseText != null)
-        {
-            responseText.text = "Analyzing...";
-            responseText.ForceMeshUpdate();
-        }
-
-        if (veraClient == null) return;
-
-        // 1. Find the Raycast script to get the "Vision" data
-        VERARaycast raycaster = FindFirstObjectByType<VERARaycast>();
-        VeraInputPayload payload;
-
-        if (raycaster != null)
-        {
-            // 2. Get the JSON from the raycaster and "Merge" it with your question
-            string contextJson = raycaster.GetContext();
-            payload = JsonUtility.FromJson<VeraInputPayload>(contextJson);
-            payload.text = question; // Overwrite the text with the user's question
-        }
-        else
-        {
-            // Grace! if no raycaster is found
-            payload = new VeraInputPayload { text = question };
-        }
-
-        // 3. Send the full package (Question + Objects + Distance)
-        string json = JsonUtility.ToJson(payload);
-        veraClient.SendToVera(json);
-
+        responseText.text = "Analyzing...";
+        responseText.ForceMeshUpdate();
     }
+
+    if (veraClient == null) return;
+
+    VERARaycast raycaster = FindFirstObjectByType<VERARaycast>();
+    VeraInputPayload payload;
+
+    if (raycaster != null)
+    {
+        string contextJson = raycaster.GetContext();
+
+        payload = JsonUtility.FromJson<VeraInputPayload>(contextJson);
+
+        if (payload == null)
+            payload = new VeraInputPayload();
+
+        if (!string.IsNullOrWhiteSpace(payload.zone) &&
+            !payload.zone.Equals("None", StringComparison.OrdinalIgnoreCase))
+        {
+            payload.currentZone = payload.zone;
+        }
+
+        payload.text = question;
+    }
+    else
+    {
+        payload = new VeraInputPayload { text = question };
+    }
+
+    string finalJson = JsonUtility.ToJson(payload);
+    veraClient.SendToVera(finalJson);
+}
 
     private void handleResponse(string response)
     {
