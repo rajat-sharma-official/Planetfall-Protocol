@@ -4,28 +4,33 @@ INCLUDE globals.ink
 === start ===
 ~ register_npc(NPC.marrek)
 
-{ met_child:
+{ npcs_talked > 2:
     -> normal_hub
 - else:
     -> hostile_hub
 }
 
 === hostile_hub ===
-Marrek: Not another drifter....
-+[sorry]->END
-+[...] -> END
-+[...] -> END
-+[...] -> END
+Marrek: Not another drifter.
+Marrek: If you want comfort, go back down the mountain.
+
++ [Sorry.] -> END
++ [...] -> END
++ [...] -> END
++ [...] -> END
 
 
 === normal_hub ===
 You step into the center of Solace Outpost where a rough circle of stone marks their meeting ground.
 Marrek is already watching you, arms folded, like he’s been expecting you to speak first.
-Marrek: You brought the child back.
-Marrek: Alright. You’re not dead weight.
-->normal_menu
 
-=== normal_menu === 
+Marrek: You’ve been walking this planet long enough to learn one thing—
+Marrek: nothing here is free. Not answers. Not help. Not trust.
+Marrek: Speak.
+
+-> normal_menu
+
+=== normal_menu ===
 + [Leave.] -> END
 + [What do the Revivalists stand for?] -> normal_belief
 + [What happened to Aurelia’s tech?] -> normal_collapse
@@ -34,7 +39,10 @@ Marrek: Alright. You’re not dead weight.
 === normal_belief ===
 Marrek: We rebuild with what the land can spare.
 Marrek: No chasing the old machine like it’s a god.
-Marrek: We live. We grow. That’s it.
+Marrek: We live. We grow. We bury our dead and keep going.
+
+Marrek: Luminar promises a perfect tomorrow.
+Marrek: Solace promises you’ll still be alive when tomorrow comes.
 -> normal_menu
 
 === normal_collapse ===
@@ -43,11 +51,17 @@ Marrek: Everything ran through one buried system.
 Marrek: When it failed, the whole world went dark.
 Marrek: Scholars call it tragedy. I call it a warning.
 
+Marrek: They want to “restore” it.
+Marrek: We say: some fires don’t need relighting.
+
 Go speak with Scholars...
 -> normal_menu
 
 === normal_next ===
 Marrek: If you’re fixing your ship, you’ll need scrap—careful where you take it.
-Marrek: And if you’re digging for answers… talk to Kase. He keeps track of the ugly truths.
-Marrek: I believe Drayk has some scrap that might be of use to you
+Marrek: Talk to Drayk if you want permission, not a fight.
+Marrek: If you’re digging for answers… talk to Kase. He keeps track of the ugly truths.
+
+Marrek: And if a scholar smiles too easily at your questions…
+Marrek: remember: smiles can be tools.
 -> normal_menu

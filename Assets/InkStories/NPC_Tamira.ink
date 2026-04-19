@@ -1,3 +1,5 @@
+INCLUDE globals.ink
+
 Tamira is standing near the edge of the basin when you approach.
 
 She watches the treeline as if expecting something to emerge from it.
@@ -10,6 +12,7 @@ Tamira: The sky doesn't treat travelers kindly here.
 
 
 === main_hub
+~register_npc(NPC.tamira)
 + [I should probably keep moving.]
     -> done
 
