@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1403789000318855813
+--- !u!1 &1494575735504568675
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6289078523674514782}
-  - component: {fileID: 1501541157567547988}
+  - component: {fileID: 1285548662928121785}
+  - component: {fileID: 1361041001029887747}
   m_Layer: 0
   m_Name: PuzzleManager
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6289078523674514782
+--- !u!4 &1285548662928121785
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1403789000318855813}
+  m_GameObject: {fileID: 1494575735504568675}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,18 +32,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1501541157567547988
+--- !u!114 &1361041001029887747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1403789000318855813}
+  m_GameObject: {fileID: 1494575735504568675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 924167df1afb74d47b355c4f0d38e2a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 5aaa7b2adb76f48f4935d083ac2a431d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PuzzleManager
-  gameTransform: {fileID: 0}
-  puzzlePiece: {fileID: 961352093353344807, guid: 8918ce0b233c843298373d8865147165, type: 3}
-  timerText: {fileID: 0}
+  gameTransform: {fileID: 1442822181385834416, guid: 2d1fd236740584c578c1766e75d36b5b, type: 3}
+  puzzlePiece: {fileID: 2408062545710942832, guid: 1f9b58f66a97b4286b11ebe80840a959, type: 3}
