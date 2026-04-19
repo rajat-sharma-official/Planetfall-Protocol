@@ -115,3 +115,17 @@ MonoBehaviour:
     loop: 1
     mixerGroup: {fileID: 4825614773585609730, guid: 0afee273488f0534cb416cb1c0102b96, type: 2}
     source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: b92a3a9b71fe74e6aa5b65fba1a27f45, type: 3}
+    name: Puzzle
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 7265792775359922286, guid: 0afee273488f0534cb416cb1c0102b96, type: 2}
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 657df114cdb29469b89236c47c3c7e9c, type: 3}
+    name: puzzleSolved
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 7265792775359922286, guid: 0afee273488f0534cb416cb1c0102b96, type: 2}
+    source: {fileID: 0}

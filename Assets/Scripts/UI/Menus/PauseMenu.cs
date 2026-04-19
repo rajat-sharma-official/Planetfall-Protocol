@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour{
     private bool dialoguePanelOpen = false;
     private bool veraMenuOpen = false;
     private bool settingsMenuOpen = false;
+    private bool puzzleOpen = false;
     public static event Action OpenSettingsMenuEvent;
     public static event Action CloseSettingsMenuEvent;
 
@@ -22,6 +23,8 @@ public class PauseMenu : MonoBehaviour{
         NPC_Base.OnConversationEnd += DialoguePanelClose;
         VERAMenu.VERAMenuActive += VERAMenuOpen;
         VERAMenu.VERAMenuInactive += VERAMenuClose;
+        PuzzleManager.PuzzleOpened += PuzzleOpen;
+        PuzzleManager.PuzzleClosed += PuzzleClose;
     }
 
     private void OnDisable()
@@ -30,6 +33,9 @@ public class PauseMenu : MonoBehaviour{
         NPC_Base.OnConversationEnd -= DialoguePanelClose;
         VERAMenu.VERAMenuActive -= VERAMenuOpen;
         VERAMenu.VERAMenuInactive -= VERAMenuClose;
+        PuzzleManager.PuzzleOpened -= PuzzleOpen;
+        PuzzleManager.PuzzleClosed -= PuzzleClose;
+
     }
 
     void Start(){
@@ -62,6 +68,16 @@ public class PauseMenu : MonoBehaviour{
         dialoguePanelOpen = false;
     }
 
+    private void PuzzleOpen()
+    {
+        puzzleOpen = true;
+    }
+
+    private void PuzzleClose()
+    {
+        puzzleOpen = false;
+    }
+    
     public void OnPause(InputValue value){
         if(settingsMenuOpen)
         {
@@ -106,7 +122,7 @@ public class PauseMenu : MonoBehaviour{
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
-        //invoke pause event
+        //invoke resume event
         PauseMenuActive?.Invoke();
 
         //pause all audio 
@@ -136,3 +152,5 @@ public class PauseMenu : MonoBehaviour{
         settingsMenuOpen = false;
     }
 }
+
+

@@ -385,6 +385,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21563848ded84c140a6f7fe6c9d22d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndGameCondition
+  puzzleCanvas: {fileID: 2668092049995362585, guid: b63e9fd3b69e7470aa4ba82f4e56c5c0, type: 3}
+  puzzleManager: {fileID: 1403789000318855813, guid: 13a968ab87c98442a83d625e4e0369e0, type: 3}
 --- !u!1 &127466
 GameObject:
   m_ObjectHideFlags: 0

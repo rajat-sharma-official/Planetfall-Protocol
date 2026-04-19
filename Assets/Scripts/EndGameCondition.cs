@@ -7,6 +7,10 @@ public class EndGameCondition : MonoBehaviour, IDataPersistence, IInteractable
     bool endGameAvailable = false;
     private string interactKey = "E";
 
+    //puzzle before you can end the game
+    [SerializeField] private GameObject puzzleCanvas; 
+    [SerializeField] private GameObject puzzleManager;
+
     private void OnEnable()
     {
         PlayerInventory.OnScrapChanged += CheckEndGameCondition;
@@ -37,7 +41,8 @@ public class EndGameCondition : MonoBehaviour, IDataPersistence, IInteractable
             //show cursor for menu navigation
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene("ObsidianScene");
+            puzzleCanvas.SetActive(true);
+            puzzleManager.SetActive(true);
         } 
         else
         {
@@ -62,4 +67,3 @@ public class EndGameCondition : MonoBehaviour, IDataPersistence, IInteractable
         data.endGameAvailable = this.endGameAvailable;
     }
 }
-
