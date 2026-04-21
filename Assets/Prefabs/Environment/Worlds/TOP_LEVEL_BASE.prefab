@@ -915,7 +915,7 @@ PrefabInstance:
     - target: {fileID: 721323643032176534, guid: f7e7912d7ad1d425b9f06f35e541105e, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 1519eb9cf80bd41d2bbe81d385e53bcd, type: 2}
+      objectReference: {fileID: 23800000, guid: 225f85a302d2046c788b6d94eb0a854a, type: 2}
     - target: {fileID: 841724504480377376, guid: f7e7912d7ad1d425b9f06f35e541105e, type: 3}
       propertyPath: m_BaseOffset
       value: -0.15
@@ -975,6 +975,10 @@ PrefabInstance:
     - target: {fileID: 7703863558788196552, guid: f7e7912d7ad1d425b9f06f35e541105e, type: 3}
       propertyPath: m_BaseOffset
       value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090514085903192413, guid: f7e7912d7ad1d425b9f06f35e541105e, type: 3}
+      propertyPath: m_BaseOffset
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: 8773518577248360453, guid: f7e7912d7ad1d425b9f06f35e541105e, type: 3}
       propertyPath: m_BaseOffset

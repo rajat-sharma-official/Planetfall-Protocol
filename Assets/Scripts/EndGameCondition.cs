@@ -11,16 +11,32 @@ public class EndGameCondition : MonoBehaviour, IDataPersistence, IInteractable
     [SerializeField] private GameObject puzzleCanvas; 
     [SerializeField] private GameObject puzzleManager;
 
+    private bool puzzleOpen = false;
+
     private void OnEnable()
     {
         PlayerInventory.OnScrapChanged += CheckEndGameCondition;
         ScrapManager.ScrapCountUpdated += SetScrapRequired;
+        PuzzleManager.PuzzleOpened += PuzzleOpen;
+        PuzzleManager.PuzzleClosed += PuzzleClose;
     }
 
     private void OnDisable()
     {
         PlayerInventory.OnScrapChanged -= CheckEndGameCondition;
         ScrapManager.ScrapCountUpdated -= SetScrapRequired;
+        PuzzleManager.PuzzleOpened -= PuzzleOpen;
+        PuzzleManager.PuzzleClosed -= PuzzleClose;
+    }
+
+    private void PuzzleOpen()
+    {
+        puzzleOpen = true;
+    }
+
+    private void PuzzleClose()
+    {
+        puzzleOpen = false;
     }
 
     private void CheckEndGameCondition(int scrapAmount)
@@ -52,6 +68,7 @@ public class EndGameCondition : MonoBehaviour, IDataPersistence, IInteractable
 
     public string GetInteractionPrompt()
     {
+        if(puzzleOpen) return "";
         return endGameAvailable ? $"Press {interactKey} to repair your ship and leave Aurelia" : $"Collect {scrapRequiredToEndGame} scrap to repair your ship";
     }
 
