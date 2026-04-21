@@ -36,25 +36,25 @@ Camla: Do the stars ever feel lonely?
 
 === a2 ===
 Camla: Because I don’t want my life to be just surviving.
-Camla: Sanya says we can build a world where people don’t fear winter, hunger, sickness…
+Camla: <b>Sanya</b> says we can build a world where people don’t fear winter, hunger, sickness…
 Camla: I want that. Even if it takes my whole life.
 
-Camla: The Revivalists talk like pain is a teacher.
+Camla: The <b>Revivalists</b> talk like pain is a teacher.
 Camla: I think pain is just… pain.
 -> a_menu
 
 === a3 ===
 Camla: Beautiful. Loud. Bright.
-Camla: The ruins feel like a song that got cut off mid-note.
+Camla: The <b>ruins</b> feel like a song that got cut off mid-note.
 Camla: I want to hear the rest of it.
 
-Camla: Sometimes I stand near the broken machines and imagine what they sounded like.
-Camla: Like the planet used to hum.
+Camla: Sometimes I stand near the <b>broken machines</b> and imagine what they sounded like.
+Camla: Like the <b>planet used to hum</b>.
 -> a_menu
 
 
 === hub_b ===
-Camla: You’ve been to Solace, haven’t you?
+Camla: You’ve been to <b>Solace</b>, haven’t you?
 Camla: They look at the ruins like they’re poison.
 Camla: And… I can’t tell if they’re wrong.
 

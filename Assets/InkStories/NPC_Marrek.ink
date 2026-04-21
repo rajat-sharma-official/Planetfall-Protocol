@@ -21,7 +21,7 @@ Marrek: If you want comfort, go back down the mountain.
 
 
 === normal_hub ===
-You step into the center of Solace Outpost where a rough circle of stone marks their meeting ground.
+You step into the center of <b>Solace Outpost</b> where a rough circle of stone marks their meeting ground.
 Marrek is already watching you, arms folded, like he’s been expecting you to speak first.
 
 Marrek: You’ve been walking this planet long enough to learn one thing—
@@ -38,11 +38,11 @@ Marrek: Speak.
 
 === normal_belief ===
 Marrek: We rebuild with what the land can spare.
-Marrek: No chasing the old machine like it’s a god.
+Marrek: No chasing the <b>old machine</b> like it’s a god.
 Marrek: We live. We grow. We bury our dead and keep going.
 
-Marrek: Luminar promises a perfect tomorrow.
-Marrek: Solace promises you’ll still be alive when tomorrow comes.
+Marrek: <b>Luminar</b> promises a perfect tomorrow.
+Marrek: <b>Solace</b> promises you’ll still be alive when tomorrow comes.
 -> normal_menu
 
 === normal_collapse ===
@@ -58,9 +58,9 @@ Go speak with Scholars...
 -> normal_menu
 
 === normal_next ===
-Marrek: If you’re fixing your ship, you’ll need scrap—careful where you take it.
-Marrek: Talk to Drayk if you want permission, not a fight.
-Marrek: If you’re digging for answers… talk to Kase. He keeps track of the ugly truths.
+Marrek: If you’re fixing your ship, you’ll need <b>scrap</b>—careful where you take it.
+Marrek: Talk to <b>Drayk</b> if you want permission, not a fight.
+Marrek: If you’re digging for answers… talk to <b>Kase</b>. He keeps track of the ugly truths.
 
 Marrek: And if a scholar smiles too easily at your questions…
 Marrek: remember: smiles can be tools.

@@ -21,7 +21,7 @@ Eira: I’m busy. Move.
 
 
 === hub_b ===
-You find Eira near medical herbs, her hands stained with crushed leaves.
+You find Eira near <b>medical herbs</b>, her hands stained with crushed leaves.
 She glances up just once—long enough to measure how tired you look—then motions you closer.
 
 Eira: Sit if you’re hurt. Stand if you’re lying.
@@ -36,7 +36,7 @@ Eira: I don’t have time for pride.
 + [What is Solace Outpost trying to be?] -> b3
 
 === b1 ===
-Eira: I’m Eira. I patch up what the Riftlands breaks.
+Eira: I’m Eira. I patch up what the <b>Riftlands</b> break.
 Eira: People think healing is gentle work.
 Eira: It isn’t. It’s stubborn work.
 
@@ -47,7 +47,7 @@ Eira: And then someone dies for no reason.
 
 === b2 ===
 Eira: Yes. Sit down and tell the truth—where it hurts, how bad, how long.
-Eira: The Riftlands don’t kill you with one dramatic blow.
+Eira: The <b>Riftlands</b> don’t kill you with one dramatic blow.
 Eira: They take you piece by piece—cold, hunger, bad footing, exhaustion.
 
 Eira: Come early. Healing works best before you’re desperate.
@@ -55,11 +55,11 @@ Eira: Don’t wait until your body is bargaining with you.
 -> b_menu
 
 === b3 ===
-Eira: Solace is a promise.
+Eira: <b>Solace</b> is a promise.
 Eira: Not that life will be easy—just that we’ll stop pretending the old world is coming back.
-Eira: Luminar talks about rebuilding machines.
+Eira: <b>Luminar</b> talks about rebuilding machines.
 Eira: We rebuild people.
 
-Eira: I want the colonies to stop acting like strangers forever.
+Eira: I want the <b>colonies</b> to stop acting like strangers forever.
 Eira: But first… we have to stop talking like we’re different species.
 -> b_menu

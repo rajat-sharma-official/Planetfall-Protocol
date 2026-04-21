@@ -12,7 +12,7 @@ INCLUDE globals.ink
 
 === hub_a ===
 Sanya: Welcome, traveler.
-Sanya: Luminar Outpost rarely receives someone with your experience.
+Sanya: <b>Luminar Outpost</b> rarely receives someone with your experience.
 Sanya: You look like someone who still believes the universe is orderly.
 Sanya: That belief is useful. Keep it.
 
@@ -29,7 +29,7 @@ Sanya: You are not alone here.
 
 === a1 ===
 Sanya: We are rebuilding what was lost.
-Sanya: The collapse was not our punishment, but our trial.
+Sanya: The <b>collapse</b> was not our punishment, but our trial.
 Sanya: And from trial comes perfection.
 Sanya: We will rise again—brighter, stronger, wiser.
 
@@ -41,7 +41,7 @@ Sanya: You belong near a future worth building.
 
 === a2 ===
 Sanya: The old world depended on systems we no longer fully understand.
-Sanya: One failure… and everything went silent.
+Sanya: One <b>failure</b>… and everything went silent.
 Sanya: Not just lights. Not just machines.
 Sanya: Entire chains of knowledge snapped, like thread burned through.
 
@@ -83,7 +83,7 @@ Sanya: Suffering is not a virtue. It is a problem.
 === b1 ===
 Sanya: Because rebuilding requires courage.
 Sanya: And courage looks like madness to the frightened.
-Sanya: Solace chooses comfort in limits.
+Sanya: <b>Solace</b> chooses comfort in limits.
 Sanya: We choose responsibility—because someone must.
 
 Sanya: If they could truly see what we are building, they would beg to join us.
@@ -93,8 +93,8 @@ Sanya: But it is easier to call the future dangerous than to admit you are afrai
 
 === b2 ===
 Sanya: I don’t know.
-Sanya: There are storms, anomalies, and forces this planet hides in its geography.
-Sanya: If there is a pattern, we have not proven it yet.
+Sanya: There are <b>storms</b>, anomalies, and forces this planet hides in its geography.
+Sanya: If there is a <b>pattern</b>, we have not proven it yet.
 Sanya: And we do not build policy on rumor.
 
 Sanya: Let me guess—now you think every shadow is a conspiracy.

@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     //Translation Mechanic 
     private int uniqueNPCsTalkedTo = 0;
-    private readonly int[] translationUnlockThresholds = {3, 6, 9}; //CHANGE BASED ON TOTAL # NPCS 
+    private readonly int[] translationUnlockThresholds = {1, 3, 5}; //CHANGE BASED ON TOTAL # NPCS 
     private int dialogueOptionsAvailable = 1;
     public static event Action<int> DialogueOptionsAvailableChanged;
     public static event Action<int> UniqueNPCsTalkedToChanged;
