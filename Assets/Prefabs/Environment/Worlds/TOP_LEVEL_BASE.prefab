@@ -569,7 +569,11 @@ PrefabInstance:
       objectReference: {fileID: 1766624916406745464}
     - target: {fileID: 4016580087190155822, guid: d8818b4886bfa422c9fda079f33e2240, type: 3}
       propertyPath: lineHoldTime
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016580087190155822, guid: d8818b4886bfa422c9fda079f33e2240, type: 3}
+      propertyPath: blackHoldTime
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4016580087190155822, guid: d8818b4886bfa422c9fda079f33e2240, type: 3}
       propertyPath: playerMovementScript

@@ -33,8 +33,8 @@ public class WakeUpSequence : MonoBehaviour
     [SerializeField] private MonoBehaviour playerLookScript;
 
     [Header("Timing")] // timing values for how long each part lasts
-    [SerializeField] private float blackHoldTime = 1f;   // how long to stay fully black before showing text
-    [SerializeField] private float lineHoldTime = 1.2f;  // how long each line stays visible
+    [SerializeField] private float blackHoldTime = 2f;   // how long to stay fully black before showing text
+    [SerializeField] private float lineHoldTime = 4f;  // how long each line stays visible
     [SerializeField] private float fadeTime = 0.35f;     // how fast the text fades in/out
     [SerializeField] private float wakeDuration = 3f;    // how long the actual wake-up camera movement takes
 
