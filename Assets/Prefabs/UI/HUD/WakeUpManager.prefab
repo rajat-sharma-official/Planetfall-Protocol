@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1135471114077837495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6262223695207965204}
+  - component: {fileID: 4016580087190155822}
+  m_Layer: 0
+  m_Name: WakeUpManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6262223695207965204
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135471114077837495}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4016580087190155822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135471114077837495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a6b86901d934850bf32f9828d97a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WakeUpSequence
+  blackOverlay: {fileID: 0}
+  introText: {fileID: 0}
+  veraAction: {fileID: -4709364848675902485, guid: d46c07245fd49a444a58e19c9205fd74, type: 3}
+  cameraHolder: {fileID: 0}
+  startLocalPositionOffset: {x: 0, y: -0.15, z: 0}
+  endLocalPositionOffset: {x: 0, y: 0, z: 0}
+  startLocalRotation: {x: 0, y: 0, z: 75}
+  endLocalRotation: {x: 0, y: 0, z: 0}
+  playerMovementScript: {fileID: 0}
+  playerLookScript: {fileID: 0}
+  blackHoldTime: 1
+  lineHoldTime: 1.2
+  fadeTime: 0.35
+  wakeDuration: 3
