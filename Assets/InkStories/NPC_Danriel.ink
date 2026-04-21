@@ -16,7 +16,7 @@ INCLUDE globals.ink
 
 === hub_lvl0 ===
 Danriel: Step back, please.
-Danriel: This isn’t scrap. It’s a relic—context matters.
+Danriel: This isn’t scrap. It’s a <b>relic</b>—context matters.
 Danriel: If you pull it apart, you destroy the only honest thing it has left: its history.
 
 -> lvl_0_menu
@@ -42,7 +42,7 @@ Danriel: This isn’t your crash site to strip clean.
 
 === hub_lvl2 ===
 Danriel: Enough.
-Danriel: All salvage in Virelia Frontier belongs to the scholars for study.
+Danriel: All salvage in <b>Virelia Frontier</b> belongs to the scholars for study.
 Danriel: Touch it again and you’ll have a problem with more than my patience.
 
 -> lvl_2_menu
@@ -79,8 +79,8 @@ Danriel: And you can’t understand what you’ve reduced to pocket-sized pieces
 === look_0 ===
 Danriel: Fine.
 Danriel: Look with your eyes. Not with your hands.
-Danriel: See the markings? The wear pattern? The way the alloy holds its edge?
-Danriel: That’s a story. It deserves more than greed.
+Danriel: See the <b>markings</b>? The wear pattern? The way the alloy holds its edge?
+Danriel: That’s a <b>story</b>. It deserves more than greed.
 -> lvl_0_menu
 
 === push_1 ===

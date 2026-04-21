@@ -65,7 +65,7 @@ public class PlayerHealth : MonoBehaviour, IDataPersistence
     {
         Debug.Log("Player died. Loading most recent save...");
 
-        StartCoroutine(FadeManager.Instance.FadeAndDo(() =>
+        FadeManager.Instance.StartCoroutine(FadeManager.Instance.FadeAndDo(() =>
         {
             // Stop hazard UI immediately
             HazardWarningUI.Instance?.ForceClearAll();

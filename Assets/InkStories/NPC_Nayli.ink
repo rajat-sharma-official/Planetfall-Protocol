@@ -25,8 +25,8 @@ Nayli: If you want the world as it is, not as it’s preached—ask me.
 + [Anyone I should worry about?] -> a3
 
 === a1 ===
-Nayli: Echo Basin is quieter—forest cover, short sightlines, easy to get turned around.
-Nayli: Riftlands are worse: steep paths, thin air, and places where sound dies.
+Nayli: <b>Echo Basin</b> is quieter—forest cover, short sightlines, easy to get turned around.
+Nayli: <b>Riftlands</b> are worse: steep paths, thin air, and places where sound dies.
 
 Nayli: If you want distance, go wide.
 Nayli: If you want safety, go slow.
@@ -34,7 +34,7 @@ Nayli: If you want safety, go slow.
 
 === a2 ===
 Nayli: Don’t trust “stable ground.”
-Nayli: Riftlands likes to crumble when you commit your weight.
+Nayli: <b>Riftlands</b> likes to crumble when you commit your weight.
 Nayli: Mark your routes. Don’t chase shortcuts.
 Nayli: And if you’re alone, act like you’re already injured—move like it.
 -> a_menu
@@ -43,7 +43,7 @@ Nayli: And if you’re alone, act like you’re already injured—move like it.
 Nayli: People.
 Nayli: Not monsters. Not myths. Just people.
 
-Nayli: Watch Danriel in the field—he guards relics like they’re holy.
+Nayli: Watch Danriel in the field—he guards <b>relics</b> like they’re holy.
 Nayli: Watch Harvel in the workshop—he’ll cut you with words before you ever touch a tool.
 Nayli: And watch Sanya when she smiles.
 Nayli: Leaders don’t smile for nothing.
@@ -81,8 +81,8 @@ Nayli: Like it remembers being used.
 -> b_menu
 
 === b3 ===
-Nayli: Solace tries to survive without waking the past.
-Nayli: Luminar tries to resurrect the past and call it a future.
+Nayli: <b>Solace</b> tries to survive without waking the past.
+Nayli: <b>Luminar</b> tries to resurrect the past and call it a future.
 Nayli: Both think they’re saving Aurelia.
 Nayli: Both could be wrong in different ways.
 

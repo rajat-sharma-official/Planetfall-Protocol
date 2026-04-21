@@ -12,7 +12,7 @@ INCLUDE globals.ink
 
 === hub_a ===
 Harvel: Don’t touch anything unless you want to ruin it.
-Harvel: These fragments are older than your ship and twice as temperamental.
+Harvel: These <b>fragments</b> are older than your ship and twice as temperamental.
 
 Harvel: People see “scrap.”
 Harvel: I see systems that outlived their makers.
@@ -26,7 +26,7 @@ Harvel: I see systems that outlived their makers.
 + [Can this help repair my ship?] -> a3
 
 === a1 ===
-Harvel: Directive runes. Material-etched logic.
+Harvel: Directive <b>runes</b>. Material-etched logic.
 Harvel: The Aurelians didn’t store instructions in computers.
 Harvel: They carved instructions into the thing itself.
 
@@ -49,7 +49,7 @@ Harvel: If you can read the runes and understand function mapping, you can redir
 Harvel: In practice? You’ll break three parts before you learn to break fewer.
 
 Harvel: Start small.
-Harvel: Collect clean plates, intact joints, anything with stable markings.
+Harvel: <b>Collect</b> clean plates, intact joints, anything with stable markings.
 Harvel: Don’t bring me twisted metal and ask for miracles.
 -> a_menu
 
@@ -83,7 +83,7 @@ Harvel: I don’t know.
 Harvel: And if you want a comforting lie, go ask someone who sells comfort.
 
 Harvel: What I *do* know is this:
-Harvel: Aurelia has patterns we can’t fully chart yet.
+Harvel: Aurelia has <b>patterns</b> we can’t fully chart yet.
 Harvel: If you’re looking for a villain, you’ll find one whether it exists or not.
 -> b_menu
 

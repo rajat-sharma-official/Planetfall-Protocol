@@ -50,9 +50,9 @@ Drayk: Nobody wants to carry the inventory when winter hits.
     Drayk: I already told you where to look. Don’t come back asking for handouts.
     Drayk: The mountain doesn’t hand you anything. Neither do I.
 - else:
-    Drayk: You want scrap? Take it.
+    Drayk: You want <b>scrap</b>? Take it.
     Drayk: Not from our stores—only from dead frames and abandoned piles outside the outpost.
-    Drayk: We don’t build our lives on dead machines. If you do, that’s your business.
+    Drayk: We don’t build our lives on <b>dead machines</b>. If you do, that’s your business.
     Drayk: Just don’t bring trouble back here.
 
     Drayk: This is me helping you once.
@@ -69,6 +69,6 @@ Drayk: Rules. Discipline. Work.
 We don’t waste. We don’t show off. We don’t pretend we’re invincible.
 You fall behind out here, the mountain doesn’t care who you are.
 
-Drayk: Solace survives because we plan like we’re always one mistake away from hunger.
+Drayk: <b>Solace</b> survives because we plan like we’re always one mistake away from hunger.
 Because we are.
 -> b_menu

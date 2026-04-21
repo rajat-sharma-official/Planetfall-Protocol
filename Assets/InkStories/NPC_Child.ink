@@ -18,7 +18,7 @@ Child: Oh! You can see me?
 + [Who are you?] -> lost
 
 === lost ===
-Child: I'm just... lost.
+Child: I'm just... <b>lost.</b>
 -> hub
 
 === okay ===

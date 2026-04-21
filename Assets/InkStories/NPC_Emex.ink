@@ -12,7 +12,7 @@ INCLUDE globals.ink
 
 === hub_a ===
 Emex: You’re new.
-Emex: You still think Luminar smiles because it cares.
+Emex: You still think <b>Luminar</b> smiles because it cares.
 Emex: Give it time. The smile starts to feel like a mask.
 
 -> a_menu
@@ -27,7 +27,7 @@ Emex: Give it time. The smile starts to feel like a mask.
 Emex: “Hate” is easy.
 Emex: What I feel is… tired.
 
-Emex: Luminar shines with knowledge and hope—so bright everyone in it is blind.
+Emex: <b>Luminar</b> shines with knowledge and hope—so bright everyone in it is blind.
 Emex: If you don’t worship the mission, you’re treated like a defect.
 Emex: You become a problem they’re too polite to name.
 -> a_menu
@@ -42,17 +42,17 @@ Emex: Because the answer would make you inconvenient.
 -> a_menu
 
 === a3 ===
-Emex: Solace.
+Emex: <b>Solace</b>.
 Emex: I’m tired of being told suffering is acceptable because the future will be perfect.
 Emex: I want people who can say, “this hurts,” without turning it into doctrine.
 
-Emex: Luminar talks about rebuilding the world.
-Emex: Solace talks about rebuilding people.
+Emex: <b>Luminar</b> talks about rebuilding the world.
+Emex: <b>Solace</b> talks about rebuilding people.
 -> a_menu
 
 
 === hub_b ===
-Emex: So you met Marrek.
+Emex: So you met <b>Marrek</b>.
 Emex: Hmmm… So you are one of them now.
 
 Emex: Don’t worry. That doesn’t mean you’re lost.
@@ -69,7 +69,7 @@ Emex: It just means you stopped being impressed by speeches.
 === b1 ===
 Emex: I don’t have proof.
 Emex: But I’ve watched them dodge the same questions the same way—too polished.
-Emex: And I’ve watched Sanya turn uncertainty into confidence like it’s a magic trick.
+Emex: And I’ve watched <b>Sanya</b> turn uncertainty into confidence like it’s a magic trick.
 
 Emex: If you keep pushing, they’ll stop smiling.
 Emex: That’s when you’ll learn what “hope” looks like when it gets cornered.
@@ -78,10 +78,10 @@ Emex: That’s when you’ll learn what “hope” looks like when it gets corne
 === b2 ===
 Emex: They’re not saints.
 Emex: They’re rough, but they’re honest about what they are.
-Emex: Scholars talk like they’re saving everyone… even when nobody asked to be saved.
+Emex: <b>Scholars</b> talk like they’re saving everyone… even when nobody asked to be saved.
 
-Emex: Solace will tell you “no” to your face.
-Emex: Luminar will tell you “yes” and then decide what you’re allowed to hear.
+Emex: <b>Solace</b> will tell you “no” to your face.
+Emex: <b>Luminar</b> will tell you “yes” and then decide what you’re allowed to hear.
 -> b_menu
 
 === b3 ===
