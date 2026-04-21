@@ -171,10 +171,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TOP_LEVEL_ECHO
       objectReference: {fileID: 0}
-    - target: {fileID: 7676258309538463668, guid: 58dfaa41acaf4554bb5cd76a54763b1d, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
