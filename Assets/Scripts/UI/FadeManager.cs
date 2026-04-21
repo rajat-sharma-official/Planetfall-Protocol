@@ -7,7 +7,7 @@ public class FadeManager : MonoBehaviour
     public static FadeManager Instance;
 
     [SerializeField] private CanvasGroup fadeCanvasGroup;
-    private float fadeDuration = 0.5f;
+    private float fadeDuration = 1f;
 
     private void Awake()
     {
