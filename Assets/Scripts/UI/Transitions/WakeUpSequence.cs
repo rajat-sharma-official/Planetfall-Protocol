@@ -99,7 +99,7 @@ public class WakeUpSequence : MonoBehaviour
         yield return ShowLine("VERA: Atlas... finally. Do you have any idea how embarrassing that landing was?");
         yield return ShowLine("ATLAS: ...VERA? Where are we?");
         yield return ShowLine("SYSTEM: Press <color=#D4AF37>" + veraKeyName + "</color> to access VERA.");
-        yield return ShowLine("VERA: Unknown. But someone nearby watched that landing. I'd like to hear their version.");
+        yield return ShowLine("VERA: Unknown, but someone nearby had a front-row seat to your landing. Start with them.");
 
         // clear the text before the actual fade-in/wake-up motion starts
         introText.text = "";
