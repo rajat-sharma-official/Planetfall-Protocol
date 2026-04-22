@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public bool veraMenuOpen = false;
     public bool dialoguePanelOpen = false;
     public bool puzzleOpen = false; 
+    public bool logOpen = false;
 
     //Interaction
     [Header("Interaction")]
@@ -72,6 +73,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         VERAMenu.VERAMenuInactive += VERAMenuClose;
         PuzzleManager.PuzzleOpened += PuzzleOpen;
         PuzzleManager.PuzzleClosed += PuzzleClose;
+        LogUI.LogUIOpened += LogPanelOpen;   
+        LogUI.LogUIClosed += LogPanelClose;  
     }
 
     void OnDisable()
@@ -85,13 +88,15 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         VERAMenu.VERAMenuInactive -= VERAMenuClose;
         PuzzleManager.PuzzleOpened += PuzzleOpen;
         PuzzleManager.PuzzleClosed += PuzzleClose;
+        LogUI.LogUIOpened += LogPanelOpen;   
+        LogUI.LogUIClosed += LogPanelClose;  
     }
 
     // Update is called once per frame
     void Update()
     {
         ApplyGravity();
-        if(pauseMenuOpen || veraMenuOpen || dialoguePanelOpen || puzzleOpen)
+        if(pauseMenuOpen || veraMenuOpen || dialoguePanelOpen || puzzleOpen || logOpen)
             return;
         HandleMovement();
         HandleRotation();
@@ -155,6 +160,16 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private void PuzzleClose()
     {
         puzzleOpen = false;
+    }
+
+    private void LogPanelOpen()
+    {
+        logOpen = true;
+    }
+
+    private void LogPanelClose() 
+    {
+        logOpen = false;
     }
 
     public void LoadData(GameData data)
@@ -377,5 +392,30 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     {
         uniqueNPCsTalkedTo++;
         UniqueNPCsTalkedToChanged?.Invoke(uniqueNPCsTalkedTo);
+    }
+
+    private void LogOpen() 
+    {
+        logOpen = true;
+
+        
+        moveInput = Vector2.zero;
+        rotationInput = Vector2.zero;
+        sprintHeld = false;
+        interactPressed = false;
+
+       
+        OnInteractionPromptChanged?.Invoke(null);
+
+        
+        FindObjectOfType<AudioManager>()?.Stop("Walking");
+    }
+
+    private void LogClose() 
+    {
+        logOpen = false;
+
+       
+        interactPressed = false;
     }
 }

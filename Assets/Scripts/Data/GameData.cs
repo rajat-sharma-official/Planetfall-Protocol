@@ -30,6 +30,9 @@ public class GameData
     // Ink globals save blob (stores npcs_talked, met_child, lists, etc.)
     public string inkGlobalsStateJSON;
 
+    //Stores Logs from Scrap Inspections
+    public System.Collections.Generic.List<string> collectedLogIds;
+
     public GameData()
     {   /** Player **/
         playerPosition = Vector3.zero;
@@ -55,6 +58,9 @@ public class GameData
         NPCsch2ConversationState = 0;
 
         inkGlobalsStateJSON = "";
+
+        //ScrapInspections
+        collectedLogIds = new System.Collections.Generic.List<string>();
     }
 }
 
