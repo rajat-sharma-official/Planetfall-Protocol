@@ -139,6 +139,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private void DialoguePanelOpen()
     {
         dialoguePanelOpen = true;
+        OnInteractionPromptChanged?.Invoke(null);
     }
 
     private void DialoguePanelClose()

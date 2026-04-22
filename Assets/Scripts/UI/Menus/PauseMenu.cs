@@ -144,12 +144,14 @@ public class PauseMenu : MonoBehaviour{
     {
         OpenSettingsMenuEvent?.Invoke();
         settingsMenuOpen = true;
+        pauseMenu.SetActive(false);
     }
 
     private void CloseSettingsMenu()
     {
         CloseSettingsMenuEvent?.Invoke();
         settingsMenuOpen = false;
+        pauseMenu.SetActive(true);
     }
 }
 
