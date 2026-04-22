@@ -17,6 +17,8 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private GameObject puzzlePiece;
     // countdown timer text
     [SerializeField] private TextMeshProUGUI timerText; 
+    //puzzle canvas 
+    [SerializeField] private GameObject puzzleCanvas;
 
     //events that communicate w other scripts when the puzzle is open
     public static event Action PuzzleOpened;
@@ -262,5 +264,14 @@ public class PuzzleManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(1.5f);
         //load endgame panel in obsidianscene
         SceneManager.LoadScene("ObsidianScene");
+    }
+
+    public void ClosePuzzle()
+    {
+        if(!shuffling && !completed)
+        {
+            puzzleCanvas.SetActive(false);
+            gameObject.SetActive(false);
+        }
     }
 }

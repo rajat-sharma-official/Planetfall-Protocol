@@ -149,6 +149,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private void PuzzleOpen()
     {
         puzzleOpen = true;
+        OnInteractionPromptChanged?.Invoke(null);
     }
 
     private void PuzzleClose()
