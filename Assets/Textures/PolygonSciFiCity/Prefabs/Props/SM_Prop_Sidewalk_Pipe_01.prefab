@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4269761014515126}
   - component: {fileID: 33197244293597876}
   - component: {fileID: 23189515145806700}
-  - component: {fileID: 64382839391402236}
   - component: {fileID: 6740012769494378171}
   - component: {fileID: 1091269700268683432}
   m_Layer: 8
@@ -92,28 +91,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64382839391402236
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890876365567904}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43668315192801350, guid: 367fc11bdf6e9b2489b069b89c72068f, type: 2}
 --- !u!114 &6740012769494378171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,8 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6a148a7b3edb34495d99b0f5907f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScrapLocation
-  hasBeenScavenged: 0
-  interactKey: E
 --- !u!65 &1091269700268683432
 BoxCollider:
   m_ObjectHideFlags: 0
