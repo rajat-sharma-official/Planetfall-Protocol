@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public static event Action<string?> OnInteractionPromptChanged;
     private IInteractable current;
     private bool interactPressed = false;
+    [SerializeField] private float interactCooldown = 0.15f; 
+    private float nextInteractTime = 0f;
 
     //Translation Mechanic 
     private int uniqueNPCsTalkedTo = 0;
@@ -268,6 +270,11 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void HandleInteraction()
     {
+        if (Time.time < nextInteractTime)
+        {
+            interactPressed = false;
+            return;
+        }
         if (interactPressed)
         {
             Collider[] hits = Physics.OverlapSphere(transform.position, interactionRange, interactableLayer);
@@ -281,6 +288,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
                 if (interactable != null)
                 {
                     interactable.Interact();
+                    nextInteractTime = Time.time + interactCooldown; 
                 }
             }
 

@@ -110,7 +110,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -148,5 +148,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6a148a7b3edb34495d99b0f5907f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScrapLocation
-  hasBeenScavenged: 0
-  interactKey: E

@@ -125,36 +125,100 @@ MonoBehaviour:
     text: Uniform stress scars suggest the system failed everywhere at once when
       the regulator collapsed. These segments are ideal as replacement conduits and
       frame supports for ship repairs
-    figureSprite: {fileID: 0}
+    figureSprite: {fileID: 21300000, guid: b12caf66ef912334ab834515dc9750a6, type: 3}
     figureCaption: Pipe
   - id: FRAG_12
     text: "Lightweight composite metal with treated inner walls\u2014likely part
       of a regulated distribution network."
-    figureSprite: {fileID: 0}
+    figureSprite: {fileID: 21300000, guid: 8cbce0a3a5429f14d9996229ea084683, type: 3}
     figureCaption: Metal piece
   - id: FRAG_13
     text: The unit has no obvious battery housing, implying it depended on constant
       regulated power.
-    figureSprite: {fileID: 0}
-    figureCaption: Robot
+    figureSprite: {fileID: 21300000, guid: 39d70ad55eb2d6f488b1f7e04184c971, type: 3}
+    figureCaption: Robot Arm
   - id: FRAG_14
     text: Salvage the chassis plating and couplers as durable housings for ship electronics.
-    figureSprite: {fileID: 0}
-    figureCaption: 
+    figureSprite: {fileID: 21300000, guid: 54d3b794ff08ed04e9048c00f7d9d3eb, type: 3}
+    figureCaption: helmet
   - id: FRAG_15
     text: "The unit has no obvious battery housing, implying it depended on constant
       regulated power. It died mid-task when the network collapsed\u2014single point
       of failure, planet-wide."
-    figureSprite: {fileID: 0}
+    figureSprite: {fileID: 21300000, guid: cc8ecae90398c9f41adc0871d949dc9c, type: 3}
     figureCaption: Robot
   - id: FRAG_16
     text: "This was an interface device, not a toy\u2014micro-etched runes form a
       calibration map that likely adapted to the wearer. It can\u2019t boot without
       the old power/regulation, but the optics and sensor band are intact. "
-    figureSprite: {fileID: 0}
+    figureSprite: {fileID: 21300000, guid: 54d3b794ff08ed04e9048c00f7d9d3eb, type: 3}
     figureCaption: Headset
   - id: FRAG_17
     text: 'The alloy and etched logic grooves are useful both as scrap and as translation
       patterns. '
-    figureSprite: {fileID: 0}
+    figureSprite: {fileID: 21300000, guid: a6d8053c43281e440aea98de951c623e, type: 3}
     figureCaption: sign
+  - id: FRAG_18
+    text: "Galaxy: Milky Way\nid: 000024173\n\nThe Archivist reads runes like they\u2019re
+      listening for a pulse. They said \u201Cthe ones who built the heartbeat,\u201D
+      then stopped mid-sentence. Their notes are out of order on purpose\u2014or
+      because memory keeps slipping."
+    figureSprite: {fileID: 21300000, guid: 26b44f74fb669444e88bba1bbc14791e, type: 3}
+    figureCaption: Emerys
+  - id: FRAG_19
+    text: "Galaxy: Andromeda (M31)\nid: 000018447\n\nThe scrapper knows where metal
+      lies and where it breaks clean. He said the old alloys feel dead until they
+      don\u2019t\u2014like they remember force. When I asked about all the wrecks,
+      he just said, \u201CThis place collects.\u201D"
+    figureSprite: {fileID: 21300000, guid: d745fde43aba34b48b5c3dfd84c8accb, type: 3}
+    figureCaption: Grald
+  - id: FRAG_20
+    text: "Galaxy: Triangulum (M33)\nid: 000031902\n\nThe leader speaks warm, but
+      the outpost listens like a machine. She calls the collapse a \u201Ctrial,\u201D
+      not a mistake. People who say that usually plan to try again\u2014just cleaner."
+    figureSprite: {fileID: 21300000, guid: 125ae0b4e88bad745bd3988417b22d13, type: 3}
+    figureCaption: Sanya
+  - id: FRAG_21
+    text: "Galaxy: Whirlpool (M51)\nid: 000052611\n\nEvery record points to one \u201Cheartbeat\u201D
+      powering the world. The historian got excited, then scared\u2014fast. When
+      I asked where it is, she changed the subject too smoothly."
+    figureSprite: {fileID: 21300000, guid: 1a26ea13deeda1343a909e34cd698c30, type: 3}
+    figureCaption: Julisa
+  - id: FRAG_22
+    text: "Galaxy: Pinwheel (M101)\nid: 000033800\n\nRiftlands doesn\u2019t welcome
+      strangers. It measures them. Ash lines show where you stand, where you wait,
+      where you don\u2019t cross. Fear here is organized."
+    figureSprite: {fileID: 21300000, guid: 324256ec22148024a885bd2a44d3fa23, type: 3}
+    figureCaption: Riftlands
+  - id: FRAG_23
+    text: "Galaxy: Large Magellanic Cloud\nid: 000077201\n\nA researcher drew the
+      world like veins from a buried heart. \u201CWhen it stopped, everything died
+      together,\u201D he said\u2014flat, practiced. That\u2019s what scares me most."
+    figureSprite: {fileID: 21300000, guid: 7552889033bf72c4c911f45a765c9cf4, type: 3}
+    figureCaption: Kase
+  - id: FRAG_24
+    text: "Galaxy: Andromeda (M31)\nid: 000018447\n\nThe resource keeper counts everything,
+      even people. Strangers are \u201Crisk\u201D in a column. He isn\u2019t cruel\u2014he\u2019s
+      cornered by the mountain."
+    figureSprite: {fileID: 21300000, guid: fc2cb10a8c6751445b83c33f35fc203a, type: 3}
+    figureCaption: Drayk
+  - id: FRAG_25
+    text: "Galaxy: Sombrero (M104)\nid: 000009413\n\nThe leader says the old machine
+      made people soft, then made them dead. When I asked about ships falling, he
+      didn\u2019t deny it. He said, \u201CNothing falls here by accident forever.\u201D"
+    figureSprite: {fileID: 21300000, guid: 354e6b382ca89f54d80016ff67c74c9a, type: 3}
+    figureCaption: Marrek
+  - id: FRAG_26
+    text: "Galaxy: Milky Way\nid: 000024173\n\nA young scholar calls the ruins unfinished
+      music. Maybe. But it\u2019s also a system that died mid-function. People talk
+      about \u201Crestoring\u201D it and skip the part where it killed the world
+      once."
+    figureSprite: {fileID: 21300000, guid: 7fcd532bda4513f479d267b191985afc, type: 3}
+    figureCaption: Camla
+  - id: FRAG_27
+    text: "Galaxy: Whirlpool (M51)\nid: 000052611\n\nI watched metal dust move the
+      wrong way\u2014uphill, against wind, against gravity. Not fast. Just steady,
+      like it was being reeled in. The fog thickened around it and my headset popped
+      with static for one second, then cleared. "
+    figureSprite: {fileID: 21300000, guid: 08d126b514cc4bc4c957730869d61574, type: 3}
+    figureCaption: Loose Metal
