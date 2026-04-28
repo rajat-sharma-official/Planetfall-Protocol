@@ -1,3 +1,4 @@
+INCLUDE globals.ink
 A harsh metallic screech cuts through the clearing.
 
 A ruined ship sits half-canted in the dirt, its hull split like a cracked shell.
@@ -21,6 +22,8 @@ Grald: Now I have an audience.
 
 
 === main_hub
+~register_npc(NPC.grald)
+
 + [I should get going.]
     -> done
 
@@ -54,7 +57,7 @@ Grald: Now I have an audience.
 
     He reaches back into the ship.
 
-    Grald: I keep the parts that still have a reason to exist.
+    Grald: I <b>keep the parts</b> that still have a reason to exist.
     -> mechanic_hub
 
 
@@ -87,7 +90,7 @@ Grald: Now I have an audience.
 + [Why are there so many wrecks?]
     Grald's eyes narrow slightly.
 
-    Grald: Because the sky here doesn't forgive mistakes.
+    Grald: Because the sky here <b>doesn't forgive mistakes.</b>
     Grald: And because people keep flying anyway.
 
     He points into the open hull.
@@ -105,9 +108,9 @@ Grald: Now I have an audience.
 + [What parts are worth taking?]
     Grald points with two dirty fingers.
 
-    Grald: Stored charge.
-    Grald: Control hardware.
-    Grald: Connectors that aren't fused to hell.
+    Grald: Stored <b>charge.</b>
+    Grald: <b>Control hardware.</b>
+    Grald: <b>Connectors</b> that aren't fused to hell.
 
     He nudges a bent panel with his boot.
 
@@ -122,17 +125,17 @@ Grald: Now I have an audience.
 
     He flicks a small component into his palm.
 
-    Grald: Small parts are what actually get things running again.
+    Grald: <b>Small parts</b> are what actually get things running again.
     -> mechanic_hub
 
 + [So where do I start?]
-    Grald jerks his chin toward the ground around the wreck.
+    Grald jerks his chin toward the <b>ground around the wreck.</b>
 
     Grald: With your eyes.
     Grald: Then with your hands.
     Grald: In that order.
 
-    His gaze slides to VERA.
+    His gaze slides to <b>VERA.</b>
 
     Grald: Let her point out what you're staring at.
     Grald: Since you're clearly committed to missing things.
@@ -147,21 +150,21 @@ Grald: Now I have an audience.
 + [What do you mean, let her point things out?]
     Grald looks at VERA, then back at you.
 
-    Grald: I mean she tracks what you look at.
+    Grald: I mean <b>she tracks what you look at.</b>
     Grald: So stop looking at useless things.
 
     He gestures toward the wreck and the debris around it.
 
     Grald: Open panels.
-    Grald: Loose scrap.
-    Grald: Hazards.
+    Grald: Loose <b>scrap.</b>
+    Grald: <b>Hazards.</b>
     Grald: Anything half-buried that wants to ruin your day.
     -> vera_hub
 
 + [What should I be looking for?]
     Grald sweeps the prybar toward the debris field.
 
-    Grald: Loose scrap first.
+    Grald: Loose <b>scrap</b> first.
     Grald: Then intact components.
     Grald: Then anything unstable enough to cut, shock, or collapse.
 
@@ -236,7 +239,7 @@ Grald: Good.
 He doesn't look at you when he speaks.
 
 Grald: Watch your hands.
-Grald: Pay attention when VERA flags something in your sightline.
+Grald: Pay attention when <b>VERA</b> flags something in your sightline.
 Grald: And don't confuse a wreck with a miracle.
 
 A pause.

@@ -65,30 +65,30 @@ public class PlayerHealth : MonoBehaviour, IDataPersistence
     {
         Debug.Log("Player died. Loading most recent save...");
 
-        
-        // Stop hazard UI immediately
-        HazardWarningUI.Instance?.ForceClearAll();
-
-        // Reset all hazard zones (teleport may skip trigger exits)
-        foreach (var hz in FindObjectsOfType<DamageZone>())
+        FadeManager.Instance.StartCoroutine(FadeManager.Instance.FadeAndDo(() =>
         {
-            hz.ForceReset();
-        }
+            // Stop hazard UI immediately
+            HazardWarningUI.Instance?.ForceClearAll();
 
-        // sfx
+            // Reset all hazard zones (teleport may skip trigger exits)
+            foreach (var hz in FindObjectsOfType<DamageZone>())
+            {
+                hz.ForceReset();
+            }
+
+            if (DataPersistenceManager.instance != null)
+            {
+                DataPersistenceManager.instance.LoadGame();
+            }
+            else
+            {
+                // Fallback if something is wrong with the save system
+                Debug.LogWarning("No DataPersistenceManager found, reloading current scene instead.");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+        }));
+
         FindObjectOfType<AudioManager>().Play("Death");
-
-        if (DataPersistenceManager.instance != null)
-        {
-            // LoadGame will call LoadData on PlayerController, PlayerHealth, etc.
-            DataPersistenceManager.instance.LoadGame();
-        }
-        else
-        {
-            // Fallback if something is wrong with the save system
-            Debug.LogWarning("No DataPersistenceManager found, reloading current scene instead.");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
     }
 
     // ===== IDataPersistence implementation =====

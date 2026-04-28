@@ -1,3 +1,5 @@
+INCLUDE globals.ink
+
 Tamira is standing near the edge of the basin when you approach.
 
 She watches the treeline as if expecting something to emerge from it.
@@ -10,6 +12,7 @@ Tamira: The sky doesn't treat travelers kindly here.
 
 
 === main_hub
+~register_npc(NPC.tamira)
 + [I should probably keep moving.]
     -> done
 
@@ -18,13 +21,13 @@ Tamira: The sky doesn't treat travelers kindly here.
     Tamira: Hard to miss something like that.
     Tamira: The forest carried the sound for miles.
     Tamira: A bright streak through the clouds. Then silence.
-    Tamira: You're not the first to arrive that way.
+    Tamira: You're <b>not the first</b> to arrive that way.
     -> crash_hub
 
 + [Where exactly am I?]
     Tamira gestures to the surrounding forest.
 
-    Tamira: Echo Basin.
+    Tamira: <b>Echo Basin.</b>
     Tamira: Quiet place. Isolated.
     Tamira: Most travelers start here, whether they intend to or not.
     -> where_hub
@@ -47,12 +50,12 @@ Tamira: The sky doesn't treat travelers kindly here.
 + [Ships crash here often?]
     Tamira: Often enough that the sky no longer surprises anyone.
     Tamira: Some say it's bad navigation.
-    Tamira: Others say the storms are unpredictable.
+    Tamira: Others say the <b>storms</b> are unpredictable.
 
     Tamira looks back toward the sky.
 
     Tamira: But after seeing it happen enough times...
-    Tamira: ...you begin to wonder if something else is involved.
+    Tamira: ...you begin to wonder if <b>something else</b> is involved.
     -> crash_hub
 
 + [So what do you think it is?]
@@ -75,15 +78,15 @@ Tamira: The sky doesn't treat travelers kindly here.
 
     Tamira draws two simple lines in the dirt with a stick.
 
-    Tamira: If you travel far enough east, you'll find the scholars.
-    Tamira: They built a place called Luminar Outpost.
+    Tamira: If you travel far enough east, you'll find the <b>scholars</b>.
+    Tamira: They built a place called <b>Luminar Outpost</b>.
     Tamira: They're trying to recover what the old world lost.
 
     Tamira pauses.
 
     Tamira: Head the other direction and the land climbs into the mountains.
-    Tamira: That's where the revivalists live.
-    Tamira: They believe the collapse happened for a reason.
+    Tamira: That's where the <b>revivalists</b> live.
+    Tamira: They believe the <b>collapse</b> happened for a reason.
     Tamira: They prefer not to wake the past.
     -> where_hub
 
@@ -127,15 +130,15 @@ Tamira: The sky doesn't treat travelers kindly here.
     -> done
 
 + [If I wanted answers, where would I go?]
-    Tamira: Find the archivist.
+    Tamira: Find the <b>archivist.</b>
     Tamira: They keep to the old writings not far from here.
     Tamira: If anyone can help you understand this world, it's them.
     -> final_hub
 
 + [If I wanted to repair my ship, where would I go?]
-    Tamira: Find the scrappers.
+    Tamira: Find the <b>scrappers.</b>
     Tamira: They know how to pull use from broken things.
-    Tamira: If your ship can be repaired, they'll know where to start.
+    Tamira: If your ship can be <b>repaired</b>, they'll know where to start.
     -> final_hub
 
 + [What should I be most careful of out here?]
@@ -149,9 +152,9 @@ Tamira: The sky doesn't treat travelers kindly here.
 Tamira nods.
 
 Tamira: You probably should.
-Tamira: If you're trying to repair your ship, you'll want to speak with the scrappers.
+Tamira: If you're trying to repair your ship, you'll want to speak with the <b>scrappers</b>.
 Tamira: And if you want answers about this world...
-Tamira: The archivist studies the old writings not far from here.
+Tamira: The <b>archivist</b> studies the old writings not far from here.
 Tamira: Either way, traveler...
 Tamira: Welcome to Aurelia.
 

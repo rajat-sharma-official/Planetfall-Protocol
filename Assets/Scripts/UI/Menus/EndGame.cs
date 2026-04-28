@@ -1,10 +1,25 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EndGame : MonoBehaviour
 {
+    private AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
+
+    private void Start()
+    {
+        audioManager.Play("Start");
+    }
+
     public void MainMenu()
     {
-        //TODO: Add route back to Main Menu Scene
+        audioManager.Stop("Start");
+        SceneManager.LoadScene("EchoScene");
     }
 
     public void Quit()

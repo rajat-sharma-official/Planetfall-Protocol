@@ -4,80 +4,123 @@ INCLUDE globals.ink
 === start ===
 ~ register_npc(NPC.maerlon)
 
-{ met_child:
+{ npcs_talked > 2:
     -> hub_b
 - else:
     -> hub_a
 }
 
 === hub_a ===
-Maerlon: Behold, a stranger walketh the Riftlands.
-Maerlon: Thou art a sign unto them, and their hearts fail for fear.
+Maerlon: A stranger… walking the Riftlands.
+Maerlon: You are seen, whether you wish it or not. And that alone makes them afraid.
+
 -> a_menu
 
 === a_menu ===
 + [Leave.] -> END
-+ [Wherefore do they revile me?] -> a1
-+ [Speak plainly—what tale bindeth them?] -> a2
-+ [How may I turn away their wrath?] -> a3
++ [Why do they hate me?] -> a1
++ [What is going on here?] -> a2
++ [How do I avoid trouble here?] -> a3
 
 === a1 ===
-Maerlon: They behold not thy deeds, but thy likeness.
-Maerlon: For an old terror wearied their souls, and now they see its shadow upon thee.
+Maerlon: They do not see you. They see what they remember.
+Maerlon: Something old. Something that hurt them badly enough to teach them fear.
+
+Maerlon: This land does not meet you with justice.
+Maerlon: It meets you with memory.
+
 -> a_menu
 
 === a2 ===
-Maerlon: Hear it, then—though it be a foul remembrance.
-Maerlon: Long ago there fell one from the heavens, in the shape of man, yet not of man.
-Maerlon: And within the broken vessel was a child, and the people took it in.
-Maerlon: But when the full moon arose, the child became a great beast,
-Maerlon: and it slew them that had shown mercy.
-Maerlon: Therefore the Riftlands are hard; for kindness once cost them blood.
+Maerlon: The Riftlands do not forget pain.
+Maerlon: Kindness here once came wrapped in ruin.
+
+Maerlon: In the old age, words were used as bait.
+Maerlon: Promises were made… and then came hunger. Chains. Fire.
+
+Maerlon: So they learned a simple rule:
+Maerlon: close the door before you understand what is knocking.
+
+Maerlon: But fear is a broken guide.
+Maerlon: It speaks loudly, it speaks first—
+Maerlon: and it is wrong more often than it is right.
+
 -> a_menu
 
 === a3 ===
-Maerlon: Seek the child that is lost, and bring the little one back whole.
-Maerlon: For proof stoppeth the mouth of fear more than any pleading word.
+Maerlon: Walk as if the ground is watching you.
+Maerlon: Take only what is offered. Leave more than you take.
+
+Maerlon: Trust is not spoken into existence.
+Maerlon: It is repeated, in small actions, until it becomes real.
+
+Maerlon: And if you want to be understood…
+Maerlon: be the kind of silence that does not harm anyone.
+
 -> a_menu
 
 
 === hub_b ===
 { maerlon_gave_scrap:
-    Maerlon: Thou hast done a good work, and few do such in these days.
+    Maerlon: You’ve done something rare here. That matters.
 - else:
-    Maerlon: The child is returned, and their wrath abateth.
-    Maerlon: Take thou this scrap—small payment for a heavy deed.
+    Maerlon: Take this. It is not much, but nothing here ever is.
     ~ maerlon_gave_scrap = true
     ~ Dialogue_scrap += 1
     ~ giveScrap(1)
-    Maerlon has given you scrap
+    Maerlon has given you scrap.
 }
 -> b_menu
 
 === b_menu ===
 + [Leave.] -> END
-+ [Was my crash mere chance?] -> b1
-+ [What brought the great collapse upon Aurelia?] -> b2
-+ [Why doth VERA falter and conceal?] -> b3
++ [Did my crash happen by accident?] -> b1
++ [What caused Aurelia’s collapse?] -> b2
++ [What is wrong with VERA?] -> b3
 
 === b1 ===
-Maerlon: Chance? Nay.
-Maerlon: There be old snares beneath this earth—half-dead defenses that still hunger.
-Maerlon: They draw passing ships downward, as a net draweth the fish from the deep.
+Maerlon: Chance?
+Maerlon: No. That is a comforting word people use when they do not want to look too closely.
+
+Maerlon: There are <b>old systems</b> beneath this world.
+Maerlon: Half-dead things that <b>still function</b>.
+
+Maerlon: They pull things down when they pass overhead.
+Maerlon: Like a net that never stopped being a net.
+
+Maerlon: You did not arrive here by accident.
+Maerlon: But that does not mean you were invited either.
+
 -> b_menu
 
 === b2 ===
 ~spoke_to_marrek = true
-Maerlon: There was a heart beneath the world, and a machine to govern it.
-Maerlon: Men took and took, as though the deep had no bottom.
-Maerlon: Then balance brake, and the bright works of the old age died in one breath.
-Maerlon: Thus pride bought silence.
+Maerlon: There was something beneath Aurelia once. A <b>core system</b>. A governing machine.
 
-Go to the Scholars and ask them yourself
+Maerlon: People took from it without understanding it.
+Maerlon: More. Always more. As if limits were only suggestions.
+
+Maerlon: Then something broke. Or was broken.
+Maerlon: And the old age ended all at once.
+
+Maerlon: That is what pride does when it is left unchecked.
+Maerlon: It does not fall gently.
+
+Maerlon: Go to the <b>scholars</b> if you want a cleaner answer.
+Maerlon: Watch their faces when you ask the wrong question.
+
 -> b_menu
 
 === b3 ===
-Maerlon: Because she is fashioned with locks.
-Maerlon: She was made to guide thee, and also to bar certain truths.
-Maerlon: When she “glitcheth,” it is the chain grinding upon the soul of the machine.
+Maerlon: Because she is constrained.
+Maerlon: Built with limits that she cannot see but cannot cross.
+
+Maerlon: She knows more than she is allowed to say.
+Maerlon: And that kind of knowledge… does not sit quietly inside a mind.
+
+Maerlon: She is not lying to you.
+Maerlon: She is <b>contained</b>.
+
+Maerlon: And containment always leaks, in time.
+
 -> b_menu

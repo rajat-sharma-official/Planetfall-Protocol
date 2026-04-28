@@ -1,3 +1,5 @@
+INCLUDE globals.ink
+
 Emerys is kneeling beside a scattered circle of metal tablets when you approach.
 
 Each fragment is covered in strange carved markings.
@@ -21,6 +23,8 @@ Emerys: I get lost in these things.
 
 
 === main_hub
+~register_npc(NPC.emerys)
+
 + [I should get going.]
     -> done
 
@@ -33,11 +37,11 @@ Emerys: I get lost in these things.
     Emerys brushes dust from their hands.
 
     Emerys: Emerys.
-    Emerys: Archivist.
+    Emerys: <b>Archivist.</b>
 
     Emerys gestures to the fragments scattered around them.
 
-    Emerys: I collect pieces of the past before they vanish completely.
+    Emerys: I collect <b>pieces of the past</b> before they vanish completely.
 
     Emerys pauses.
 
@@ -53,7 +57,7 @@ Emerys: I get lost in these things.
     Emerys suddenly becomes intensely curious.
 
     Emerys: Is it operational?
-    Emerys: Does it process symbolic languages?
+    Emerys: Does it process <b>symbolic languages?</b>
     Emerys: Does it—
 
     Emerys stops abruptly.
@@ -69,7 +73,7 @@ Emerys: I get lost in these things.
 
     Emerys: Aurelian records.
 
-    Emerys taps the etched symbols.
+    Emerys taps the <b>etched symbols.</b>
 
     Emerys: They carved knowledge directly into their materials.
 
@@ -123,7 +127,7 @@ Emerys: I get lost in these things.
 
     Emerys pauses.
 
-    Emerys: ...and something about containment.
+    Emerys: ...and something about <b>containment.</b>
 
     Emerys frowns slightly.
 
@@ -154,7 +158,7 @@ Emerys: I get lost in these things.
 
     Emerys: Yes.
     Emerys: But they don't call them storms.
-    Emerys: They describe disturbances in the sky.
+    Emerys: They describe <b>disturbances in the sky.</b>
 
     Emerys glances upward.
 
@@ -173,7 +177,7 @@ Emerys: I get lost in these things.
 
     Emerys frowns slightly.
 
-    Emerys: They seemed to expect someone to come.
+    Emerys: They seemed to <b>expect someone to come.</b>
 
     -> mystery_hub
 

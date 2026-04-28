@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     //Camera
     [Header("Camera")]
     [SerializeField] private Transform playerCamera;
-    [SerializeField] private float lookSensitivity = 0.5f;
+    [SerializeField] private float lookSensitivity = 0.2f;
     [SerializeField] private float maxLookAngle = 80f;
     private Vector2 rotationInput;
     private float cameraPitch = 0f;
@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public bool pauseMenuOpen = false; 
     public bool veraMenuOpen = false;
     public bool dialoguePanelOpen = false;
+    public bool puzzleOpen = false; 
+    public bool logOpen = false;
 
     //Interaction
     [Header("Interaction")]
@@ -37,10 +39,12 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public static event Action<string?> OnInteractionPromptChanged;
     private IInteractable current;
     private bool interactPressed = false;
+    [SerializeField] private float interactCooldown = 0.15f; 
+    private float nextInteractTime = 0f;
 
     //Translation Mechanic 
     private int uniqueNPCsTalkedTo = 0;
-    private readonly int[] translationUnlockThresholds = {3, 6, 9}; //CHANGE BASED ON TOTAL # NPCS 
+    private readonly int[] translationUnlockThresholds = {1, 3, 5}; //CHANGE BASED ON TOTAL # NPCS 
     private int dialogueOptionsAvailable = 1;
     public static event Action<int> DialogueOptionsAvailableChanged;
     public static event Action<int> UniqueNPCsTalkedToChanged;
@@ -69,6 +73,10 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         PauseMenu.PauseMenuInactive += PauseMenuClose;
         VERAMenu.VERAMenuActive += VERAMenuOpen;
         VERAMenu.VERAMenuInactive += VERAMenuClose;
+        PuzzleManager.PuzzleOpened += PuzzleOpen;
+        PuzzleManager.PuzzleClosed += PuzzleClose;
+        LogUI.LogUIOpened += LogPanelOpen;   
+        LogUI.LogUIClosed += LogPanelClose;  
     }
 
     void OnDisable()
@@ -80,13 +88,17 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         PauseMenu.PauseMenuInactive -= PauseMenuClose;
         VERAMenu.VERAMenuActive -= VERAMenuOpen;
         VERAMenu.VERAMenuInactive -= VERAMenuClose;
+        PuzzleManager.PuzzleOpened -= PuzzleOpen;
+        PuzzleManager.PuzzleClosed -= PuzzleClose;
+        LogUI.LogUIOpened -= LogPanelOpen;   
+        LogUI.LogUIClosed -= LogPanelClose;  
     }
 
     // Update is called once per frame
     void Update()
     {
         ApplyGravity();
-        if(pauseMenuOpen || veraMenuOpen || dialoguePanelOpen)
+        if(pauseMenuOpen || veraMenuOpen || dialoguePanelOpen || puzzleOpen || logOpen)
             return;
         HandleMovement();
         HandleRotation();
@@ -134,11 +146,34 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private void DialoguePanelOpen()
     {
         dialoguePanelOpen = true;
+        OnInteractionPromptChanged?.Invoke(null);
     }
 
     private void DialoguePanelClose()
     {
         dialoguePanelOpen = false;
+    }
+
+    private void PuzzleOpen()
+    {
+        puzzleOpen = true;
+        OnInteractionPromptChanged?.Invoke(null);
+    }
+
+    private void PuzzleClose()
+    {
+        puzzleOpen = false;
+    }
+
+    private void LogPanelOpen()
+    {
+        logOpen = true;
+        OnInteractionPromptChanged?.Invoke(null);
+    }
+
+    private void LogPanelClose() 
+    {
+        logOpen = false;
     }
 
     public void LoadData(GameData data)
@@ -236,6 +271,11 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void HandleInteraction()
     {
+        if (Time.time < nextInteractTime)
+        {
+            interactPressed = false;
+            return;
+        }
         if (interactPressed)
         {
             Collider[] hits = Physics.OverlapSphere(transform.position, interactionRange, interactableLayer);
@@ -249,6 +289,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
                 if (interactable != null)
                 {
                     interactable.Interact();
+                    nextInteractTime = Time.time + interactCooldown; 
                 }
             }
 
@@ -361,5 +402,30 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     {
         uniqueNPCsTalkedTo++;
         UniqueNPCsTalkedToChanged?.Invoke(uniqueNPCsTalkedTo);
+    }
+
+    private void LogOpen() 
+    {
+        logOpen = true;
+
+        
+        moveInput = Vector2.zero;
+        rotationInput = Vector2.zero;
+        sprintHeld = false;
+        interactPressed = false;
+
+       
+        OnInteractionPromptChanged?.Invoke(null);
+
+        
+        FindObjectOfType<AudioManager>()?.Stop("Walking");
+    }
+
+    private void LogClose() 
+    {
+        logOpen = false;
+
+       
+        interactPressed = false;
     }
 }

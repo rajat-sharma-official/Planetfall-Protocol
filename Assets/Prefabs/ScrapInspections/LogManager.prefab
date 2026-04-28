@@ -1,0 +1,224 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6577772894787678794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6610549714622023332}
+  - component: {fileID: 7357152605040259170}
+  m_Layer: 0
+  m_Name: LogManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6610549714622023332
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6577772894787678794}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 42.63864, y: 87.57059, z: 0.08208}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7357152605040259170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6577772894787678794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d438db151172ddd46b2e641cfe234f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogManager
+  allLogs:
+  - id: FRAG_01
+    text: "Galaxy: Milky Way\nid: 000024173\n\nThe fog eats sound. I threw a rock
+      and never heard it land. My AI looped the same warning with different timestamps,
+      then answered my descent-question with \u201CUnknown\u201D too fast. Something
+      changed my fall mid-air. This isn\u2019t a first crash\u2014metal is buried
+      under the moss like it\u2019s been happening for years."
+    figureSprite: {fileID: 21300000, guid: 2d9bcabd73184ac4da8099a7b04eb374, type: 3}
+    figureCaption: Fog
+  - id: FRAG_02
+    text: "Galaxy: Milky Way\nid: 000024173\n\n\nMet Tamira. She wouldn\u2019t say
+      \u201Cyes\u201D to other crash sites\u2014only, \u201CYou won\u2019t be the
+      last.\u201D She looked at my wreck like she\u2019d seen the same scene before.
+      If she\u2019s right, Aurelia isn\u2019t unlucky. It\u2019s consistent, and
+      that\u2019s worse."
+    figureSprite: {fileID: 21300000, guid: 37c6dcacc092ef44cba3e23193aa972b, type: 3}
+    figureCaption: Tamira
+  - id: FRAG_03
+    text: "Galaxy: Milky Way\nid: 000024173\n\nLuminar Outpost is friendly in a practiced
+      way.  Their leader speaks of \u201Crestoration\u201D like it\u2019s inevitable,
+      and everyone nods on cue. I asked about repeated crashes\u2014got \u201CI don\u2019t
+      know.\u201D Too clean. Like they\u2019ve rehearsed not knowing."
+    figureSprite: {fileID: 21300000, guid: af592e49a2fe41b48930ba7062794881, type: 3}
+    figureCaption: Virelia Frontier
+  - id: FRAG_04
+    text: "Galaxy: Triangulum (M33)\nid: 000031902\n\nA field scholar blocked a scrap
+      pile and escalated fast\u2014polite, annoyed, then possessive. He called it
+      \u201Ca chapter of history,\u201D not metal. He touched it like it was sacred.
+      Luminar doesn\u2019t just study relics\u2014they claim ownership. That kind
+      of \u201Ccare\u201D turns into control."
+    figureSprite: {fileID: 21300000, guid: 901bdfb5efb5d6144a090f1323f2da22, type: 3}
+    figureCaption: Danriel
+  - id: FRAG_05
+    text: "Galaxy: Andromeda (M31)\nid: 000018447\n\nA yellow-sacked plant vents
+      a fog that burns your throat and blurs vision. My visor flashed warning symbols
+      my AI failed to translate\u2014twice.  Others breathed this poison and kept
+      going. The planet\u2019s hazards feel like filters, not accidents."
+    figureSprite: {fileID: 21300000, guid: c093f6d896bbfbd4f868e7e930634b95, type: 3}
+    figureCaption: spore
+  - id: FRAG_06
+    text: 'Galaxy: Triangulum (M33)
+
+      id: 000031902
+
+
+      Harvel showed me
+      runes etched into metal like the material carries instructions.. When I asked
+      if runes could alter ship systems, he got too interested. If Aurelia ran on
+      one regulated backbone system, the shutdown makes sense. '
+    figureSprite: {fileID: 21300000, guid: 47cf4617beaaa044ba03ed2bcbcad8e2, type: 3}
+    figureCaption: Harvel
+  - id: FRAG_07
+    text: "Galaxy: Whirlpool (M51)\nid: 000052611\n\nRiftlands fog climbs uphill
+      and shrinks the world to a few steps. Sound dies, then panic starts. There\u2019s
+      an outpost in the rock above\u2014no smiles, no softness. A place like this
+      trains people to distrust anything that arrives easily."
+    figureSprite: {fileID: 21300000, guid: f0f8ba4269b6a2a48a19755f8b70f015, type: 3}
+    figureCaption: Riftlands
+  - id: FRAG_08
+    text: "Galaxy: Andromeda (M31)\nid: 000018447\n\n\nEira didn\u2019t sell me hope.
+      She gave commands: \u201CSit. Breathe. Tell the truth.\u201D. Luminar promises
+      a future. Solace keeps you alive long enough to reach one. When you\u2019re
+      scared, you can tell which is real."
+    figureSprite: {fileID: 21300000, guid: ea2a6949e452ed649a3837bf7ebfbb0c, type: 3}
+    figureCaption: Eira
+  - id: FRAG_09
+    text: "Galaxy: Andromeda (M31)\nid: 000018447\n\nErixa told me to keep anything
+      with markings\u2014runes, stamps, warnings. \u201CSometimes it doesn\u2019t
+      feel like scrap,\u201D she said. Like someone meant it to be found. If crashes
+      are common, then messages are too."
+    figureSprite: {fileID: 21300000, guid: 41335cb1e78031d4ba8b3fc5e98bab3f, type: 3}
+    figureCaption: Erixa
+  - id: FRAG_10
+    text: "Galaxy: Milky Way\nid: 000024173\n\nMaerlon said ships don\u2019t just
+      fall\u2014they get taken by \u201Csnares\u201D under the earth. I laughed. "
+    figureSprite: {fileID: 21300000, guid: d385a60c5b1f1fb4da715fcdeb81d66c, type: 3}
+    figureCaption: Maerlon
+  - id: FRAG_11
+    text: Uniform stress scars suggest the system failed everywhere at once when
+      the regulator collapsed. These segments are ideal as replacement conduits and
+      frame supports for ship repairs
+    figureSprite: {fileID: 21300000, guid: b12caf66ef912334ab834515dc9750a6, type: 3}
+    figureCaption: Pipe
+  - id: FRAG_12
+    text: "Lightweight composite metal with treated inner walls\u2014likely part
+      of a regulated distribution network."
+    figureSprite: {fileID: 21300000, guid: 8cbce0a3a5429f14d9996229ea084683, type: 3}
+    figureCaption: Metal piece
+  - id: FRAG_13
+    text: The unit has no obvious battery housing, implying it depended on constant
+      regulated power.
+    figureSprite: {fileID: 21300000, guid: 39d70ad55eb2d6f488b1f7e04184c971, type: 3}
+    figureCaption: Robot Arm
+  - id: FRAG_14
+    text: Salvage the chassis plating and couplers as durable housings for ship electronics.
+    figureSprite: {fileID: 21300000, guid: 54d3b794ff08ed04e9048c00f7d9d3eb, type: 3}
+    figureCaption: helmet
+  - id: FRAG_15
+    text: "The unit has no obvious battery housing, implying it depended on constant
+      regulated power. It died mid-task when the network collapsed\u2014single point
+      of failure, planet-wide."
+    figureSprite: {fileID: 21300000, guid: cc8ecae90398c9f41adc0871d949dc9c, type: 3}
+    figureCaption: Robot
+  - id: FRAG_16
+    text: "This was an interface device, not a toy\u2014micro-etched runes form a
+      calibration map that likely adapted to the wearer. It can\u2019t boot without
+      the old power/regulation, but the optics and sensor band are intact. "
+    figureSprite: {fileID: 21300000, guid: 54d3b794ff08ed04e9048c00f7d9d3eb, type: 3}
+    figureCaption: Headset
+  - id: FRAG_17
+    text: 'The alloy and etched logic grooves are useful both as scrap and as translation
+      patterns. '
+    figureSprite: {fileID: 21300000, guid: a6d8053c43281e440aea98de951c623e, type: 3}
+    figureCaption: sign
+  - id: FRAG_18
+    text: "Galaxy: Milky Way\nid: 000024173\n\nThe Archivist reads runes like they\u2019re
+      listening for a pulse. They said \u201Cthe ones who built the heartbeat,\u201D
+      then stopped mid-sentence. Their notes are out of order on purpose\u2014or
+      because memory keeps slipping."
+    figureSprite: {fileID: 21300000, guid: 26b44f74fb669444e88bba1bbc14791e, type: 3}
+    figureCaption: Emerys
+  - id: FRAG_19
+    text: "Galaxy: Andromeda (M31)\nid: 000018447\n\nThe scrapper knows where metal
+      lies and where it breaks clean. He said the old alloys feel dead until they
+      don\u2019t\u2014like they remember force. When I asked about all the wrecks,
+      he just said, \u201CThis place collects.\u201D"
+    figureSprite: {fileID: 21300000, guid: d745fde43aba34b48b5c3dfd84c8accb, type: 3}
+    figureCaption: Grald
+  - id: FRAG_20
+    text: "Galaxy: Triangulum (M33)\nid: 000031902\n\nThe leader speaks warm, but
+      the outpost listens like a machine. She calls the collapse a \u201Ctrial,\u201D
+      not a mistake. People who say that usually plan to try again\u2014just cleaner."
+    figureSprite: {fileID: 21300000, guid: 125ae0b4e88bad745bd3988417b22d13, type: 3}
+    figureCaption: Sanya
+  - id: FRAG_21
+    text: "Galaxy: Whirlpool (M51)\nid: 000052611\n\nEvery record points to one \u201Cheartbeat\u201D
+      powering the world. The historian got excited, then scared\u2014fast. When
+      I asked where it is, she changed the subject too smoothly."
+    figureSprite: {fileID: 21300000, guid: 1a26ea13deeda1343a909e34cd698c30, type: 3}
+    figureCaption: Julisa
+  - id: FRAG_22
+    text: "Galaxy: Pinwheel (M101)\nid: 000033800\n\nRiftlands doesn\u2019t welcome
+      strangers. It measures them. Ash lines show where you stand, where you wait,
+      where you don\u2019t cross. Fear here is organized."
+    figureSprite: {fileID: 21300000, guid: 324256ec22148024a885bd2a44d3fa23, type: 3}
+    figureCaption: Riftlands
+  - id: FRAG_23
+    text: "Galaxy: Large Magellanic Cloud\nid: 000077201\n\nA researcher drew the
+      world like veins from a buried heart. \u201CWhen it stopped, everything died
+      together,\u201D he said\u2014flat, practiced. That\u2019s what scares me most."
+    figureSprite: {fileID: 21300000, guid: 7552889033bf72c4c911f45a765c9cf4, type: 3}
+    figureCaption: Kase
+  - id: FRAG_24
+    text: "Galaxy: Andromeda (M31)\nid: 000018447\n\nThe resource keeper counts everything,
+      even people. Strangers are \u201Crisk\u201D in a column. He isn\u2019t cruel\u2014he\u2019s
+      cornered by the mountain."
+    figureSprite: {fileID: 21300000, guid: fc2cb10a8c6751445b83c33f35fc203a, type: 3}
+    figureCaption: Drayk
+  - id: FRAG_25
+    text: "Galaxy: Sombrero (M104)\nid: 000009413\n\nThe leader says the old machine
+      made people soft, then made them dead. When I asked about ships falling, he
+      didn\u2019t deny it. He said, \u201CNothing falls here by accident forever.\u201D"
+    figureSprite: {fileID: 21300000, guid: 354e6b382ca89f54d80016ff67c74c9a, type: 3}
+    figureCaption: Marrek
+  - id: FRAG_26
+    text: "Galaxy: Milky Way\nid: 000024173\n\nA young scholar calls the ruins unfinished
+      music. Maybe. But it\u2019s also a system that died mid-function. People talk
+      about \u201Crestoring\u201D it and skip the part where it killed the world
+      once."
+    figureSprite: {fileID: 21300000, guid: 7fcd532bda4513f479d267b191985afc, type: 3}
+    figureCaption: Camla
+  - id: FRAG_27
+    text: "Galaxy: Whirlpool (M51)\nid: 000052611\n\nI watched metal dust move the
+      wrong way\u2014uphill, against wind, against gravity. Not fast. Just steady,
+      like it was being reeled in. The fog thickened around it and my headset popped
+      with static for one second, then cleared. "
+    figureSprite: {fileID: 21300000, guid: 08d126b514cc4bc4c957730869d61574, type: 3}
+    figureCaption: Loose Metal

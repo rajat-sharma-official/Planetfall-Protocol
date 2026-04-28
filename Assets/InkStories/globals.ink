@@ -2,7 +2,7 @@
 // Global state (shared across ALL NPCs)
 
 // --- NPC tracking ---
-LIST NPC = maerlon, child, marrek, eira, drayk, kase, erixa, sanya, julisa, harvel, camla, nayli, danriel, emex
+LIST NPC = maerlon, child, marrek, eira, drayk, kase, erixa, sanya, julisa, harvel, camla, nayli, danriel, emex, tamira, emerys, grald
 VAR met_npcs = ()              // list of NPCs the player has met
 
 EXTERNAL giveScrap(amount)

@@ -4,7 +4,7 @@ INCLUDE globals.ink
 === start ===
 ~ register_npc(NPC.erixa)
 
-{ met_child:
+{ npcs_talked > 2:
     -> hub_b
 - else:
     -> hub_a
@@ -13,17 +13,18 @@ INCLUDE globals.ink
 === hub_a ===
 Erixa: Not interested.
 Erixa: Go bother someone else.
-+[sorry]->END
-+[...] -> END
-+[...] -> END
-+[...] -> END
+
++ [Sorry.] -> END
++ [...] -> END
++ [...] -> END
++ [...] -> END
 
 
 === hub_b ===
-Erixa: You brought the kid back.
 Erixa: Alright… you’re not just noise.
+Erixa: You keep showing up. That counts for something.
 
-->b_menu
+-> b_menu
 
 === b_menu ===
 + [Leave.] -> END
@@ -32,23 +33,34 @@ Erixa: Alright… you’re not just noise.
 + [What should I pay attention to while exploring?] -> b3
 
 === b1 ===
-Erixa: Erixa. Used to run with scrappers.
+Erixa: Erixa. Used to run with <b>scrappers</b>.
 I liked the hunt. I liked turning junk into tools.
 Revivalists call me strange because I still see “parts” where they see “warnings.”
 Doesn’t mean I worship machines. I just respect useful things.
+
+Erixa: The world is full of broken stuff.
+Erixa: Most people only see “broken.”
 -> b_menu
 
 === b2 ===
-Erixa: Scrap isn’t just money. It’s proof.
+Erixa: <b>Scrap</b> isn’t just money. It’s proof.
 Old bolts, plates, and joints tell you what the world used to be.
-Some pieces have markings—Aurelian runes.
-Some logs still hold data, but they don’t give it up easy.
-If you ever want upgrades, start collecting clean plates, intact joints, and anything with markings.
+Some pieces have markings—<b>Aurelian runes</b>.
+
+Erixa: And sometimes you find stuff that doesn’t feel like scrap.
+Like somebody meant it to be found.
+A note etched into a plate. A symbol scratched under a seam.
+Like a person tried to leave a thought behind in metal.
+
+Erixa: If you ever want upgrades, start <b>collecting</b> clean plates, intact joints, and anything with markings.
 -> b_menu
 
 === b3 ===
 Erixa: Watch the ground. Watch the air. Watch your exits.
-Riftlands hides drops, loose rock, and bad paths that look safe until they aren’t.
+<b>Riftlands</b> hides drops, loose rock, and bad paths that look safe until they aren’t.
+
+Erixa: <b>Fog</b> rolls in fast up here.
+If your world suddenly feels smaller, treat it like a <b>warning</b>.
 And keep an eye on people. Not everyone out here plays fair.
 If something feels too quiet, it’s usually because you’re being watched.
 -> b_menu

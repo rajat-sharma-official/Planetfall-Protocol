@@ -4,12 +4,13 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 
-
 public class VERAMenu : MonoBehaviour
 {
     // reference to the vera menu ui panel shown on screen
     // this menu gets opened/closed based on player input
     [SerializeField] private GameObject VERAMenuPanel;
+
+    [SerializeField] private VERAPopupController popupController;
 
     // tracks whether the vera menu is currently visible
     private bool isMenuOpen = false;
@@ -28,11 +29,13 @@ public class VERAMenu : MonoBehaviour
     private VERAHTTPClient veraClient;
 
     private string pendingRawJson = null;
+    private string pendingSystemResponse = null;
 
-    public static event Action VERAMenuActive;
-    public static event Action VERAMenuInactive;
-    private bool pauseMenuOpen;
-    private bool dialoguePanelOpen;
+public static event Action VERAMenuActive;
+public static event Action VERAMenuInactive;
+private bool pauseMenuOpen;
+private bool dialoguePanelOpen;
+    private bool puzzleOpen;
 
     [System.Serializable]
     private class VeraInputPayload
@@ -42,8 +45,52 @@ public class VERAMenu : MonoBehaviour
         public string objectTag = "none";
         public float distance = 0f;
         public string currentZone = "None";
+        public string zone = "None";
     }
 
+    private readonly string[] repairReadyMessages =
+    {
+
+    "Heads up, Atlas — we have enough scrap to repair the ship. I’m also detecting a timed manual sequence once we begin, so do try to stay focused.",
+    "Good news: enough scrap. Less good news: putting the ship back together appears to involve a timed repair sequence.",
+
+    "We’ve got the scrap we need. Unfortunately, the ship seems to want proof of competence before it lets us leave.",
+    "Repairs are possible now, Atlas. One complication: once we start, there’s a short window to finish the sequence.",
+
+    "I’m seeing something I missed before. We have enough materials, but restoring the ship will require quick manual input once the repair starts.",
+    "Atlas, we can repair the ship now. I should warn you — the restart procedure appears to be timed.",
+
+    "We have enough scrap to begin repairs. We do not, however, have the luxury of doing them slowly.",
+    "The ship is repairable now. Good. The actual repair sequence is time-sensitive, because apparently Aurelia was not done being difficult.",
+
+    "We’ve reached the repair threshold. Once we begin at the crash site, you’ll need to complete the sequence before the system destabilizes.",
+    "Enough scrap collected. One problem remains: the final repair step runs on a limited timer.",
+
+    "I can confirm we have enough scrap. I can also confirm the ship expects a timed restoration sequence before it agrees to function.",
+    "Repairs are available, Atlas. So is a brief and deeply inconvenient repair window.",
+
+    "We have what we need to fix the ship. What we do not have is unlimited time once the sequence starts.",
+    "The materials are sufficient. The ship’s recovery cycle, on the other hand, appears impatient.",
+
+    "We can repair the ship now. Just be aware: once the procedure starts, you’ll need to put the pieces together quickly.",
+    "Return to the crash site when you're ready. The repair itself is timed, and the ship will not wait for hesitation.",
+
+    "Good. We have enough scrap. Bad: the final sequence only stays stable for a short time.",
+    "The ship can be repaired now, Atlas. The systems are unstable enough that you’ll need to finish the sequence quickly.",
+
+    "Heads up — enough scrap, yes. Easy repair, no.",
+    "We’re ready to repair the ship. I’m reading a timed restart window, so this is the part where precision becomes important.",
+
+    "We have enough scrap to leave this planet. First, however, the ship would like you to survive a timed repair sequence.",
+    "Repairs are possible. The ship’s systems also appear to have developed a cruel sense of timing.",
+
+    "Atlas, I’m detecting a short restoration window once repairs begin. We have enough scrap, but not enough time for indecision.",
+    "The ship is ready for repairs. You should know now that the final sequence is timed, not automatic.",
+
+    "We have enough scrap to start fixing the ship. Once we do, you’ll need to complete the repair sequence before the window closes.",
+    "I didn’t flag this earlier, but the repair step is unstable. Enough scrap gets us started; speed is what gets us out.",
+
+    };
     [System.Serializable]
     private class VeraOutputPayload
     {
@@ -56,6 +103,8 @@ public class VERAMenu : MonoBehaviour
         NPC_Base.OnConversationEnd += DialoguePanelClose;
         PauseMenu.PauseMenuActive += PauseMenuOpen;
         PauseMenu.PauseMenuInactive += PauseMenuClose;
+        PuzzleManager.PuzzleOpened += PuzzleOpen;
+        PuzzleManager.PuzzleClosed += PuzzleClose;
     }
 
     private void OnDisable()
@@ -64,12 +113,18 @@ public class VERAMenu : MonoBehaviour
         NPC_Base.OnConversationEnd -= DialoguePanelClose;
         PauseMenu.PauseMenuActive -= PauseMenuOpen;
         PauseMenu.PauseMenuInactive -= PauseMenuClose;
+        PuzzleManager.PuzzleOpened -= PuzzleOpen;
+        PuzzleManager.PuzzleClosed -= PuzzleClose;
     }
 
     private void Awake()
     {
         autoBindUI();
 
+        if (popupController == null)
+        {
+            popupController = FindFirstObjectByType<VERAPopupController>();
+        }
         veraClient = FindFirstObjectByType<VERAHTTPClient>();
         if (veraClient != null)
             veraClient.OnResponse += OnMessage;
@@ -171,6 +226,16 @@ public class VERAMenu : MonoBehaviour
         dialoguePanelOpen = false;
     }
 
+    private void PuzzleOpen()
+    {
+        puzzleOpen = true;
+    }
+
+    private void PuzzleClose()
+    {
+        puzzleOpen = false; 
+    }
+
     public void closeMenu()
     {
         //hide the menu and resume player movement 
@@ -192,8 +257,11 @@ public class VERAMenu : MonoBehaviour
     public void openMenu()
     {
         //don't let menu open if any other menus are open
-        if(pauseMenuOpen || dialoguePanelOpen)
+        if(pauseMenuOpen || dialoguePanelOpen || puzzleOpen)
             return;
+
+        if (popupController != null)
+            popupController.HidePopup();
 
         //show the menu and pause player movement
         // makes the vera ui appear
@@ -221,52 +289,72 @@ public class VERAMenu : MonoBehaviour
         // set default text for the response box when menu opens
         if (responseText != null)
         {
-            responseText.text = "Ask VERA...";
+            bool showingSystemMessage = !string.IsNullOrWhiteSpace(pendingSystemResponse);
+
+            if (showingSystemMessage)
+            {
+                responseText.text = pendingSystemResponse;
+                pendingSystemResponse = null;
+                responseText.margin = new Vector4(20, 35, 20, 20);
+                responseText.textWrappingMode = TextWrappingModes.Normal;
+            }
+            else
+            {
+                responseText.text = "Ask VERA...";
+                responseText.margin = Vector4.zero;
+            }
+
             responseText.gameObject.SetActive(true);
             responseText.enabled = true;
-            responseText.margin = Vector4.zero;
-        }
-    }
-
-
-    public void OnSubmit()
-    {
-        if (!isMenuOpen) return;
-
-        string question = "What is this?";
-        if (questionInput != null && !string.IsNullOrWhiteSpace(questionInput.text))
-            question = questionInput.text;
-
-        if (responseText != null)
-        {
-            responseText.text = "Analyzing...";
             responseText.ForceMeshUpdate();
         }
-
-        if (veraClient == null) return;
-
-        // 1. Find the Raycast script to get the "Vision" data
-        VERARaycast raycaster = FindFirstObjectByType<VERARaycast>();
-        VeraInputPayload payload;
-
-        if (raycaster != null)
-        {
-            // 2. Get the JSON from the raycaster and "Merge" it with your question
-            string contextJson = raycaster.GetContext();
-            payload = JsonUtility.FromJson<VeraInputPayload>(contextJson);
-            payload.text = question; // Overwrite the text with the user's question
-        }
-        else
-        {
-            // Grace! if no raycaster is found
-            payload = new VeraInputPayload { text = question };
-        }
-
-        // 3. Send the full package (Question + Objects + Distance)
-        string json = JsonUtility.ToJson(payload);
-        veraClient.SendToVera(json);
-
     }
+
+
+   public void OnSubmit()
+{
+    if (!isMenuOpen) return;
+
+    string question = "What is this?";
+    if (questionInput != null && !string.IsNullOrWhiteSpace(questionInput.text))
+        question = questionInput.text;
+
+    if (responseText != null)
+    {
+        responseText.text = "Analyzing...";
+        responseText.ForceMeshUpdate();
+    }
+
+    if (veraClient == null) return;
+
+    VERARaycast raycaster = FindFirstObjectByType<VERARaycast>();
+    VeraInputPayload payload;
+
+    if (raycaster != null)
+    {
+        string contextJson = raycaster.GetContext();
+
+        payload = JsonUtility.FromJson<VeraInputPayload>(contextJson);
+
+        if (payload == null)
+            payload = new VeraInputPayload();
+
+        if (!string.IsNullOrWhiteSpace(payload.zone) &&
+            !payload.zone.Equals("None", StringComparison.OrdinalIgnoreCase))
+        {
+            payload.currentZone = payload.zone;
+        }
+
+        payload.text = question;
+    }
+    else
+    {
+        payload = new VeraInputPayload { text = question };
+    }
+
+    string finalJson = JsonUtility.ToJson(payload);
+    veraClient.SendToVera(finalJson);
+}
 
     private void handleResponse(string response)
     {
@@ -281,6 +369,18 @@ public class VERAMenu : MonoBehaviour
             responseText.ForceMeshUpdate();
         }
     }
+
+    public void GetRepairReadyMessage()
+    {
+        int randomIndex = UnityEngine.Random.Range(0, repairReadyMessages.Length);
+        pendingSystemResponse = repairReadyMessages[randomIndex];
+    }
+
+    public void GetSystemMessage(string message)
+    {
+        pendingSystemResponse = message;
+    }
+
 
     // quick preset questions
     public void AskWhereAmI() => AskSpecificQuestion("Where am I?");

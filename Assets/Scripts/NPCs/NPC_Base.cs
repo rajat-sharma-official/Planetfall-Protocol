@@ -22,8 +22,14 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
     protected bool pauseMenuOpen = false;
     protected bool veraMenuOpen = false;
     protected string interactKey = "E";
+    protected VERAHintManager hintManager;
 
     private DialogueVariables dialogueVariables;
+
+    //interaction cooldown
+    protected bool isConversationActive = false;
+    protected float interactCooldownUntil = 0f;
+    [SerializeField] protected float interactCooldown = 0.2f;
 
     protected virtual void Awake()
     {
@@ -33,6 +39,10 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
         } else
         {
             Debug.LogWarning($"Error: No ink story loaded for {npcName}");
+        }
+        if (hintManager == null)
+        {
+            hintManager = FindFirstObjectByType<VERAHintManager>();
         }
     }
 
@@ -78,6 +88,13 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
     {
         if(pauseMenuOpen || veraMenuOpen)
             return;
+
+        if(isConversationActive)
+            return;
+
+        if(Time.time < interactCooldownUntil)
+            return;
+
         StartConversation();
     }
 
@@ -100,9 +117,11 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
             Debug.LogWarning($"Error: No ink story loaded for {npcName}");
             return;
         }
+
+        isConversationActive = true;
         story.ResetState();
 
-        //story to shared globals (so met_child / npcs_talked persist across NPCs)
+        //story to shared globals (npcs_talked persist across NPCs)
         if (dialogueVariables == null && InkGlobalsManager.Instance != null) 
             dialogueVariables = InkGlobalsManager.Instance.DialogueVariables; 
 
@@ -111,6 +130,11 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
         if(story.canContinue) 
         {
             StartCoroutine(RunStory(dialogueMgr));
+
+            if (hintManager != null)
+            {
+                hintManager.RegisterNPCInteraction();  
+            }
             OnConversationStart?.Invoke();
         }
         else
@@ -130,9 +154,12 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
         while(story.canContinue)
         {
             string text = story.Continue().Trim();
-            dialogueMgr?.AppendLine(text);
-        }
 
+            if (!string.IsNullOrEmpty(text) && dialogueMgr != null)
+            {
+                yield return StartCoroutine(dialogueMgr.TypeLine(text));
+            }
+        }
         // After continuing all we can, check if there are choices
         if(story.currentChoices.Count > 0)
         {
@@ -161,6 +188,10 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
         {
             //stop listening when the conversation fully ends
             dialogueVariables?.StopListening(story);
+
+            // cooldown to prevent immediate re-trigger
+            isConversationActive = false;
+            interactCooldownUntil = Time.time + interactCooldown;
             
             // Story is done
             dialogueMgr.HideDialogue();

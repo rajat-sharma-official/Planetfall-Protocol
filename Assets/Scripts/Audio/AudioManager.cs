@@ -27,13 +27,13 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume; 
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.outputAudioMixerGroup = s.mixerGroup;
         }
     }
 
-    // play background music when game starts
     void Start()
     {
-        Play("Ambient");
+        // won't start music here, ambient sounds will be handled by ZoneTransition script
     }
 
     // call method from outside of the class to play audio clip
@@ -55,6 +55,11 @@ public class AudioManager : MonoBehaviour
     public void Stop(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
+        if(s == null)
+        {
+            Debug.LogWarning("sound not found:" + name);
+            return;
+        }
         s.source.Stop();
     }
 
@@ -67,7 +72,7 @@ public class AudioManager : MonoBehaviour
             {
                 s.source.Stop();
             }
-            else if(s.source.isPlaying && s.name != "Ambient")
+            else if(s.source.isPlaying && s.name != ZoneTransition.currentMusic)
             {
                 // pause will remember playback position
                 s.source.Pause();
@@ -83,5 +88,5 @@ public class AudioManager : MonoBehaviour
             s.source.UnPause();
         }
     }
-
+    
 }
