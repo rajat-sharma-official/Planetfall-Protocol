@@ -88,10 +88,10 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         PauseMenu.PauseMenuInactive -= PauseMenuClose;
         VERAMenu.VERAMenuActive -= VERAMenuOpen;
         VERAMenu.VERAMenuInactive -= VERAMenuClose;
-        PuzzleManager.PuzzleOpened += PuzzleOpen;
-        PuzzleManager.PuzzleClosed += PuzzleClose;
-        LogUI.LogUIOpened += LogPanelOpen;   
-        LogUI.LogUIClosed += LogPanelClose;  
+        PuzzleManager.PuzzleOpened -= PuzzleOpen;
+        PuzzleManager.PuzzleClosed -= PuzzleClose;
+        LogUI.LogUIOpened -= LogPanelOpen;   
+        LogUI.LogUIClosed -= LogPanelClose;  
     }
 
     // Update is called once per frame
@@ -168,6 +168,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private void LogPanelOpen()
     {
         logOpen = true;
+        OnInteractionPromptChanged?.Invoke(null);
     }
 
     private void LogPanelClose() 
