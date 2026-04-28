@@ -1268,7 +1268,7 @@ PrefabInstance:
     - target: {fileID: 721323643032176534, guid: f7e7912d7ad1d425b9f06f35e541105e, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 225f85a302d2046c788b6d94eb0a854a, type: 2}
+      objectReference: {fileID: 23800000, guid: ed31c762b114f4cf3a9a7a091e200937, type: 2}
     - target: {fileID: 793240375146051263, guid: f7e7912d7ad1d425b9f06f35e541105e, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Sidewalk_Pipe_02
