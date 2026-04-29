@@ -37,8 +37,6 @@ Eira: I don’t have time for pride.
 
 === b1 ===
 Eira: I’m Eira. I patch up what the <b>Riftlands</b> break.
-Eira: People think healing is gentle work.
-Eira: It isn’t. It’s stubborn work.
 
 Eira: I stay calm so other people can keep moving.
 Eira: If I panic, the outpost panics.

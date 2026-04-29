@@ -33,7 +33,6 @@ Maerlon: It meets you with memory.
 
 === a2 ===
 Maerlon: The Riftlands do not forget pain.
-Maerlon: Kindness here once came wrapped in ruin.
 
 Maerlon: In the old age, words were used as bait.
 Maerlon: Promises were made… and then came hunger. Chains. Fire.
@@ -41,18 +40,13 @@ Maerlon: Promises were made… and then came hunger. Chains. Fire.
 Maerlon: So they learned a simple rule:
 Maerlon: close the door before you understand what is knocking.
 
-Maerlon: But fear is a broken guide.
-Maerlon: It speaks loudly, it speaks first—
-Maerlon: and it is wrong more often than it is right.
-
 -> a_menu
 
 === a3 ===
 Maerlon: Walk as if the ground is watching you.
 Maerlon: Take only what is offered. Leave more than you take.
 
-Maerlon: Trust is not spoken into existence.
-Maerlon: It is repeated, in small actions, until it becomes real.
+Maerlon: Trust is repeated, in small actions, until it becomes real.
 
 Maerlon: And if you want to be understood…
 Maerlon: be the kind of silence that does not harm anyone.
@@ -86,7 +80,6 @@ Maerlon: There are <b>old systems</b> beneath this world.
 Maerlon: Half-dead things that <b>still function</b>.
 
 Maerlon: They pull things down when they pass overhead.
-Maerlon: Like a net that never stopped being a net.
 
 Maerlon: You did not arrive here by accident.
 Maerlon: But that does not mean you were invited either.
@@ -98,28 +91,23 @@ Maerlon: But that does not mean you were invited either.
 Maerlon: There was something beneath Aurelia once. A <b>core system</b>. A governing machine.
 
 Maerlon: People took from it without understanding it.
-Maerlon: More. Always more. As if limits were only suggestions.
+Maerlon: More. Always more.
 
 Maerlon: Then something broke. Or was broken.
-Maerlon: And the old age ended all at once.
 
 Maerlon: That is what pride does when it is left unchecked.
-Maerlon: It does not fall gently.
 
 Maerlon: Go to the <b>scholars</b> if you want a cleaner answer.
-Maerlon: Watch their faces when you ask the wrong question.
 
 -> b_menu
 
 === b3 ===
-Maerlon: Because she is constrained.
-Maerlon: Built with limits that she cannot see but cannot cross.
+Maerlon: She is built with limits that she can see but cannot cross.
 
 Maerlon: She knows more than she is allowed to say.
 Maerlon: And that kind of knowledge… does not sit quietly inside a mind.
 
-Maerlon: She is not lying to you.
-Maerlon: She is <b>contained</b>.
+Maerlon: She is not lying to you. She is <b>contained</b>.
 
 Maerlon: And containment always leaks, in time.
 

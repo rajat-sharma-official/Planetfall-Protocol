@@ -1,13 +1,8 @@
 INCLUDE globals.ink
 A harsh metallic screech cuts through the clearing.
 
-A ruined ship sits half-canted in the dirt, its hull split like a cracked shell.
-
-An old scrapper is already inside it, wrenching at a scorched panel with practiced force.
-
 The metal tears loose.
 
-CLANG.
 
 He glances over his shoulder at you.
 
@@ -16,6 +11,7 @@ Grald: You're upright.
 His gaze moves over you once, then to VERA, then back to his work.
 
 Grald: Great.
+
 Grald: Now I have an audience.
 
 -> main_hub

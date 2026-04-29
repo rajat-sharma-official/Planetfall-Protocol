@@ -1,8 +1,6 @@
 INCLUDE globals.ink
 
-Emerys is kneeling beside a scattered circle of metal tablets when you approach.
-
-Each fragment is covered in strange carved markings.
+Emerys is kneeling beside a scattered circle of metal tablets when you approach. Each fragment is covered in strange carved markings.
 
 Emerys: ...no, no, that symbol repeats after the fourth line...
 
@@ -12,11 +10,7 @@ Emerys: ...unless the sequence folds.
 
 Emerys finally notices you standing there.
 
-Emerys: Oh.
-
-Emerys: Hello.
-
-Emerys: Sorry.
+Emerys: Oh. Hello. Sorry.
 Emerys: I get lost in these things.
 
 -> main_hub
