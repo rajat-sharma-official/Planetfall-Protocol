@@ -1,17 +1,14 @@
 INCLUDE globals.ink
 
-Emerys is kneeling beside a scattered circle of metal tablets when you approach. Each fragment is covered in strange carved markings.
+You approach Emerys, who kneels over a circle of carved metal fragments.
 
 Emerys: ...no, no, that symbol repeats after the fourth line...
-
-Emerys pauses.
 
 Emerys: ...unless the sequence folds.
 
 Emerys finally notices you standing there.
 
-Emerys: Oh. Hello. Sorry.
-Emerys: I get lost in these things.
+Emerys: Oh. Hello. Sorry. I get lost in these things.
 
 -> main_hub
 
@@ -23,21 +20,13 @@ Emerys: I get lost in these things.
     -> done
 
 + [Who are you?]
-    Emerys blinks.
+    Emerys: Right. Introductions.
 
-    Emerys: Right.
-    Emerys: Introductions.
+    Emerys brushes dust from their hands, and gestures to the fragments scattered around them.
 
-    Emerys brushes dust from their hands.
-
-    Emerys: Emerys.
-    Emerys: <b>Archivist.</b>
-
-    Emerys gestures to the fragments scattered around them.
+    Emerys: Emerys.<b>Archivist.</b>
 
     Emerys: I collect <b>pieces of the past</b> before they vanish completely.
-
-    Emerys pauses.
 
     Emerys: ...did that answer the question?
 
@@ -73,9 +62,7 @@ Emerys: I get lost in these things.
 
     Emerys pauses.
 
-    Emerys: Stone survives.
-    Emerys: Metal survives.
-    Emerys: Paper does not.
+    Emerys: Stone survives. Metal survives. Paper does not.
 
     -> archive_hub
 
@@ -137,9 +124,7 @@ Emerys: I get lost in these things.
 + [What do the records say about Aurelia?]
     Emerys looks thoughtful.
 
-    Emerys: Not enough.
-    Emerys: Most of the records survived.
-    Emerys: The explanations did not.
+    Emerys: Not enough. Most of the records survived. The explanations did not.
 
     Emerys pauses.
 
@@ -150,9 +135,7 @@ Emerys: I get lost in these things.
 + [Do the records say anything about the storms?]
     Emerys nods slightly.
 
-    Emerys: Yes.
-    Emerys: But they don't call them storms.
-    Emerys: They describe <b>disturbances in the sky.</b>
+    Emerys: Yes. But they don't call them storms. They describe <b>disturbances in the sky.</b>
 
     Emerys glances upward.
 
@@ -164,10 +147,7 @@ Emerys: I get lost in these things.
 + [Do the records mention travelers like me?]
     Emerys pauses.
 
-    Emerys: A few references.
-    Emerys: Visitors.
-    Emerys: Arrivals.
-    Emerys: Witnesses.
+    Emerys: A few references. Visitors. Arrivals. Witnesses.
 
     Emerys frowns slightly.
 
