@@ -22,7 +22,6 @@ Kase: I’m working.
 
 === hub_b ===
 Kase sits apart from the main path, surrounded by scraps of notes and charcoal sketches of old mechanisms.
-He doesn’t greet you—he just pauses mid-writing, waiting to see if you’re worth the interruption.
 
 Kase: Speak.
 Kase: And if you want comfort, go talk to someone who sells it.
@@ -50,7 +49,6 @@ Kase: One buried <b>system</b> fed the whole “advanced” age.
 Power, distribution, regulation—everything ran through it.
 Then it <b>failed</b>, and the world’s tech died together.
 Not “slowly.” Not “over time.” Together.
-Like a body when the heart stops.
 
 Kase: If you want meaning, you’ll find it later.
 Kase: First you need the shape of the truth.

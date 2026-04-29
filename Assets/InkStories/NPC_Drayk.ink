@@ -26,7 +26,7 @@ Drayk: That’s rare.
 
 Drayk: I don’t like strangers.
 Drayk: Strangers are risk.
-Drayk: But risk can be managed—if you follow rules.
+Drayk: But risk can be managed if you follow rules.
 
 -> b_menu
 
@@ -38,8 +38,6 @@ Drayk: But risk can be managed—if you follow rules.
 
 === b1 ===
 Drayk: I run resources. Food, water, shelter materials, work crews.
-People think “leader” means speeches.
-Up here it means counting what you have and deciding who gets it.
 
 Drayk: Everyone wants to be a hero.
 Drayk: Nobody wants to carry the inventory when winter hits.
@@ -51,9 +49,7 @@ Drayk: Nobody wants to carry the inventory when winter hits.
     Drayk: The mountain doesn’t hand you anything. Neither do I.
 - else:
     Drayk: You want <b>scrap</b>? Take it.
-    Drayk: Not from our stores—only from dead frames and abandoned piles outside the outpost.
     Drayk: We don’t build our lives on <b>dead machines</b>. If you do, that’s your business.
-    Drayk: Just don’t bring trouble back here.
 
     Drayk: This is me helping you once.
     Drayk: Don’t make me regret it.

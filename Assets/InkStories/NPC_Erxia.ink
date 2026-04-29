@@ -36,7 +36,6 @@ Erixa: You keep showing up. That counts for something.
 Erixa: Erixa. Used to run with <b>scrappers</b>.
 I liked the hunt. I liked turning junk into tools.
 Revivalists call me strange because I still see “parts” where they see “warnings.”
-Doesn’t mean I worship machines. I just respect useful things.
 
 Erixa: The world is full of broken stuff.
 Erixa: Most people only see “broken.”
@@ -50,7 +49,6 @@ Some pieces have markings—<b>Aurelian runes</b>.
 Erixa: And sometimes you find stuff that doesn’t feel like scrap.
 Like somebody meant it to be found.
 A note etched into a plate. A symbol scratched under a seam.
-Like a person tried to leave a thought behind in metal.
 
 Erixa: If you ever want upgrades, start <b>collecting</b> clean plates, intact joints, and anything with markings.
 -> b_menu
