@@ -81,7 +81,7 @@ public class PlayerInventory : MonoBehaviour, IDataPersistence
 
     private void DEBUG_GiveMaxScrap()
     {
-        scrap = 500;
+        scrap = 99;
         OnScrapChanged?.Invoke(scrap);
         CheckRepairUnlock();
     }

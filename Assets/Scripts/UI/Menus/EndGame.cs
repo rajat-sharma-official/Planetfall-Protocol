@@ -16,6 +16,12 @@ public class EndGame : MonoBehaviour
         audioManager.Play("Start");
     }
 
+    private void Update()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public void MainMenu()
     {
         audioManager.Stop("Start");

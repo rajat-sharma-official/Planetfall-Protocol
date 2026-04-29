@@ -31,6 +31,9 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
     protected float interactCooldownUntil = 0f;
     [SerializeField] protected float interactCooldown = 0.2f;
 
+    // Delay only for special ending conversations
+    [SerializeField] protected float dialogueCloseDelay = 1.5f;
+
     protected virtual void Awake()
     {
         if(inkJSONasset != null)
@@ -186,21 +189,33 @@ public abstract class NPC_Base : MonoBehaviour, IInteractable, IDataPersistence
         }
         else
         {
-            //stop listening when the conversation fully ends
+            // Stop listening when the conversation fully ends
             dialogueVariables?.StopListening(story);
 
-            // cooldown to prevent immediate re-trigger
-            isConversationActive = false;
-            interactCooldownUntil = Time.time + interactCooldown;
-            
+            // Delay before closing the ending dialogue
+            if (dialogueCloseDelay > 0f)
+            {
+
+                yield return new WaitForSecondsRealtime(dialogueCloseDelay);
+ 
+            }
+
             // Story is done
             dialogueMgr.HideDialogue();
             dialogueMgr.HideChoices();
+
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+
+            // Cooldown to prevent immediate re-trigger
+            isConversationActive = false;
+            interactCooldownUntil = Time.time + interactCooldown;
+
             OnConversationEnd?.Invoke();
-            if(conversationState == ConversationState.not_talked_to) // First time having the conversation
+
+            if (conversationState == ConversationState.not_talked_to)
                 FirstTalkedTo?.Invoke();
+
             conversationState = ConversationState.talked_to;
         }
     }
