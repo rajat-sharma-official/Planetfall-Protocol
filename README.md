@@ -23,7 +23,6 @@ At the center of the experience is **VERA** (*Vital Environmental Resource Analy
 - [Target Audience](#target-audience)
 - [Inspirations](#inspirations)
 - [Platform](#platform)
-- [Monetization](#monetization)
 - [Development Team](#development-team)
 - [Project Status](#project-status)
 - [Summary](#summary)
@@ -246,12 +245,6 @@ While inspired by these titles, Planetfall Protocol distinguishes itself through
 
 ---
 
-## Monetization
-
-TBA (Coming Soon!)
-
----
-
 ## Development Team
 
 **University of Nevada, Reno**  
@@ -325,7 +318,38 @@ As Atlas, players are trying to escape a broken world, but are also deciding wha
 
 ## Assets
 
-TBA (Coming Soon!)
+### Environment / World-Building Assets
+
+| Asset Name | Creator / Publisher | Source | License | Used For |
+|---|---|---|---|---|---|
+|  |  |  |  | Terrain, buildings, props, world layout |  |
+
+### NPC / Character Assets
+
+| Asset Name | Creator / Publisher | Source | License | Used For |
+|---|---|---|---|---|---|
+|  |  |  |  | NPC models, animations, dialogue characters |
+
+### Scrap / Junk / Debris Packs
+
+| Asset Name | Creator / Publisher | Source | License | Used For |
+|---|---|---|---|---|---|
+|  |  |  |  | Scrap piles, junkyard props, destroyed objects, clutter |
+
+### Audio Assets
+
+| Asset Name | Creator / Publisher | Source | License | Used For |
+|---|---|---|---|---|---|
+|  |  |  |  | Music, ambience, UI sounds, SFX |
+
+###  UI / Fonts / Icons
+
+| Asset Name | Creator / Publisher | Source | License | Used For |
+|---|---|---|---|---|---|
+|  |  |  |  | Menus, HUD, icons, title text |
+
+
+https://www.bensound.com/royalty-free-music/track/prism-ambient-suspenseful
 
 ---
 
