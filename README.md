@@ -241,7 +241,7 @@ While inspired by these titles, Planetfall Protocol distinguishes itself through
 
 ## Platform
 
-**Target Platform:** Windows PC
+**Target Platform(s):** Windows PC, MacBook Devices (Apple Silicon)
 
 ---
 
@@ -313,43 +313,46 @@ As Atlas, players are trying to escape a broken world, but are also deciding wha
 - [PA 2](https://docs.google.com/document/d/1auC9gQmMFeDhm_uzgr4fXdaWbEAnWNQlT3yc5r0oqtU/edit?usp=sharing)
 - [PA 3](https://docs.google.com/document/d/1Z_i0wyHHVj86owRK1KAev2nezGfUc6br_Kc3PnZZPb8/edit?usp=sharing)
 - [PA 4](https://docs.google.com/document/d/1K7U9MnyzgV5u9DmL1bDzBNJ74owPcbEiEw4du-6Qqxo/edit?usp=sharing)
+- [PA 5](https://docs.google.com/document/d/13Ov6L70tXQNiK6h1to0fKodhe5i7vSdAmZ5_VAYnITY/edit?usp=sharing)
 
 ---
 
 ## Assets
 
-### Environment / World-Building Assets
+### SFX Assets
 
-| Asset Name | Creator / Publisher | Source | License | Used For |
-|---|---|---|---|---|---|
-|  |  |  |  | Terrain, buildings, props, world layout |  |
-
-### NPC / Character Assets
-
-| Asset Name | Creator / Publisher | Source | License | Used For |
-|---|---|---|---|---|---|
-|  |  |  |  | NPC models, animations, dialogue characters |
-
-### Scrap / Junk / Debris Packs
-
-| Asset Name | Creator / Publisher | Source | License | Used For |
-|---|---|---|---|---|---|
-|  |  |  |  | Scrap piles, junkyard props, destroyed objects, clutter |
-
-### Audio Assets
-
-| Asset Name | Creator / Publisher | Source | License | Used For |
-|---|---|---|---|---|---|
-|  |  |  |  | Music, ambience, UI sounds, SFX |
-
-###  UI / Fonts / Icons
-
-| Asset Name | Creator / Publisher | Source | License | Used For |
-|---|---|---|---|---|---|
-|  |  |  |  | Menus, HUD, icons, title text |
+| Category | Purpose | Asset Name by Creator | Source | License |
+|---|---|---|---|---|
+| SFX | Collecting Item | Paper Collect 1 by Floraphonic | https://pixabay.com/sound-effects/film-special-effects-paper-collect-1-186598/ | Pixabay Content License |
+| SFX | Walking | Walking Tour by spinopel | https://pixabay.com/sound-effects/film-special-effects-walking-tour-442316/ | Pixabay Content License |
+| SFX | Heartbeat | Heartbeat by TBSFX | https://pixabay.com/sound-effects/film-special-effects-heartbeat-415837/ | Pixabay Content License |
+| SFX | Death | Fah! by JohnnyBacon156 | https://pixabay.com/sound-effects/people-fah-469417/ | Pixabay Content License |
+| SFX | Puzzle Complete | Level Up by qubodup (Freesound) | https://pixabay.com/sound-effects/film-special-effects-level-up-47165/ | Pixabay Content License |
+| SFX | Clicking on Puzzle | Click Sound by JustSomeSounds | https://pixabay.com/sound-effects/film-special-effects-click-sound-432501/ | Pixabay Content License |
+| SFX | VERA Alerts | New Notification 09 by Universfield| https://pixabay.com/sound-effects/film-special-effects-new-notification-09-352705/ | Pixabay Content License |
 
 
-https://www.bensound.com/royalty-free-music/track/prism-ambient-suspenseful
+### Music / Ambience Assets
+
+| Category | Purpose | Asset Name by Creator | Source | License |
+|---|---|---|---|---|
+| Music | Start Menu | Prism by Theatre of Delays| https://www.bensound.com/royalty-free-music/track/prism-ambient-suspenseful | Bensound License |
+| Music | End Menu | Prism by Theatre of Delays | https://www.bensound.com/royalty-free-music/track/prism-ambient-suspenseful | Bensound License |
+| Ambience / Zone Audio | Echo Basin Zone | Piano Loops by josefpres | https://freesound.org/people/josefpres/sounds/817943/ | Freesound License |
+| Ambience / Zone Audio | Riftlands Zone | Audio Runner by GloryToTheMachine | https://freesound.org/people/GloryToTheMachine/sounds/845546/ | Freesound License |
+| Ambience / Zone Audio | Virelia Zone | Harmonic Ambient Classical Theme by TheoJT | https://freesound.org/people/TheoJT/sounds/698281/ | Freesound License |
+
+### Visual / Game Assets
+
+| Category | Asset Name | Creator / Publisher | Source | License |
+|---|---|---|---|---|
+| World Building | Alien Planets Vol. 3 | Red Panda | https://assetstore.unity.com/packages/3d/environments/sci-fi/alien-planets-vol-3-204886 | Unity Asset Store EULA |
+| World Building | Alien Planet Pack | Red Panda | https://assetstore.unity.com/packages/3d/environments/sci-fi/alien-planet-pack-74011 | Unity Asset Store EULA |
+| GUI | Sci-Fi GUI Skin | 3d.rina | https://assetstore.unity.com/packages/2d/gui/sci-fi-gui-skin-15606 | Unity Asset Store EULA |
+| Scrap | KayKit Resource Bits for Unity | Kay Lousberg| https://assetstore.unity.com/packages/3d/props/kaykit-resource-bits-for-unity-314723 | Unity Asset Store EULA |
+| NPCs / Sci-Fi City Assets | POLYGON Sci-Fi City Pack | Synty Studios | https://assetstore.unity.com/packages/3d/environments/sci-fi/polygon-sci-fi-city-pack-art-by-synty-115950 | Unity Asset Store EULA |
+| VFX / Particles | Particle Pack | Unity Technologies | https://assetstore.unity.com/packages/vfx/particles/particle-pack-127325 | Unity Asset Store EULA |
+
 
 ---
 
